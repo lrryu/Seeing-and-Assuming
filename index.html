@@ -10,16 +10,16 @@
    Paper-like light theme. System fonts only. No external requests. */
 
 :root{
-  --paper:#f6f3ec;
-  --paper-2:#efeae0;
-  --card:#fffdf9;
-  --ink:#191817;
-  --ink-2:#3b3935;
-  --muted:#66615a;
-  --faint:#8d877d;
-  --rule:#ddd7ca;
-  --rule-2:#c9c1b1;
-  --accent:#8c510a;
+  --paper:#eef1f4;
+  --paper-2:#e4e9ee;
+  --card:#ffffff;
+  --ink:#12161b;
+  --ink-2:#333b44;
+  --muted:#59646f;
+  --faint:#87919b;
+  --rule:#dbe1e7;
+  --rule-2:#c4cdd6;
+  --accent:#1f4e79;
   --blue:#1f78b4;
   --green:#2ca02c;
   --red:#b2182b;
@@ -44,13 +44,13 @@ code{font-family:var(--mono);font-size:.88em}
 
 /* progress */
 .progress{position:fixed;top:0;left:0;right:0;height:2px;z-index:60;background:transparent}
-.progress span{display:block;height:100%;width:0;background:var(--accent)}
+.progress span{display:block;height:100%;width:0;background:var(--accent);transition:width .12s linear}
 
 /* header */
 .site-head{
   position:fixed;top:0;left:0;right:0;z-index:50;height:58px;
   display:flex;align-items:center;justify-content:space-between;
-  padding:0 36px;background:rgba(246,243,236,.93);
+  padding:0 36px;background:rgba(238,241,244,.94);
   backdrop-filter:blur(8px);border-bottom:1px solid var(--rule);
   font-family:var(--sans);
 }
@@ -74,8 +74,16 @@ code{font-family:var(--mono);font-size:.88em}
 .hero:before{
   content:"";position:absolute;inset:0;pointer-events:none;
   background:
-    radial-gradient(900px 520px at 78% 18%,rgba(140,81,10,.065),transparent 62%),
+    radial-gradient(900px 520px at 78% 18%,rgba(31,78,121,.075),transparent 62%),
     radial-gradient(700px 420px at 8% 86%,rgba(31,120,180,.05),transparent 65%);
+}
+.hero:after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:radial-gradient(circle at 1px 1px,rgba(31,78,121,.16) 1.1px,transparent 1.3px);
+  background-size:26px 26px;
+  -webkit-mask-image:radial-gradient(720px 540px at 76% 24%,#000 0%,rgba(0,0,0,.5) 46%,transparent 74%);
+  mask-image:radial-gradient(720px 540px at 76% 24%,#000 0%,rgba(0,0,0,.5) 46%,transparent 74%);
+  opacity:.55;
 }
 .hero-grid{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:70px;align-items:end}
 .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin:0 0 22px}
@@ -100,7 +108,7 @@ code{font-family:var(--mono);font-size:.88em}
 
 /* chapters */
 .chapter{padding:104px 0 96px;border-top:1px solid var(--rule)}
-.chapter.alt{background:linear-gradient(180deg,rgba(255,253,249,.55),rgba(255,253,249,0))}
+.chapter.alt{background:linear-gradient(180deg,rgba(255,255,255,.6),rgba(255,255,255,0))}
 .chapter-head{display:flex;align-items:baseline;gap:22px;margin-bottom:38px}
 .chapter-num{font-family:var(--sans);font-size:12px;letter-spacing:.14em;color:var(--accent);padding-top:6px}
 .chapter-head h2{font-size:clamp(1.9rem,3vw,2.9rem);line-height:1.1;letter-spacing:-.02em;font-weight:600;margin:0}
@@ -177,10 +185,10 @@ sup,sub{line-height:0}
 }
 .cond-buttons button:hover{background:var(--paper-2)}
 .cond-buttons button.active{background:var(--ink);color:#fff;border-color:var(--ink)}
-.cond-stage{position:relative;background:#e9e6df;border:1px solid var(--rule)}
+.cond-stage{position:relative;background:#e6eaee;border:1px solid var(--rule)}
 .cond-stage img{width:100%;aspect-ratio:656/358;object-fit:cover}
 .cond-badges{position:absolute;left:10px;bottom:10px;display:flex;gap:6px;flex-wrap:wrap}
-.badge{font-family:var(--sans);font-size:10.5px;letter-spacing:.03em;background:rgba(255,253,249,.94);border:1px solid var(--rule-2);padding:3px 7px;border-radius:2px}
+.badge{font-family:var(--sans);font-size:10.5px;letter-spacing:.03em;background:rgba(255,255,255,.94);border:1px solid var(--rule-2);padding:3px 7px;border-radius:2px}
 .badge.on{background:var(--ink);color:#fff;border-color:var(--ink)}
 .cond-desc{font-family:var(--sans);font-size:12.5px;color:var(--ink-2);margin:12px 0 6px;min-height:36px}
 
@@ -199,19 +207,19 @@ sup,sub{line-height:0}
 /* map */
 .map-scrolly{display:grid;grid-template-columns:minmax(0,1.32fr) minmax(280px,.68fr);gap:38px;margin:44px 0 10px;align-items:start}
 .map-stage{position:sticky;top:76px}
-.map-shell{position:relative;width:100%;aspect-ratio:1.66;background:#e9e5da;border:1px solid var(--rule-2);overflow:hidden;cursor:grab}
+.map-shell{position:relative;width:100%;aspect-ratio:1.66;background:#e6eaee;border:1px solid var(--rule-2);overflow:hidden;cursor:grab}
 .map-shell.dragging{cursor:grabbing}
 #mapCanvas{position:absolute;inset:0;width:100%;height:100%}
 .map-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:8px}
 .map-bar .seg button{font-size:11px;padding:6px 9px}
 .map-bar-right{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.map-ui{position:absolute;top:12px;left:14px;max-width:56%;pointer-events:none;background:rgba(255,253,249,.86);border:1px solid rgba(201,193,177,.7);padding:7px 9px}
+.map-ui{position:absolute;top:12px;left:14px;max-width:56%;pointer-events:none;background:rgba(255,255,255,.9);border:1px solid rgba(196,205,214,.8);padding:7px 9px}
 .map-title{font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.02em}
 .map-stat{font-family:var(--sans);font-size:12px;color:var(--ink-2);margin-top:2px}
 .map-def{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:3px;line-height:1.45}
 .map-legend{
   position:absolute;left:14px;bottom:30px;display:flex;align-items:center;gap:7px;
-  font-family:var(--sans);font-size:10.5px;color:var(--ink-2);background:rgba(255,253,249,.9);
+  font-family:var(--sans);font-size:10.5px;color:var(--ink-2);background:rgba(255,255,255,.92);
   border:1px solid var(--rule);padding:5px 8px;
 }
 .map-legend .ramp{width:120px;height:8px;background:linear-gradient(90deg,#2166ac,#f7f7f7,#b2182b)}
@@ -231,7 +239,7 @@ sup,sub{line-height:0}
 
 /* tooltip */
 .tooltip{
-  position:fixed;z-index:120;pointer-events:none;background:#191817;color:#fff;
+  position:fixed;z-index:120;pointer-events:none;background:#12161b;color:#fff;
   font-family:var(--sans);font-size:11.5px;line-height:1.5;padding:8px 10px;border-radius:2px;
   max-width:280px;opacity:0;transform:translateY(3px);transition:opacity .12s ease,transform .12s ease;
   box-shadow:0 4px 18px rgba(0,0,0,.18);
@@ -245,7 +253,7 @@ sup,sub{line-height:0}
 .supp-wall{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin:30px 0 54px}
 .supp-card{background:#fff;border:1px solid var(--rule);padding:10px;cursor:pointer;transition:border-color .15s ease,transform .15s ease}
 .supp-card:hover{border-color:var(--rule-2);transform:translateY(-2px)}
-.supp-card img{width:100%;height:150px;object-fit:contain;background:#fbfaf7;border:1px solid #f0ece4}
+.supp-card img{width:100%;height:150px;object-fit:contain;background:#fafbfc;border:1px solid #eaeef2}
 .supp-card .sid{font-family:var(--sans);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-top:8px}
 .supp-card .stxt{font-family:var(--sans);font-size:10.5px;line-height:1.45;color:var(--muted);margin-top:3px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .tables-block h3{font-family:var(--sans);font-size:16px;margin:0 0 14px}
@@ -263,8 +271,8 @@ details.tbl p{font-family:var(--sans);font-size:12px;line-height:1.6;color:var(-
 details.tbl p.note{color:var(--muted);font-size:11.5px;border-left:2px solid var(--rule);padding-left:10px}
 .table-scroll{overflow-x:auto;margin:8px 0 4px;border:1px solid var(--rule);background:#fff}
 .table-scroll table{border-collapse:collapse;font-family:var(--sans);font-size:11.5px;line-height:1.45;min-width:100%}
-.table-scroll th,.table-scroll td{padding:6px 9px;border-bottom:1px solid #eee9df;text-align:left;vertical-align:top}
-.table-scroll th{background:#f7f4ed;font-weight:600;position:sticky;top:0;white-space:nowrap}
+.table-scroll th,.table-scroll td{padding:6px 9px;border-bottom:1px solid #e8edf1;text-align:left;vertical-align:top}
+.table-scroll th{background:#f3f6f9;font-weight:600;position:sticky;top:0;white-space:nowrap}
 .table-scroll tr:last-child td{border-bottom:0}
 .table-scroll td{white-space:normal;min-width:70px}
 .table-scroll td:first-child,.table-scroll th:first-child{white-space:nowrap}
@@ -286,8 +294,17 @@ details.tbl p.note{color:var(--muted);font-size:11.5px;border-left:2px solid var
 .site-foot a:hover{text-decoration:underline}
 
 /* reveal */
-.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+.reveal{opacity:0;transform:translateY(10px) scale(.996);transition:opacity .38s cubic-bezier(.2,.75,.25,1),transform .38s cubic-bezier(.2,.75,.25,1)}
 .reveal.in{opacity:1;transform:none}
+.chapter-head{position:relative;padding-bottom:18px}
+.chapter-head:after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--rule-2);
+  transform:scaleX(0);transform-origin:left;transition:transform .85s cubic-bezier(.16,.84,.24,1);
+}
+.chapter-head.in:after{transform:scaleX(1)}
+.site-nav a,.seg button,.model-tabs button,.ghost,.linkish,.f1-note a,details.tbl summary{
+  transition:color .18s ease,background-color .18s ease,border-color .18s ease;
+}
 
 /* responsive */
 @media (max-width:1180px){
@@ -392,13 +409,13 @@ details.tbl p.note{color:var(--muted);font-size:11.5px;border-left:2px solid var
 .f1p{border:1px solid var(--rule);background:var(--card);padding:15px 15px 12px}
 .f1p-a,.f1p-d,.f1p-e{grid-column:1/-1}
 .f1p-head{display:flex;align-items:center;gap:8px;margin-bottom:10px}
-.f1p-letter{width:18px;height:18px;border:1px solid var(--rule-2);display:flex;align-items:center;justify-content:center;font-family:var(--sans);font-size:10px;color:var(--accent);background:#f5f1e8;flex:none}
+.f1p-letter{width:18px;height:18px;border:1px solid var(--rule-2);display:flex;align-items:center;justify-content:center;font-family:var(--sans);font-size:10px;color:var(--accent);background:#edf2f6;flex:none}
 .f1p-head h3{font-family:var(--sans);font-size:13px;margin:0;font-weight:600}
 .f1-flow{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .f1-node,.f1-step{flex:1 1 150px;min-width:140px;border:1px solid var(--rule);background:#fff;padding:10px;display:flex;flex-direction:column;gap:3px}
 .f1-node b,.f1-step b{font-family:var(--sans);font-size:11.5px;line-height:1.35}
 .f1-node span,.f1-step span{font-family:var(--sans);font-size:10px;color:var(--muted);line-height:1.4}
-.f1-node.vlm{background:#f3eee4;border-color:#c9b99b}
+.f1-node.vlm{background:#e8eff5;border-color:#b7c5d2}
 .f1-op,.f1-arrow{font-family:var(--sans);color:var(--faint);font-size:16px}
 .f1-note{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin:9px 0 0}
 .f1-note a{color:var(--accent);text-decoration:none;margin-right:10px}
@@ -409,7 +426,7 @@ details.tbl p.note{color:var(--muted);font-size:11.5px;border-left:2px solid var
 .f1-blabel .icon{width:16px;height:16px}
 .f1-bcell{font-family:var(--sans);font-size:10px;color:var(--muted);display:flex;flex-direction:column}
 .f1-bcell b{font-size:13px;color:var(--ink)}
-.f1-q{display:flex;gap:8px;align-items:flex-start;background:#f5f1e8;border:1px solid var(--rule);padding:9px 10px;font-family:var(--sans);font-size:10.5px;line-height:1.5;color:var(--ink-2)}
+.f1-q{display:flex;gap:8px;align-items:flex-start;background:#edf2f6;border:1px solid var(--rule);padding:9px 10px;font-family:var(--sans);font-size:10.5px;line-height:1.5;color:var(--ink-2)}
 .f1-q .icon{width:16px;height:16px;margin-top:1px}
 .f1-hyps{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:9px}
 .f1-hyp{border:1px dashed var(--rule-2);padding:8px;display:flex;flex-direction:column;gap:3px}
@@ -492,105 +509,102 @@ html[data-lang="zh"] .supp-item{line-height:1.75}
 </defs></svg>
 <div class="progress" id="progress"><span></span></div>
 <header class="site-head">
-<a class="brand" data-zh="来源归因审计" href="#hero">Source attribution audit</a>
+<a class="brand" href="#hero">Source attribution audit</a>
 <div class="head-right">
 <nav aria-label="Sections" class="site-nav">
-<a data-zh="问题" href="#s01">Problem</a>
-<a data-zh="行为" href="#s02">Behaviour</a>
-<a data-zh="层深" href="#s03">Depth</a>
-<a data-zh="空间场" href="#s04">Field</a>
-<a data-zh="尺度" href="#s05">Scale</a>
-<a data-zh="形态" href="#s06">Form</a>
-<a data-zh="审计" href="#s07">Audit</a>
-<a data-zh="补充材料" href="#s08">Supplementary</a>
+<a href="#s01">Problem</a>
+<a href="#s02">Behaviour</a>
+<a href="#s03">Depth</a>
+<a href="#s04">Field</a>
+<a href="#s05">Scale</a>
+<a href="#s06">Form</a>
+<a href="#s07">Audit</a>
+<a href="#s08">Supplementary</a>
 </nav>
-<div aria-label="Language" class="lang-switch" role="group">
-<button aria-pressed="true" class="active" data-lang="en">EN</button>
-<button aria-pressed="false" data-lang="zh">中文</button>
-</div>
+
 </div>
 </header>
 <main>
 <section class="hero" id="hero">
 <div class="wrap hero-grid">
 <div class="hero-copy">
-<p class="kicker" data-zh="交互式研究叙述">Interactive research narrative</p>
-<h1 class="hero-title" data-zh="街景影像城市土地利用制图中视觉语言模型的来源归因审计">A source-attribution audit of vision-language models for urban land-use mapping from street view imagery</h1>
-<div class="hero-authors"><p class="author-names" data-zh="匿名作者。本版隐去作者姓名与单位。">Anonymous authors. Author names and affiliations are omitted in this version.</p></div>
-<p class="hero-question" data-zh="视觉语言模型为一处街景给出类别时，答案中有多少来自图像，多少来自提示中的区名？">When a vision-language model labels a street scene, how much of the answer comes from the image, and how much from the district name in the prompt?</p>
-<p class="hero-note" data-zh="本页按研究顺序展开：行为对比、内部层深、路网场、城市形态与定向审计。每一节先给出已发表的图，其下提供同一数据的交互视图。">The page follows the study from behavioural contrasts to internal depth, road-network fields, urban form and a targeted audit. Each section presents the published figure and, below it, an optional interactive view of the same data.</p>
+<p class="kicker">Interactive research narrative</p>
+<h1 class="hero-title">A source-attribution audit of vision-language models for urban land-use mapping from street view imagery</h1>
+<div class="hero-authors"><p class="author-names">Anonymous authors. Author names and affiliations are omitted in this version.</p></div>
+<p class="hero-question">When a vision-language model labels a street scene, how much of the answer comes from the image, and how much from the district name in the prompt?</p>
+<p class="hero-note">The page follows the study from behavioural contrasts to internal depth, road-network fields, urban form and a targeted audit. Each section presents the published figure and, below it, an optional interactive view of the same data.</p>
 </div>
 <div aria-label="Study scale" class="hero-stats">
-<div class="stat"><span class="stat-v">5,000</span><span class="stat-l" data-zh="街景点位">street-view locations</span><span class="stat-d" data-zh="全市空间样本">city-wide spatial sample</span></div>
-<div class="stat"><span class="stat-v">668</span><span class="stat-l" data-zh="机制子样本">mechanism subsample</span><span class="stat-d" data-zh="三个架构，六种视觉条件">three architectures, six visual conditions</span></div>
-<div class="stat"><span class="stat-v">3</span><span class="stat-l" data-zh="开放权重架构">open-weight architectures</span><span class="stat-d">Qwen3-VL-8B · LLaVA-1.6-7B · InternVL2-8B</span></div>
+<div class="stat"><span class="stat-v">5,000</span><span class="stat-l">street-view locations</span><span class="stat-d">city-wide spatial sample</span></div>
+<div class="stat"><span class="stat-v">668</span><span class="stat-l">mechanism subsample</span><span class="stat-d">three architectures, six visual conditions</span></div>
+<div class="stat"><span class="stat-v">3</span><span class="stat-l">open-weight architectures</span><span class="stat-d">Qwen3-VL-8B · LLaVA-1.6-7B · InternVL2-8B</span></div>
 </div>
 </div>
 </section>
 <section class="chapter" id="s01">
 <div class="wrap">
-<div class="chapter-head reveal"><span class="chapter-num">01</span><h2 data-zh="测量问题">The measurement problem</h2></div>
+<div class="chapter-head reveal"><span class="chapter-num">01</span><h2>The measurement problem</h2></div>
 <div class="prose reveal">
-<p class="lede" data-zh="输出层面的评价只看到模型给出的类别。加入图像后若模型改变了大部分类别，它在整座城市范围内就表现为由图像驱动，即使其内部状态在部分地区仍接近纯文本基线。同一个类别可以由街景与区名之间不同的内部配比产生。">Output-level evaluation sees the emitted label. A model that changes most of its labels when an image is added appears visual across the whole city, even where its internal state stays close to the text-only baseline. The same label can arise from different internal balances between the street scene and the district name.</p>
-<p data-zh="审计在每个点位读取这一配比：把图文条件下的倒数第二层残差流状态与纯文本基线作对比，并将位移投影到由模型答案划分所定义的轴上。由此得到一个连续读数，表示视觉场景使内部表示超出区先验的距离。">The audit reads that balance at each location. It contrasts the model's penultimate residual-stream state under image-plus-text against the text-only baseline, and projects the displacement onto an axis defined by the model's answer partition. The result is a continuous reading of how far the visual scene moves the internal representation beyond the district prior.</p>
-<p data-zh-html="嵌套样本支撑上述分析：覆盖深圳九个区的 5,000 个街景点位，以及在三个开放权重架构与六种视觉条件下评价的 668 点子样本。分类任务使用十二类答案空间：城市土地利用类别加上一个 <em>其他</em> 类。">Nested samples support the analysis: 5,000 street-view locations across the nine districts of Shenzhen, and a 668-point subsample evaluated across three open-weight architectures and six visual conditions. The classification task uses a twelve-class answer space: urban land-use classes plus an <em>Other</em> category.</p>
+<p class="lede">Output-level evaluation sees the emitted label. A model that changes most of its labels when an image is added appears visual across the whole city, even where its internal state stays close to the text-only baseline. The same label can arise from different internal balances between the street scene and the district name.</p>
+<p>The audit reads that balance at each location. It contrasts the model's penultimate residual-stream state under image-plus-text against the text-only baseline, and projects the displacement onto an axis defined by the model's answer partition. The result is a continuous reading of how far the visual scene moves the internal representation beyond the district prior.</p>
+<p>Nested samples support the analysis: 5,000 street-view locations across the nine districts of Shenzhen, and a 668-point subsample evaluated across three open-weight architectures and six visual conditions. The classification task uses a twelve-class answer space: urban land-use classes plus an <em>Other</em> category.</p>
 </div>
 <div aria-label="Figure 1 schematic" class="fig1-panels reveal">
 <div class="f1p f1p-a">
-<div class="f1p-head"><span class="f1p-letter">a</span><h3 data-zh="测量问题">The measurement problem</h3></div>
+<div class="f1p-head"><span class="f1p-letter">a</span><h3>The measurement problem</h3></div>
 <div class="f1-flow">
-<div class="f1-node"><svg class="icon"><use href="#i-image"></use></svg><b data-zh="街景图像">Street-view image</b><span data-zh="视觉证据">visual evidence</span></div>
+<div class="f1-node"><svg class="icon"><use href="#i-image"></use></svg><b>Street-view image</b><span>visual evidence</span></div>
 <span class="f1-op">+</span>
-<div class="f1-node"><svg class="icon"><use href="#i-tag"></use></svg><b data-zh="区名">District name</b><span data-zh="文本证据">textual evidence</span></div>
+<div class="f1-node"><svg class="icon"><use href="#i-tag"></use></svg><b>District name</b><span>textual evidence</span></div>
 <span class="f1-arrow">→</span>
-<div class="f1-node vlm"><svg class="icon"><use href="#i-layers"></use></svg><b>VLM</b><span data-zh="多层计算 · 一次生成">multiple layers · one generation</span></div>
+<div class="f1-node vlm"><svg class="icon"><use href="#i-layers"></use></svg><b>VLM</b><span>multiple layers · one generation</span></div>
 <span class="f1-arrow">→</span>
-<div class="f1-node"><svg class="icon"><use href="#i-label"></use></svg><b data-zh="202 商业服务业用地">202 Commercial Services</b><span data-zh="一个合并后的答案">one merged answer</span></div>
+<div class="f1-node"><svg class="icon"><use href="#i-label"></use></svg><b>202 Commercial Services</b><span>one merged answer</span></div>
 </div>
-<p class="f1-note" data-zh-html="相同的类别可以掩盖不同的内部配比。 <a href='#s02'>行为 →</a>">Identical labels can conceal different internal balances. <a href="#s02">Behaviour →</a></p>
+<p class="f1-note">Identical labels can conceal different internal balances. <a href="#s02">Behaviour →</a></p>
 </div>
 <div class="f1p f1p-b">
-<div class="f1p-head"><span class="f1p-letter">b</span><h3 data-zh="行为不对称">The behavioural asymmetry</h3></div>
-<div class="f1-brow"><span class="f1-blabel"><svg class="icon"><use href="#i-tag"></use></svg><span data-zh="区名文本效应">District-text effect</span></span><span class="f1-bcell"><b>3.3%</b><i data-zh="有图像">with image</i></span><span class="f1-bcell"><b>71.3%</b><i data-zh="无图像">no image</i></span></div>
-<div class="f1-brow"><span class="f1-blabel"><svg class="icon"><use href="#i-eye"></use></svg><span data-zh="图像效应">Image effect</span></span><span class="f1-bcell"><b>84.6%</b><i data-zh="有区名">with text</i></span><span class="f1-bcell"><b>83.8%</b><i data-zh="无区名">no text</i></span></div>
-<p class="f1-note" data-zh-html="对外表现为图像驱动；区名文本仍会移动内部状态。 <a href='#s02'>第 02 节 →</a>">Outwardly image-driven; the district text still moves the state. <a href="#s02">Section 02 →</a></p>
+<div class="f1p-head"><span class="f1p-letter">b</span><h3>The behavioural asymmetry</h3></div>
+<div class="f1-brow"><span class="f1-blabel"><svg class="icon"><use href="#i-tag"></use></svg><span>District-text effect</span></span><span class="f1-bcell"><b>3.3%</b><i>with image</i></span><span class="f1-bcell"><b>71.3%</b><i>no image</i></span></div>
+<div class="f1-brow"><span class="f1-blabel"><svg class="icon"><use href="#i-eye"></use></svg><span>Image effect</span></span><span class="f1-bcell"><b>84.6%</b><i>with text</i></span><span class="f1-bcell"><b>83.8%</b><i>no text</i></span></div>
+<p class="f1-note">Outwardly image-driven; the district text still moves the state. <a href="#s02">Section 02 →</a></p>
 </div>
 <div class="f1p f1p-c">
-<div class="f1p-head"><span class="f1p-letter">c</span><h3 data-zh="研究问题与假设">Research question and hypothesis</h3></div>
-<div class="f1-q"><svg class="icon"><use href="#i-question"></use></svg><span data-zh="模型给出的类别，在多大程度上由观测图像而非区名先验支持？">To what extent is the emitted label supported by the observed image more than by the district-name prior?</span></div>
+<div class="f1p-head"><span class="f1p-letter">c</span><h3>Research question and hypothesis</h3></div>
+<div class="f1-q"><svg class="icon"><use href="#i-question"></use></svg><span>To what extent is the emitted label supported by the observed image more than by the district-name prior?</span></div>
 <div class="f1-hyps">
-<div class="f1-hyp"><svg class="icon"><use href="#i-district"></use></svg><b>P1-District</b><span data-zh="区名文本在区级留下痕迹">district text leaves a district-level trace</span></div>
-<div class="f1-hyp"><svg class="icon"><use href="#i-road"></use></svg><b>P2-Through</b><span data-zh="开阔穿行道路上的图像侧差异更大">image-side difference is larger on open through-roads</span></div>
-<div class="f1-hyp"><svg class="icon"><use href="#i-grid"></use></svg><b>P3-Network</b><span data-zh="类内读数沿路网聚集">within-class reading clusters along the road network</span></div>
+<div class="f1-hyp"><svg class="icon"><use href="#i-district"></use></svg><b>P1-District</b><span>district text leaves a district-level trace</span></div>
+<div class="f1-hyp"><svg class="icon"><use href="#i-road"></use></svg><b>P2-Through</b><span>image-side difference is larger on open through-roads</span></div>
+<div class="f1-hyp"><svg class="icon"><use href="#i-grid"></use></svg><b>P3-Network</b><span>within-class reading clusters along the road network</span></div>
 </div>
 </div>
 <div class="f1p f1p-d">
-<div class="f1p-head"><span class="f1p-letter">d</span><h3 data-zh="读数与制图设计">The reading-and-mapping design</h3></div>
+<div class="f1p-head"><span class="f1p-letter">d</span><h3>The reading-and-mapping design</h3></div>
 <div class="f1-flow">
-<div class="f1-step"><svg class="icon"><use href="#i-pair"></use></svg><b data-zh="配对条件">Paired conditions</b><span data-zh="有图像 / 无图像">with / without image</span></div>
+<div class="f1-step"><svg class="icon"><use href="#i-pair"></use></svg><b>Paired conditions</b><span>with / without image</span></div>
 <span class="f1-arrow">→</span>
-<div class="f1-step"><svg class="icon"><use href="#i-layers"></use></svg><b data-zh="内部读数">Internal reading</b><span data-zh="Δh̃ 残差流差值">Δh̃ residual-stream difference</span></div>
+<div class="f1-step"><svg class="icon"><use href="#i-layers"></use></svg><b>Internal reading</b><span>Δh̃ residual-stream difference</span></div>
 <span class="f1-arrow">→</span>
-<div class="f1-step"><svg class="icon"><use href="#i-pin"></use></svg><b data-zh="每个点位一个值">One value per location</b><span data-zh="作为路网场制图">mapped as a road-network field</span></div>
+<div class="f1-step"><svg class="icon"><use href="#i-pin"></use></svg><b>One value per location</b><span>mapped as a road-network field</span></div>
 <span class="f1-arrow">→</span>
-<div class="f1-step"><svg class="icon"><use href="#i-scatter"></use></svg><b data-zh="空间统计">Spatial statistics</b><span data-zh="路网 Moran + 城市形态模型">network Moran + urban-form models</span></div>
+<div class="f1-step"><svg class="icon"><use href="#i-scatter"></use></svg><b>Spatial statistics</b><span>network Moran + urban-form models</span></div>
 </div>
-<p class="f1-note" data-zh-html="<a href='#s03'>层深 →</a> <a href='#s04'>空间场 →</a>"><a href="#s03">Depth →</a> <a href="#s04">Spatial field →</a></p>
+<p class="f1-note"><a href="#s03">Depth →</a> <a href="#s04">Spatial field →</a></p>
 </div>
 <div class="f1p f1p-e">
-<div class="f1p-head"><span class="f1p-letter">e</span><h3 data-zh="城市形态对比">The urban-form contrast</h3></div>
+<div class="f1p-head"><span class="f1p-letter">e</span><h3>The urban-form contrast</h3></div>
 <div class="f1-contrast">
-<div class="f1-side"><svg class="icon"><use href="#i-road"></use></svg><b data-zh="开阔穿行道路">Open, through-road</b><span data-zh="图像侧差异更大">larger image-side difference</span></div>
-<div class="f1-versus" data-zh="对比">versus</div>
-<div class="f1-side"><svg class="icon"><use href="#i-city"></use></svg><b data-zh="高密度、POI 密集街道">Dense, POI-rich street</b><span data-zh="图像侧差异更小">smaller image-side difference</span></div>
+<div class="f1-side"><svg class="icon"><use href="#i-road"></use></svg><b>Open, through-road</b><span>larger image-side difference</span></div>
+<div class="f1-versus">versus</div>
+<div class="f1-side"><svg class="icon"><use href="#i-city"></use></svg><b>Dense, POI-rich street</b><span>smaller image-side difference</span></div>
 </div>
-<p class="f1-note" data-zh-html="<a href='#s06'>城市形态 →</a>"><a href="#s06">Urban form →</a></p>
+<p class="f1-note"><a href="#s06">Urban form →</a></p>
 </div>
 </div><div class="figcap reveal" data-cap="fig1"><span class="flabel">Figure 1.</span> <span class="cap"></span></div>
 <div class="split reveal"><div class="prose reveal">
-<h3 data-zh="研究设计">Study design</h3>
-<p data-zh="668 点机制子样本位于 5,000 点全市样本之内。条件矩阵把图像状态与区名是否出现交叉。G1–G4 定义全市尺度使用的端点；G5–G6 与模糊、灰度分支在子样本上检验中间程度的退化。">The 668-point mechanism subsample sits inside the 5,000-point city-wide sample. The condition matrix crosses image state with the presence of the district name. G1–G4 define the endpoints used at scale; G5–G6 and the blur and grayscale arms test intermediate degradation on the subsample.</p>
-<p data-zh="六种条件共享观测点位、提示语法、模型权重与解码设置，因此不变的上下文在配对状态差中相互抵消。">The six conditions share the observation site, prompt syntax, model weights and decoding settings, so invariant context cancels in the paired state difference.</p>
+<h3>Study design</h3>
+<p>The 668-point mechanism subsample sits inside the 5,000-point city-wide sample. The condition matrix crosses image state with the presence of the district name. G1–G4 define the endpoints used at scale; G5–G6 and the blur and grayscale arms test intermediate degradation on the subsample.</p>
+<p>The six conditions share the observation site, prompt syntax, model weights and decoding settings, so invariant context cancels in the paired state difference.</p>
 </div><div class="condition-viewer" id="conditionViewer">
 <div aria-label="Condition matrix" class="cond-buttons" role="group">
 <button class="active" data-cond="G1">G1</button>
@@ -605,32 +619,32 @@ html[data-lang="zh"] .supp-item{line-height:1.75}
 <div class="cond-badges" id="condBadges"></div>
 </div>
 <p class="cond-desc" id="condDesc"></p>
-<p class="micro" data-zh="条件样例裁自图 2(c)，内嵌于本文件。标签给出区名文本状态。">Condition samples are cropped from Figure 2(c) and embedded in this file. The badges give the district-text state.</p>
+<p class="micro">Condition samples are cropped from Figure 2(c) and embedded in this file. The badges give the district-text state.</p>
 </div></div>
 <div class="figcap reveal" data-cap="fig2"><span class="flabel">Figure 2.</span> <span class="cap"></span></div>
 </div>
 </section>
 <section class="chapter alt" id="s02">
 <div class="wrap">
-<div class="chapter-head reveal"><span class="chapter-num">02</span><h2 data-zh="行为不对称">Behavioural asymmetry</h2></div>
+<div class="chapter-head reveal"><span class="chapter-num">02</span><h2>Behavioural asymmetry</h2></div>
 <div class="prose reveal">
-<p class="lede" data-zh="区名在场时，加入图像改变 Qwen3-VL-8B 84.6% 的类别；区名缺失时改变 83.8%。在清晰图像保持不变的条件下移除区名，改变 3.3%。仅凭输出的类别判断，一旦提供图像，区名提示即表现为不起作用。">Adding an image changes 84.6% of Qwen3-VL-8B labels when the district name is present, and 83.8% when it is absent. Removing the district name while the sharp image is held constant changes 3.3%. Judged by emitted labels alone, the district prompt appears inert once an image is supplied.</p>
-<p data-zh="三个架构处于不同的先验交互机制。区名在场时，LLaVA-1.6-7B 改变 92.8% 的类别，缺失时改变 9.7%；InternVL2-8B 在两个分支中分别改变 52.2% 与 52.5%。">The three architectures operate under different prior-interaction regimes. LLaVA-1.6-7B changes 92.8% of labels when the district name is present and 9.7% when it is absent; InternVL2-8B changes 52.2% and 52.5% in both arms.</p>
-<p data-zh="撤去图像使模型之间的差异进一步显现。在 Qwen3-VL-8B 中，预测收缩为少数默认类别，并沿区界分化；恢复图像后，这些预测重新分配到十二个类别。">Withholding the image separates the models further. In Qwen3-VL-8B, predictions collapse into a small set of default categories that partition along district boundaries, and restoring the image redistributes them across the twelve classes.</p>
+<p class="lede">Adding an image changes 84.6% of Qwen3-VL-8B labels when the district name is present, and 83.8% when it is absent. Removing the district name while the sharp image is held constant changes 3.3%. Judged by emitted labels alone, the district prompt appears inert once an image is supplied.</p>
+<p>The three architectures operate under different prior-interaction regimes. LLaVA-1.6-7B changes 92.8% of labels when the district name is present and 9.7% when it is absent; InternVL2-8B changes 52.2% and 52.5% in both arms.</p>
+<p>Withholding the image separates the models further. In Qwen3-VL-8B, predictions collapse into a small set of default categories that partition along district boundaries, and restoring the image redistributes them across the twelve classes.</p>
 </div>
 <div class="interactive">
 <div class="interactive-head">
-<h3 data-zh="四组对比与六种条件">Four contrasts and six conditions</h3>
+<h3>Four contrasts and six conditions</h3>
 <div aria-label="Architecture" class="model-tabs" id="behTabs" role="tablist"></div>
 </div>
 <div class="grid-2">
 <div class="chart-card">
-<h4 data-zh="类别改变率">Answer-change rate</h4>
+<h4>Answer-change rate</h4>
 <div class="chart" id="behRates"></div>
 <p class="micro" id="behRateNote">n = 668 paired locations. Bars give the share of locations whose emitted primary label changes between the paired conditions.</p>
 </div>
 <div class="chart-card">
-<h4 data-zh="六种视觉条件下的同答案保留率">Same-answer retention across six visual conditions</h4>
+<h4>Same-answer retention across six visual conditions</h4>
 <div class="chart" id="behRet"></div>
 <div class="legend" id="behLegend"></div>
 <p class="micro" id="behRetNote">Reference classes: 101 Residential, 202 Commercial Services, 505 Parks and Green Spaces. The line gives the out-of-schema <em>Other</em> rate.</p>
@@ -641,34 +655,34 @@ html[data-lang="zh"] .supp-item{line-height:1.75}
 </section>
 <section class="chapter" id="s03">
 <div class="wrap">
-<div class="chapter-head reveal"><span class="chapter-num">03</span><h2 data-zh="内部层深">Internal depth</h2></div>
+<div class="chapter-head reveal"><span class="chapter-num">03</span><h2>Internal depth</h2></div>
 <div class="prose reveal">
-<p class="lede" data-zh="沿 transformer 层推进，投影得到的答案逐步移向模型输出的类别。在最后一层，logit lens 投影与输出类别的一致率在 Qwen3-VL-8B 中为 53.4%，LLaVA-1.6-7B 为 18.3%，InternVL2-8B 为 1.9%。在三个架构中，有图减无图的状态差随层深增加到倒数第二层。">Across transformer layers, the projected answer moves toward the emitted label. At the final layer, agreement between the logit-lens projection and the emitted class is 53.4% in Qwen3-VL-8B, 18.3% in LLaVA-1.6-7B and 1.9% in InternVL2-8B. The with-minus-no state difference grows with depth up to the penultimate layer in all three architectures.</p>
-<p data-zh="层索引从嵌入输出（0）到 Qwen3-VL-8B 的第 36 层、LLaVA-1.6-7B 与 InternVL2-8B 的第 32 层。这些读数回答不同的问题：对齐率问投影何时与输出相符；状态差问图像与文本条件在何处分离。">Layer indices run from the embedding output (0) to layer 36 in Qwen3-VL-8B and layer 32 in LLaVA-1.6-7B and InternVL2-8B. These readings answer different questions: alignment asks when the projection matches the output; the state difference asks where image and text conditions separate.</p>
+<p class="lede">Across transformer layers, the projected answer moves toward the emitted label. At the final layer, agreement between the logit-lens projection and the emitted class is 53.4% in Qwen3-VL-8B, 18.3% in LLaVA-1.6-7B and 1.9% in InternVL2-8B. The with-minus-no state difference grows with depth up to the penultimate layer in all three architectures.</p>
+<p>Layer indices run from the embedding output (0) to layer 36 in Qwen3-VL-8B and layer 32 in LLaVA-1.6-7B and InternVL2-8B. These readings answer different questions: alignment asks when the projection matches the output; the state difference asks where image and text conditions separate.</p>
 </div>
 <div class="interactive depth-block">
 <div class="interactive-head">
 <h3 id="depthTitle">Layer-wise readout</h3>
-<div aria-label="Depth view" class="seg" id="depthView" role="group"><button class="active" data-view="profiles" data-zh="层深剖面">Depth profiles</button><button data-view="grid" data-zh="层 × 类网格">Layer × class grid</button></div><div aria-label="Metric" class="seg" id="depthMetric" role="group">
-<button class="active" data-metric="align" data-zh="对齐">Alignment</button>
+<div aria-label="Depth view" class="seg" id="depthView" role="group"><button class="active" data-view="profiles">Depth profiles</button><button data-view="grid">Layer × class grid</button></div><div aria-label="Metric" class="seg" id="depthMetric" role="group">
+<button class="active" data-metric="align">Alignment</button>
 <button data-metric="dh">||Δh||</button>
 </div>
 </div>
 <div id="depthProfileView"><div class="depth-controls">
 <div aria-label="Visual condition" class="seg seg-sm" id="depthCond" role="group">
-<button class="active" data-mode="with_image" data-zh="有图像">with image</button>
-<button data-mode="grayscale" data-zh="灰度">grayscale</button>
+<button class="active" data-mode="with_image">with image</button>
+<button data-mode="grayscale">grayscale</button>
 <button data-mode="blur_sigma25">σ 25</button>
 <button data-mode="blur_sigma50">σ 50</button>
 <button data-mode="blur_sigma100">σ 100</button>
 </div>
-<p class="micro" data-zh="Δh 以无图像条件为基准（按构造为零；q1 读数位置）。" id="depthCondNote">Δh is measured against the no-image condition (zero by construction; q1 readout position).</p>
+<p class="micro" id="depthCondNote">Δh is measured against the no-image condition (zero by construction; q1 readout position).</p>
 </div><div class="chart wide" id="depthChart"></div><div class="depth-pin" id="depthPin">
-<span class="pin-label" data-zh="固定层">Pinned layer</span>
+<span class="pin-label">Pinned layer</span>
 <span class="pin-value" id="pinValue">none</span>
-<button class="linkish" data-zh="清除" hidden="" id="pinClear">Clear</button>
+<button class="linkish" hidden="" id="pinClear">Clear</button>
 <div class="pin-readout" id="pinReadout"></div>
-</div><p class="interactive-cap" data-zh="将鼠标移到单元格上查看模型、层与数值；点击某一层可在三个架构中固定该层。">Hover a cell for model, layer and value; click a layer to pin it across the three architectures.</p></div><div hidden="" id="depthGridView">
+</div><p class="interactive-cap">Hover a cell for model, layer and value; click a layer to pin it across the three architectures.</p></div><div hidden="" id="depthGridView">
 <p class="micro" id="lensNote">Mean 12-class probability across 668 locations (q1 readout position). Rows: layers 0–36; columns: 12 answer classes; six panels: visual conditions. Hover a cell for the top-3 classes; click for the class trajectory.</p>
 <div class="lens-grid" id="lensGrid"></div>
 <div class="lens-trace">
@@ -682,21 +696,21 @@ html[data-lang="zh"] .supp-item{line-height:1.75}
 </section>
 <section class="chapter alt" id="s04">
 <div class="wrap">
-<div class="chapter-head reveal"><span class="chapter-num">04</span><h2 data-zh="空间场">The spatial field</h2></div>
+<div class="chapter-head reveal"><span class="chapter-num">04</span><h2>The spatial field</h2></div>
 <div class="prose reveal">
-<p class="lede" data-zh="投影到市政路网上，读数形成一个在两个尺度上都有结构的场。区名设定全区基线；在同一区、同一预测类别之内，视觉位移仍沿路网聚集。">Projected onto the municipal road network, the reading forms a field with structure at two scales. District names set a district-wide baseline; within the same district and predicted class, visual displacement still clusters along the road network.</p>
-<p data-zh-html="条件化序列每次移除一种组成。原始场存在自相关（Moran's <em>I</em> = +0.632，<em>p</em> = 0.001）。移除区均值后为 +0.584；移除预测答案类均值后为 +0.351；两者同时移除后为 +0.090（<em>p</em> = 0.006），基于 1,473 个连通路网点位。城市形态分析使用完全残差化后的场。">The conditioning sequence removes one composition at a time. The raw field is autocorrelated (Moran's <em>I</em> = +0.632, <em>p</em> = 0.001). Removing district means leaves +0.584; removing predicted answer-class means leaves +0.351; removing both leaves +0.090 (<em>p</em> = 0.006) on the 1,473 connected road-network locations. The fully residualised field is the one used in the urban-form analysis.</p>
-<p data-zh="5,000 个点位中有 4,931 个具有路网支撑。其余 69 个以灰色显示，不进入网络统计。">4,931 of the 5,000 locations carry road-network support. The remaining 69 appear in grey and are excluded from the network statistics.</p>
+<p class="lede">Projected onto the municipal road network, the reading forms a field with structure at two scales. District names set a district-wide baseline; within the same district and predicted class, visual displacement still clusters along the road network.</p>
+<p>The conditioning sequence removes one composition at a time. The raw field is autocorrelated (Moran's <em>I</em> = +0.632, <em>p</em> = 0.001). Removing district means leaves +0.584; removing predicted answer-class means leaves +0.351; removing both leaves +0.090 (<em>p</em> = 0.006) on the 1,473 connected road-network locations. The fully residualised field is the one used in the urban-form analysis.</p>
+<p>4,931 of the 5,000 locations carry road-network support. The remaining 69 appear in grey and are excluded from the network statistics.</p>
 </div>
 <div class="map-scrolly" id="mapScrolly">
 <div class="map-stage">
 <div class="map-bar">
 <div aria-label="Field" class="seg seg-sm" id="mapFields" role="group"></div>
 <div class="map-bar-right">
-<label class="select-wrap"><span data-zh="行政区">District</span>
+<label class="select-wrap"><span>District</span>
                 <select id="mapDistrict"><option value="">All districts</option></select>
 </label>
-<button class="ghost" data-zh="重置视图" id="mapReset">Reset view</button>
+<button class="ghost" id="mapReset">Reset view</button>
 </div>
 </div>
 <div class="map-shell" id="mapShell">
@@ -716,73 +730,73 @@ html[data-lang="zh"] .supp-item{line-height:1.75}
 </div>
 <div class="map-steps" id="mapSteps">
 <div class="map-step" data-field="raw">
-<span class="step-k" data-zh="步骤 1">Step 1</span><h3 data-zh="原始总场">Raw total field</h3><p class="step-big">I = +0.632</p>
-<p data-zh="未调整的读数混合了区基线、答案类组成与局地变化。">The unadjusted reading mixes district baselines, answer-class composition and local variation.</p>
+<span class="step-k">Step 1</span><h3>Raw total field</h3><p class="step-big">I = +0.632</p>
+<p>The unadjusted reading mixes district baselines, answer-class composition and local variation.</p>
 </div>
 <div class="map-step" data-field="dres">
-<span class="step-k" data-zh="步骤 2">Step 2</span><h3 data-zh="区均值中心化">District-mean-centred</h3><p class="step-big">I = +0.584</p>
-<p data-zh="减去各区均值后，行政基线被移除；场仍然存在自相关。">Subtracting each district mean removes the administrative baseline; the field remains autocorrelated.</p>
+<span class="step-k">Step 2</span><h3>District-mean-centred</h3><p class="step-big">I = +0.584</p>
+<p>Subtracting each district mean removes the administrative baseline; the field remains autocorrelated.</p>
 </div>
 <div class="map-step" data-field="within">
-<span class="step-k" data-zh="步骤 3">Step 3</span><h3 data-zh="答案类中心化">Answer-class-centred</h3><p class="step-big">I = +0.351</p>
-<p data-zh="减去各预测类均值后，与十二个答案类相关的组成被移除。">Subtracting each predicted-class mean removes the composition tied to the twelve answer classes.</p>
+<span class="step-k">Step 3</span><h3>Answer-class-centred</h3><p class="step-big">I = +0.351</p>
+<p>Subtracting each predicted-class mean removes the composition tied to the twelve answer classes.</p>
 </div>
 <div class="map-step" data-field="e">
-<span class="step-k" data-zh="步骤 4">Step 4</span><h3 data-zh="完全残差化">Fully residualised</h3><p class="step-big">I = +0.090</p>
-<p data-zh-html="同时移除区均值与类均值后，残差场仍沿路网聚集（<em>p</em> = 0.006）。">Removing district and class means together leaves a residual field that still clusters along the road network (<em>p</em> = 0.006).</p>
+<span class="step-k">Step 4</span><h3>Fully residualised</h3><p class="step-big">I = +0.090</p>
+<p>Removing district and class means together leaves a residual field that still clusters along the road network (<em>p</em> = 0.006).</p>
 </div>
 </div>
 </div><div class="figcap reveal" data-cap="fig5"><span class="flabel">Figure 5.</span> <span class="cap"></span></div>
-<p class="interactive-cap" data-zh="地图显示单个点位；已发表的图显示路段均值。四个场的定义与 4,931 点的支撑范围相同。">The map shows individual points; the published figure maps road-segment means. The four field definitions and the 4,931-point support are the same.</p>
+<p class="interactive-cap">The map shows individual points; the published figure maps road-segment means. The four field definitions and the 4,931-point support are the same.</p>
 </div>
 </section>
 <section class="chapter" id="s05">
 <div class="wrap">
-<div class="chapter-head reveal"><span class="chapter-num">05</span><h2 data-zh="网络尺度">Network scale</h2></div>
+<div class="chapter-head reveal"><span class="chapter-num">05</span><h2>Network scale</h2></div>
 <div class="prose reveal">
-<p class="lede" data-zh="在一跳、两跳与三跳网络邻接中，总场阶梯为 +0.558、+0.557 与 +0.527。三个值均高于其 999 次置换零场包络（P95 分别为 +0.055、+0.041 与 +0.035）。">Across one-, two- and three-hop network closures, the total-field ladder is +0.558, +0.557 and +0.527. Each value sits above its 999-permutation null envelope (P95 +0.055, +0.041 and +0.035).</p>
-<p data-zh="沿网络剖面把不同网络距离上位点之间的绝对差中位数与 100,000 组随机点对作比较。图 6(b) 沿四条主干道走廊追踪读数。">The along-network profile compares median absolute differences between locations at increasing network distance against 100,000 random point pairs. Figure 6(b) traces the reading along four arterial corridors.</p>
+<p class="lede">Across one-, two- and three-hop network closures, the total-field ladder is +0.558, +0.557 and +0.527. Each value sits above its 999-permutation null envelope (P95 +0.055, +0.041 and +0.035).</p>
+<p>The along-network profile compares median absolute differences between locations at increasing network distance against 100,000 random point pairs. Figure 6(b) traces the reading along four arterial corridors.</p>
 </div>
 <div class="interactive">
-<div class="interactive-head"><h3 data-zh="尺度阶梯与沿网络距离">Scale ladder and along-network distance</h3></div>
+<div class="interactive-head"><h3>Scale ladder and along-network distance</h3></div>
 <div class="grid-2">
 <div class="chart-card">
-<h4 data-zh="按 k 跳邻接的网络 Moran's I">Network Moran's I by k-hop closure</h4>
+<h4>Network Moran's I by k-hop closure</h4>
 <div class="chart" id="scaleChart"></div>
-<p class="micro" data-zh-html="总场读数 <em>r</em><sub>source</sub>；每个尺度 999 次置换。红线：Moran's <em>I</em>。灰色虚线：零场 P95。">Total-field reading <em>r</em><sub>source</sub>; 999 permutations per scale. Red line: Moran's <em>I</em>. Grey dashed: null P95.</p>
+<p class="micro">Total-field reading <em>r</em><sub>source</sub>; 999 permutations per scale. Red line: Moran's <em>I</em>. Grey dashed: null P95.</p>
 </div>
 <div class="chart-card">
-<h4 data-zh="按沿网络距离的 |Δh̃| 中位数">Median |Δh̃| by along-network distance</h4>
+<h4>Median |Δh̃| by along-network distance</h4>
 <div class="chart" id="decayChart"></div>
-<p class="micro" data-zh="近似网络距离 = 跳数 × 路段长度中位数（52.5 m）。虚线：随机点对基线。将鼠标移到点上查看 n。">Approximate network distance = hop count × median segment length (52.5 m). Dashed line: random point-pair baseline. Hover a point for n.</p>
+<p class="micro">Approximate network distance = hop count × median segment length (52.5 m). Dashed line: random point-pair baseline. Hover a point for n.</p>
 </div>
 </div>
 <div class="chart-card" style="margin-top:18px">
-<h4 data-zh="沿走廊剖面">Along-corridor profiles</h4>
+<h4>Along-corridor profiles</h4>
 <div class="chart" id="corridorChart"></div>
-<p class="micro" data-zh="四条主干道走廊沿线的点位读数。红色与蓝色标记正负值。将鼠标移到点上查看点位与读数。">Point-level reading along four arterial corridors. Red and blue mark positive and negative values. Hover a point for location and reading.</p>
+<p class="micro">Point-level reading along four arterial corridors. Red and blue mark positive and negative values. Hover a point for location and reading.</p>
 </div>
-<p class="interactive-cap" data-zh="走廊图复现点位剖面，但不含走廊照片与分割掩膜。">The corridor charts reproduce the point-level profiles but not the corridor photographs or segmentation masks.</p>
+<p class="interactive-cap">The corridor charts reproduce the point-level profiles but not the corridor photographs or segmentation masks.</p>
 </div><div class="figcap reveal" data-cap="fig6"><span class="flabel">Figure 6.</span> <span class="cap"></span></div>
 </div>
 </section>
 <section class="chapter alt" id="s06">
 <div class="wrap">
-<div class="chapter-head reveal"><span class="chapter-num">06</span><h2 data-zh="城市形态">Urban form</h2></div>
+<div class="chapter-head reveal"><span class="chapter-num">06</span><h2>Urban form</h2></div>
 <div class="prose reveal">
-<p class="lede" data-zh="开阔穿行道路上的视觉位移更大，高密度、POI 密集环境中的位移更小。密度梯度在 4,785 个已分类且连接路网的点位上估计；区级系数在每个行政区内使用相同设定。">Visual displacement is larger on open through-roads and smaller in dense, point-of-interest-rich contexts. The density gradient is estimated on the 4,785 classified road-linked locations; the district coefficients carry the same specification within each administrative district.</p>
-<p data-zh-html="Cochran's <em>Q</em> 同质性检验给出的区间异质性为：穿行道路 <em>I</em>² = 6.2%，log POI 20.4%，建筑密度 34.6%。分区类内网络 Moran 从盐田的 −0.219 到龙华的 +0.372，合并估计为 +0.090。">Cochran's <em>Q</em> homogeneity places the between-district heterogeneity at <em>I</em>² = 6.2% for through-roads, 20.4% for log POI and 34.6% for built density. Within-class network Moran by district ranges from −0.219 in Yantian to +0.372 in Longhua, against a pooled estimate of +0.090.</p>
+<p class="lede">Visual displacement is larger on open through-roads and smaller in dense, point-of-interest-rich contexts. The density gradient is estimated on the 4,785 classified road-linked locations; the district coefficients carry the same specification within each administrative district.</p>
+<p>Cochran's <em>Q</em> homogeneity places the between-district heterogeneity at <em>I</em>² = 6.2% for through-roads, 20.4% for log POI and 34.6% for built density. Within-class network Moran by district ranges from −0.219 in Yantian to +0.372 in Longhua, against a pooled estimate of +0.090.</p>
 </div>
 <div class="interactive">
 <div class="interactive-head">
-<h3 data-zh="密度梯度">Density gradient</h3>
+<h3>Density gradient</h3>
 <div aria-label="Density view" class="seg seg-sm" id="densMode" role="group">
-<button class="active" data-mode="bracket" data-zh="按分档">By bracket</button>
-<button data-mode="continuous" data-zh="连续">Continuous</button>
+<button class="active" data-mode="bracket">By bracket</button>
+<button data-mode="continuous">Continuous</button>
 </div>
 <div aria-label="Reading" class="seg seg-sm" id="densReading" role="group">
-<button class="active" data-reading="r_dres" data-zh="区中心化">District-centred</button>
-<button data-reading="r_raw" data-zh="总读数">Total</button>
+<button class="active" data-reading="r_dres">District-centred</button>
+<button data-reading="r_raw">Total</button>
 </div>
 </div>
 <div class="chart-card">
@@ -793,21 +807,21 @@ html[data-lang="zh"] .supp-item{line-height:1.75}
 </div><div class="figcap reveal" data-cap="fig7"><span class="flabel">Figure 7.</span> <span class="cap"></span></div>
 <div class="interactive">
 <div class="interactive-head">
-<h3 data-zh="区级系数">District coefficients</h3>
+<h3>District coefficients</h3>
 <div aria-label="Term" class="seg seg-sm" id="distTerm" role="group">
 <button class="active" data-term="poi">log POI</button>
-<button data-term="density" data-zh="建筑密度">Built density</button>
-<button data-term="through" data-zh="穿行 vs 地方">Through vs local</button>
-<button data-term="moran" data-zh="类内 Moran">Within-class Moran</button>
+<button data-term="density">Built density</button>
+<button data-term="through">Through vs local</button>
+<button data-term="moran">Within-class Moran</button>
 </div>
 </div>
 <div class="chart-card">
 <div class="chart" id="districtChart"></div>
 <p class="micro" id="distNote">Standardised coefficients with 95% confidence intervals. Click a district row to filter the map; the selection is held across the page.</p>
 <div class="linked-chip" hidden="" id="linkedChip">
-<span data-zh-html="关联行政区：<strong id='linkedName'></strong>">Linked district: <strong id="linkedName"></strong></span>
-<button class="linkish" data-zh="在地图上显示 ↑" id="linkedGo">Show on map ↑</button>
-<button class="linkish" data-zh="清除" id="linkedClear">Clear</button>
+<span>Linked district: <strong id="linkedName"></strong></span>
+<button class="linkish" id="linkedGo">Show on map ↑</button>
+<button class="linkish" id="linkedClear">Clear</button>
 </div>
 </div>
 </div><div class="figcap reveal" data-cap="fig8"><span class="flabel">Figure 8.</span> <span class="cap"></span></div>
@@ -815,15 +829,15 @@ html[data-lang="zh"] .supp-item{line-height:1.75}
 </section>
 <section class="chapter" id="s07">
 <div class="wrap">
-<div class="chapter-head reveal"><span class="chapter-num">07</span><h2 data-zh="定向审计">Targeted audit</h2></div>
+<div class="chapter-head reveal"><span class="chapter-num">07</span><h2>Targeted audit</h2></div>
 <div class="prose reveal">
-<p class="lede" data-zh="在预测为居住用地（101）的样本内，高残差点位与 EULUC-Globe 参考类不一致的比例为 49.0%，全居住类为 36.6%，相差 +12.4 个百分点。跨残差分位数作后分层，可回到全类估计。">Within predicted Residential (101), high-residual locations disagree with the EULUC-Globe reference at 49.0%, against 36.6% for the full residential class — a difference of +12.4 percentage points. Post-stratifying across residual quartiles returns the class-wide estimate.</p>
-<p data-zh-html="在各答案类中，这一富集集中在 101：+16.9 个百分点，Fisher <em>p</em> = 1.8 × 10⁻⁴。表 S12 中其余类别的差异在 −1.2 至 +3.2 个百分点之间。将一半检查量分配给最高分位、另一半分配给其余分位的混合设计中，后分层给出每 100 次检查 41.1 次不一致。">Across answer classes, the enrichment is concentrated in 101: +16.9 pp with Fisher <em>p</em> = 1.8 × 10⁻⁴. The other classes in Table S12 show differences between −1.2 and +3.2 pp. In the hybrid design that allocates half the inspection effort to the top quartile and half across the remaining quartiles, post-stratification returns 41.1 disagreements per 100 inspections.</p>
+<p class="lede">Within predicted Residential (101), high-residual locations disagree with the EULUC-Globe reference at 49.0%, against 36.6% for the full residential class — a difference of +12.4 percentage points. Post-stratifying across residual quartiles returns the class-wide estimate.</p>
+<p>Across answer classes, the enrichment is concentrated in 101: +16.9 pp with Fisher <em>p</em> = 1.8 × 10⁻⁴. The other classes in Table S12 show differences between −1.2 and +3.2 pp. In the hybrid design that allocates half the inspection effort to the top quartile and half across the remaining quartiles, post-stratification returns 41.1 disagreements per 100 inspections.</p>
 </div>
 <div class="interactive">
 <div class="interactive-head">
-<h3 data-zh="按残差分位数的参考不一致率">Reference disagreement by residual quartile</h3>
-<label class="select-wrap"><span data-zh="答案类">Answer class</span>
+<h3>Reference disagreement by residual quartile</h3>
+<label class="select-wrap"><span>Answer class</span>
             <select id="auditClass"></select>
 </label>
 </div>
@@ -833,14 +847,14 @@ html[data-lang="zh"] .supp-item{line-height:1.75}
 </div>
 <div class="grid-2 fig9-panels" id="fig9Panels">
 <div class="chart-card">
-<h4 data-zh="居住 101：参考不一致率">Residential 101: reference disagreement</h4>
+<h4>Residential 101: reference disagreement</h4>
 <div class="chart" id="fig9a"></div>
-<p class="micro" data-zh="高残差分位、全居住类与后分层校正。取自图 9(a) 与表 S13。">High-residual quartile, full residential class and post-stratified correction. From Figure 9(a) and Table S13.</p>
+<p class="micro">High-residual quartile, full residential class and post-stratified correction. From Figure 9(a) and Table S13.</p>
 </div>
 <div class="chart-card">
-<h4 data-zh="参考类组成">Reference class composition</h4>
+<h4>Reference class composition</h4>
 <div class="chart" id="fig9b"></div>
-<p class="micro" data-zh="高残差分位与全类按 EULUC 参考类的对比。取自图 9(b)。">High-residual quartile versus the full class, by EULUC reference class. From Figure 9(b).</p>
+<p class="micro">High-residual quartile versus the full class, by EULUC reference class. From Figure 9(b).</p>
 </div>
 </div>
 </div><div class="figcap reveal" data-cap="fig9"><span class="flabel">Figure 9.</span> <span class="cap"></span></div>
@@ -848,14 +862,14 @@ html[data-lang="zh"] .supp-item{line-height:1.75}
 </section>
 <section class="chapter alt" id="s08">
 <div class="wrap">
-<div class="chapter-head reveal"><span class="chapter-num">08</span><h2 data-zh="补充材料">Supplementary material</h2></div>
+<div class="chapter-head reveal"><span class="chapter-num">08</span><h2>Supplementary material</h2></div>
 <div class="prose reveal">
-<p class="lede" data-zh="补充图 S1–S11 与补充表 S1–S14。缩略图打开同一内嵌图像的较大视图；图注译自补充材料，表题译为中文，表头与表体保留原文。">Supplementary figures S1–S11 and Tables S1–S14. Thumbnails open a larger view of the same inline image; captions are reproduced from the supplementary material.</p>
+<p class="lede">Supplementary figures S1–S11 and Tables S1–S14. Thumbnails open a larger view of the same inline image; captions are reproduced from the supplementary material.</p>
 </div>
 <div class="supp-list reveal" id="suppList"></div>
 <div class="tables-block reveal">
-<h3 data-zh="补充表">Supplementary tables</h3>
-<p class="micro" data-zh="表题译为中文；表头与表体按补充材料原文（英文）列示，数字未作改动。">Table titles are translated; headers and cell contents are reproduced in English from the supplementary material, with numbers unchanged.</p>
+<h3>Supplementary tables</h3>
+<p class="micro">Table titles are translated; headers and cell contents are reproduced in English from the supplementary material, with numbers unchanged.</p>
 <div id="suppTables"></div>
 </div>
 </div>
@@ -863,8 +877,8 @@ html[data-lang="zh"] .supp-item{line-height:1.75}
 </main>
 <footer class="site-foot">
 <div class="wrap">
-<p data-zh="本版隐去联系方式。">Contact details are omitted in this version.</p>
-<p data-zh="页面中每个数字的源文件路径与列名记录在项目的数据清单中。">Source paths and column names for every displayed number are recorded in the project's data inventory.</p>
+<p>Contact details are omitted in this version.</p>
+<p>Source paths and column names for every displayed number are recorded in the project's data inventory.</p>
 </div>
 </footer>
 <div aria-live="polite" class="tooltip" id="tooltip" role="status"></div>
@@ -901,78 +915,78 @@ window.MIRAGE_DATA = {"meta":{"title":"A source-attribution audit of vision-lang
       ? '"Microsoft YaHei","PingFang SC","Noto Sans CJK SC","Source Han Sans SC",sans-serif'
       : FONT;
   }
-  var ZH_DIST = { "Bao'an": "宝安区", "Futian": "福田区", "Guangming": "光明区", "Longgang": "龙岗区", "Longhua": "龙华区", "Luohu": "罗湖区", "Nanshan": "南山区", "Pingshan": "坪山区", "Yantian": "盐田区" };
-  var ZH_CLASS = { "101": "居住", "201": "商务办公", "202": "商业服务业", "301": "工业", "402": "交通场站", "403": "机场设施", "501": "行政管理", "502": "教育", "503": "医疗健康", "504": "体育文化", "505": "公园与绿地", "Other": "其他" };
-  var ZH_ROAD = { "Through-route": "穿行道路", "Urban arterial": "城市干道", "Local road": "支路", "Excluded": "排除" };
-  var ZH_CORRIDOR = { "Songbai Road": "松白路", "Longgang Avenue": "龙岗大道", "Guangshen Highway": "广深公路", "Bao'an Avenue": "宝安大道" };
-  var ZH_MODE = { with_image: "有图像", grayscale: "灰度", blur_sigma25: "模糊 σ = 25", blur_sigma50: "模糊 σ = 50", blur_sigma100: "模糊 σ = 100" };
-  var ZH_COND = { "no image": "无图像", "blur σ = 100": "模糊 σ = 100", "blur σ = 50": "模糊 σ = 50", "blur σ = 25": "模糊 σ = 25", "with image": "有图像", "grayscale": "灰度" };
+  var ZH_DIST = { "Bao'an": "", "Futian": "", "Guangming": "", "Longgang": "", "Longhua": "", "Luohu": "", "Nanshan": "", "Pingshan": "", "Yantian": "" };
+  var ZH_CLASS = { "101": "", "201": "", "202": "", "301": "", "402": "", "403": "", "501": "", "502": "", "503": "", "504": "", "505": "", "Other": "" };
+  var ZH_ROAD = { "Through-route": "", "Urban arterial": "", "Local road": "", "Excluded": "" };
+  var ZH_CORRIDOR = { "Songbai Road": "", "Longgang Avenue": "", "Guangshen Highway": "", "Bao'an Avenue": "" };
+  var ZH_MODE = { with_image: "", grayscale: "", blur_sigma25: "", blur_sigma50: "", blur_sigma100: "" };
+  var ZH_COND = { "no image": "", "blur σ = 100": "", "blur σ = 50": "", "blur σ = 25": "", "with image": "", "grayscale": "" };
   var ZH_FIELD = {
-    raw: ["原始总场", "h̃<sub>source</sub>，未作条件化"],
-    dres: ["区均值中心化", "h̃<sub>source</sub> − 区均值"],
-    within: ["答案类中心化", "h̃<sub>source</sub> − 预测类别均值"],
-    e: ["完全残差化", "类中心化 − 类中心化的区均值"]
+    raw: ["", ""],
+    dres: ["", ""],
+    within: ["", ""],
+    e: ["", ""]
   };
   var ZH_RATE = {
-    img_dist: ["图像效应", "区名文本在场"],
-    img_nodist: ["图像效应", "区名文本缺失"],
-    dist_img: ["区名文本效应", "有图像"],
-    dist_noimg: ["区名文本效应", "无图像"]
+    img_dist: ["", ""],
+    img_nodist: ["", ""],
+    dist_img: ["", ""],
+    dist_noimg: ["", ""]
   };
   function distLabel(n) { return LANG === "zh" ? (ZH_DIST[n] || n) : n; }
   function classLabel(code, en) {
     if (LANG !== "zh") return en;
-    if (code === "Other") return "其他";
+    if (code === "Other") return "";
     return ZH_CLASS[code] ? code + " " + ZH_CLASS[code] : en;
   }
   function fieldLabel(f) { return LANG === "zh" ? ZH_FIELD[f.key][0] : f.label; }
   function fieldDef(f) { return LANG === "zh" ? ZH_FIELD[f.key][1] : f.def; }
   function condLabel(en) { return LANG === "zh" ? (ZH_COND[en] || en) : en; }
-  function layerTag(l) { return LANG === "zh" ? "第 " + l + " 层" : "Layer " + l; }
+  function layerTag(l) { return LANG === "zh" ? "" + l + "" : "Layer " + l; }
   function rateLines(r) { var z = ZH_RATE[r.key]; return LANG === "zh" && z ? z : r.label.split(", "); }
   function rateName(r) { return rateLines(r).join(LANG === "zh" ? "，" : ", "); }
 
   var TITLE_EN = document.title;
-  var TITLE_ZH = "视觉语言模型的来源归因：交互式研究叙述";
+  var TITLE_ZH = "";
   var ZH_CAP = {
-    fig1: "研究问题与分析框架。(a) 多模态来源归因问题。(b) 配对视觉与文本条件之间的行为不对称（第 5.1 节）。(c) 两级空间结构与可检验假设。(d) 内部读数与路网制图设计。(e) 城市形态中的来源偏离对比。",
-    fig2: "研究设计。(a) 深圳研究区，668 点机制子样本嵌套于 5,000 点全市样本之内。(b) 六条件矩阵。(c) 示例街景点位在固定提示下按六种视觉条件评价。底图：项目区界与 Esri World Imagery；百度街景全景，2013–2019。",
-    fig3: "行为分离与条件响应（<span class='math'>n = 668</span>；三个架构）。(a) <span class='math'>2 × 2</span> 设计下的四率行为对比分解。(b) 主要的有图预测类别的同答案保留率：居住（101）、商业服务业（202）与公园绿地（505），以及跨六种视觉条件的模式外 <em>其他</em> 类比率。",
-    fig4: "跨架构内部层深结构（<span class='math'>n = 668</span>）。(a) logit lens 投影类别与最终输出答案在 transformer 各层之间的一致率，层索引从嵌入输出（0）到最后一层（Qwen3-VL-8B 为 36；LLaVA-1.6 与 InternVL2-8B 为 32）。(b) 同一层索引上的条件差分离幅度 <span class='math'>F(l)</span>（数值在各架构内归一化）。",
-    fig5: "内部来源归因读数的路网空间场（a–e 面板为 <span class='math'>n = 4,931</span> 个连接路网的点位；f 面板为 <span class='math'>n = 5,000</span> 个点位）。(a) 原始总场。(b) 区均值中心化场。(c) 答案类中心化场。(d) 同时移除区均值与答案类均值的完全残差化场（a–d 面板共用统一的第 99 百分位色标）。(e) 答案类中心化相对指数，突出划分内部的空间梯度（完整定义与匹配置换零场见补充文本 S3 与补充表 S6.1）。(f) 5,000 点样本的分布剖面与空间覆盖。",
-    fig6: "网络尺度衰减与沿走廊剖面。(a1) 一跳、两跳与三跳拓扑邻接下的网络 Moran's <span class='math'>I</span>，对照 999 次置换零场包络（补充表 S11）。(a2) 按网络距离分档的沿网络绝对差中位数 <span class='math'>|Δh̃|</span>（<span class='math'>L<sub>1</sub></span> 变异函数类比），对照 100,000 组随机点对（参数形式见补充表 S10）。(b) 四条主干道走廊沿线的点位 <span class='math'>h̃<sub>source</sub></span> 剖面（松白路、龙岗大道、广深公路与宝安大道）。红色与蓝色标记正负值，圆圈标出极端得分点位及其街景分割掩膜（其余走廊见补充图 S8）。",
-    fig7: "建筑密度分档与道路等级上的形态梯度（<span class='math'>n = 4,785</span> 个已分类且连接路网的点位）。(a, b) 按建筑足迹密度分档（<span class='math'>0</span>、<span class='math'>0–0.05</span>、<span class='math'>0.05–0.20</span>、<span class='math'>&gt;0.20</span>）与道路等级交叉的 bootstrap 中位数与 95% 置信区间。(c, d) 穿行道路与非穿行道路对比的连续密度响应剖面（零建筑走廊单独绘出）。",
-    fig8: "区级形态系数与类内网络自相关的森林图。(a1–a3) log POI 强度、建筑密度与穿行对地方道路等级的区级回归估计（<span class='math'>± 95%</span> 置信区间；按各预测变量的标准差标准化；右侧为样本量；表头为 Cochran's <span class='math'>Q</span> 同质性统计量）。(a4) 各区区中心化的类内网络 Moran's <span class='math'>I</span>，对照匹配置换零场带（<span class='math'>± 2</span> SD），并与全市合并估计（<span class='math'>+0.090</span>）比较（左侧为网络权重和 <span class='math'>S<sub>0</sub></span>，右侧为样本量 <span class='math'>n</span>；星号表示 <span class='math'>n &lt; 200</span>）。",
-    fig9: "EULUC 101 居住类内部的定向审计富集与后分层校准。(a) 定向高残差分位（49.0%）、全居住类（36.6%）与后分层估计的参考不一致率。(b) 高残差分位与全类的参考类组成。优先检查高残差点位可借内部与输出的差异富集有争议的类别，用于人工复核分流；跨残差分位作后分层可恢复总体无偏估计。"
+    fig1: "",
+    fig2: "",
+    fig3: "",
+    fig4: "",
+    fig5: "",
+    fig6: "",
+    fig7: "",
+    fig8: "",
+    fig9: ""
   };
   var ZH_SUPP = {
-    s1: "<strong>研究流程。</strong>研究设计与输入、行为分离、内部读数与空间化",
-    s2: "<strong>答案空间收缩与类别转移。</strong>无图像与有图像的答案类地图，以及无图像与有图像类别之间的对应关系",
-    s3: "<strong>跨架构工具可比性。</strong>范围比、辅助 q1 读数、判定裕度与一致性（Consistency）分布",
-    s4: "<strong>跨视觉条件的内部读数与同答案保留率。</strong>沿视觉条件序列的一致性（Consistency）与同答案保留率",
-    s5: "<strong>平均类概率曲面。</strong>按架构与条件，q1 位置、按层与任务类的类概率曲面",
-    s6: "<strong>按相对深度的熵与判定裕度。</strong>按架构与条件的熵与判定裕度剖面",
-    s7: "<strong>辅助跨架构 q1 比较。</strong>三个架构的 q1 总场及区界",
-    s8: "<strong>沿路剖面。</strong>12 条命名道路组分的完整集合；图 6(b) 报告其中四个示例。",
-    s9: "<strong>分割组成与</strong> <span class='math'>h̃<sup>(p6)</sup></span>。类级与复合关联、公交对比与路内梯度。",
-    s10: "<strong>668 点三架构残差场。</strong>三个架构的点位与面状视图；初始跨架构比较。",
-    s11: "<strong>内部读数相关矩阵。</strong>在 668 点样本上，Qwen3-VL-8B 的 <span class='math'>h̃<sup>(q1)</sup></span>、<span class='math'>h̃<sup>(p6)</sup></span>、一致性（Consistency）与判定裕度之间的跨读数 Spearman 相关；引用于补充表 S2。关键值：<span class='math'>h̃<sup>(q1)</sup></span>–<span class='math'>h̃<sup>(p6)</sup></span> +0.644；一致性 +0.141 与 +0.107；判定裕度 +0.029、−0.042、−0.194。"
+    s1: "",
+    s2: "",
+    s3: "",
+    s4: "",
+    s5: "",
+    s6: "",
+    s7: "",
+    s8: "",
+    s9: "",
+    s10: "",
+    s11: ""
   };
   var TABLE_ZH = {
-    S1: "读数清单",
-    S2: "跨架构适用性",
-    S3: "样本构成与可复现参数",
-    S4: "跨架构汇总",
-    S5: "分割组成验证",
-    S6: "答案划分调整与分块重抽样推断",
-    S7: "判别方向上的激活叠加检验",
-    S8: "样本外方向拟合与设定检验",
-    S9: "三个层级的空间结构与边对分解",
-    S10: "沿网络距离分档：相关图与半变异函数",
-    S11: "更宽邻接下的类内 Moran",
-    S12: "各答案类的残差分位与参考不一致",
-    S13: "EULUC 101 居住类内部的抽样设计",
-    S14: "全市 EULUC 参考构成：全样本与高残差最高十分位"
+    S1: "",
+    S2: "",
+    S3: "",
+    S4: "",
+    S5: "",
+    S6: "",
+    S7: "",
+    S8: "",
+    S9: "",
+    S10: "",
+    S11: "",
+    S12: "",
+    S13: "",
+    S14: ""
   };
 
   function svgEl(tag, attrs, parent) {
@@ -1019,11 +1033,11 @@ window.MIRAGE_DATA = {"meta":{"title":"A source-attribution audit of vision-lang
       var cap = el.querySelector(".cap");
       var lab = el.querySelector(".flabel");
       var num = key.replace("fig", "");
-      if (lab) lab.textContent = LANG === "zh" ? "图 " + num + "." : "Figure " + num + ".";
+      if (lab) lab.textContent = LANG === "zh" ? "" + num + "." : "Figure " + num + ".";
       if (!cap) return;
       var en = (D.meta.figcaps && D.meta.figcaps[key]) || "";
       if (LANG === "zh" && ZH_CAP[key]) {
-        cap.innerHTML = ZH_CAP[key] + '<details class="capsrc"><summary>英文原图注</summary><span class="en">' + en + "</span></details>";
+        cap.innerHTML = ZH_CAP[key] + '<details class="capsrc""en">' + en + "</span></details>";
       } else {
         cap.innerHTML = en;
       }
@@ -1058,24 +1072,24 @@ window.MIRAGE_DATA = {"meta":{"title":"A source-attribution audit of vision-lang
 
   /* ------------------------------------------------------------ condition viewer */
   var CONDS = {
-    G1: { img: "with_image", vis: "Sharp image", visZh: "清晰图像", dist: true,
+    G1: { img: "with_image", vis: "Sharp image", visZh: "", dist: true,
       text: "Sharp image, district text present. Endpoint used at city scale: G1−G2 gives the image effect with text; G1−G3 gives the district-text effect with image.",
-      textZh: "清晰图像，区名文本在场。全市尺度使用的端点：G1−G2 给出有区名条件下的图像效应；G1−G3 给出有图像条件下的区名文本效应。" },
-    G2: { img: "no_image", vis: "No image", visZh: "无图像", dist: true,
+      textZh: "" },
+    G2: { img: "no_image", vis: "No image", visZh: "", dist: true,
       text: "No image, district text present. The model answers from the district prior alone.",
-      textZh: "无图像，区名文本在场。模型仅依据区先验作答。" },
-    G5: { img: "blur50", vis: "Blur σ = 50", visZh: "模糊 σ = 50", dist: true,
+      textZh: "" },
+    G5: { img: "blur50", vis: "Blur σ = 50", visZh: "", dist: true,
       text: "Blur σ = 50, district text present. G1−G5 measures image degradation; G5−G6 measures the district-text effect under blur.",
-      textZh: "模糊 σ = 50，区名文本在场。G1−G5 度量图像退化；G5−G6 度量模糊条件下的区名文本效应。" },
-    G3: { img: "with_image", vis: "Sharp image", visZh: "清晰图像", dist: false,
+      textZh: "" },
+    G3: { img: "with_image", vis: "Sharp image", visZh: "", dist: false,
       text: "Sharp image, district text absent. G3−G4 gives the image effect without the district name.",
-      textZh: "清晰图像，区名文本缺失。G3−G4 给出无区名条件下的图像效应。" },
-    G4: { img: "no_image", vis: "No image", visZh: "无图像", dist: false,
+      textZh: "" },
+    G4: { img: "no_image", vis: "No image", visZh: "", dist: false,
       text: "No image, district text absent. The unprompted visual baseline.",
-      textZh: "无图像，区名文本缺失。无区名提示的视觉基线。" },
-    G6: { img: "blur50", vis: "Blur σ = 50", visZh: "模糊 σ = 50", dist: false,
+      textZh: "" },
+    G6: { img: "blur50", vis: "Blur σ = 50", visZh: "", dist: false,
       text: "Blur σ = 50, district text absent. G6−G4 measures the image effect under blur.",
-      textZh: "模糊 σ = 50，区名文本缺失。G6−G4 度量模糊条件下的图像效应。" }
+      textZh: "" }
   };
   var condImg = $("#condImg"), condBadges = $("#condBadges"), condDesc = $("#condDesc");
   var curCond = "G1";
@@ -1083,9 +1097,9 @@ window.MIRAGE_DATA = {"meta":{"title":"A source-attribution audit of vision-lang
     curCond = code;
     var c = CONDS[code];
     condImg.src = D.meta.condImages[c.img];
-    condImg.alt = T("Street-view sample under condition " + code, "条件 " + code + " 下的街景样例");
-    condBadges.innerHTML = '<span class="badge on">' + T("Visual: ", "视觉：") + T(c.vis, c.visZh) + '</span>' +
-      '<span class="badge ' + (c.dist ? "on" : "") + '">' + T("District text: ", "区名文本：") + (c.dist ? T("present", "有") : T("absent", "无")) + "</span>";
+    condImg.alt = T("Street-view sample under condition " + code, "" + code + "");
+    condBadges.innerHTML = '<span class="badge on">' + T("Visual: ", "") + T(c.vis, c.visZh) + '</span>' +
+      '<span class="badge ' + (c.dist ? "on" : "") + '">' + T("District text: ", "") + (c.dist ? T("present", "") : T("absent", "")) + "</span>";
     condDesc.textContent = T(c.text, c.textZh);
     $$(".cond-buttons button").forEach(function (b) { b.classList.toggle("active", b.getAttribute("data-cond") === code); });
   }
@@ -1122,50 +1136,50 @@ window.MIRAGE_DATA = {"meta":{"title":"A source-attribution audit of vision-lang
     var W = 560, H = 300;
     var m = { l: 178, r: 66, t: 18, b: 36 };
     var pw = W - m.l - m.r, ph = H - m.t - m.b;
-    var svg = svgEl("svg", { viewBox: "0 0 " + W + " " + H, role: "img", "aria-label": T("Answer-change rates", "类别改变率") }, host);
+    var svg = svgEl("svg", { viewBox: "0 0 " + W + " " + H, role: "img", "aria-label": T("Answer-change rates", "") }, host);
     var x = function (v) { return m.l + v * pw; };
     [0, 0.25, 0.5, 0.75, 1].forEach(function (v) {
-      svgEl("line", { x1: x(v), x2: x(v), y1: m.t, y2: m.t + ph, stroke: "#e7e2d7", "stroke-width": 1 }, svg);
-      svgText(svg, x(v), m.t + ph + 20, (v * 100).toFixed(0), { "text-anchor": "middle", "font-size": 10, fill: "#8d877d", "font-family": FONT });
+      svgEl("line", { x1: x(v), x2: x(v), y1: m.t, y2: m.t + ph, stroke: "#e3e8ee", "stroke-width": 1 }, svg);
+      svgText(svg, x(v), m.t + ph + 20, (v * 100).toFixed(0), { "text-anchor": "middle", "font-size": 10, fill: "#87919b", "font-family": FONT });
     });
-    svgText(svg, m.l + pw / 2, H - 4, T("answer-change rate (%)", "类别改变率（%）"), { "text-anchor": "middle", "font-size": 10, fill: "#66615a", "font-family": FONT });
+    svgText(svg, m.l + pw / 2, H - 4, T("answer-change rate (%)", ""), { "text-anchor": "middle", "font-size": 10, fill: "#59646f", "font-family": FONT });
     var rowH = ph / rows.length;
     rows.forEach(function (r, i) {
       var cy = m.t + rowH * (i + 0.5);
       var parts = rateLines(r);
-      svgText(svg, m.l - 14, cy - 3, parts[0], { "text-anchor": "end", "font-size": 11.5, fill: "#191817", "font-family": FONT });
-      svgText(svg, m.l - 14, cy + 10, parts[1] || "", { "text-anchor": "end", "font-size": 10, fill: "#66615a", "font-family": FONT });
+      svgText(svg, m.l - 14, cy - 3, parts[0], { "text-anchor": "end", "font-size": 11.5, fill: "#12161b", "font-family": FONT });
+      svgText(svg, m.l - 14, cy + 10, parts[1] || "", { "text-anchor": "end", "font-size": 10, fill: "#59646f", "font-family": FONT });
       var col = MODEL[behState.model].color;
       svgEl("rect", { x: m.l, y: cy - 9, width: Math.max(1, r.value * pw), height: 18, fill: col, opacity: 0.9 }, svg);
       var lx = m.l + r.value * pw + 7;
       if (r.ci) lx = Math.max(lx, x(r.ci[1]) + 7);
-      svgText(svg, lx, cy + 4, fmtRate(r.value), { "font-size": 11, "font-weight": 600, fill: "#191817", "font-family": FONT });
+      svgText(svg, lx, cy + 4, fmtRate(r.value), { "font-size": 11, "font-weight": 600, fill: "#12161b", "font-family": FONT });
       if (r.ci) {
         var xlo = x(r.ci[0]), xhi = x(r.ci[1]);
-        svgEl("line", { x1: xlo, x2: xhi, y1: cy, y2: cy, stroke: "#191817", "stroke-width": 1.2 }, svg);
-        svgEl("line", { x1: xlo, x2: xlo, y1: cy - 4, y2: cy + 4, stroke: "#191817", "stroke-width": 1.2 }, svg);
-        svgEl("line", { x1: xhi, x2: xhi, y1: cy - 4, y2: cy + 4, stroke: "#191817", "stroke-width": 1.2 }, svg);
+        svgEl("line", { x1: xlo, x2: xhi, y1: cy, y2: cy, stroke: "#12161b", "stroke-width": 1.2 }, svg);
+        svgEl("line", { x1: xlo, x2: xlo, y1: cy - 4, y2: cy + 4, stroke: "#12161b", "stroke-width": 1.2 }, svg);
+        svgEl("line", { x1: xhi, x2: xhi, y1: cy - 4, y2: cy + 4, stroke: "#12161b", "stroke-width": 1.2 }, svg);
       }
       var hit = svgEl("rect", { x: m.l, y: cy - rowH / 2, width: pw, height: rowH, fill: "transparent" }, svg);
       hit.addEventListener("mousemove", function (ev) {
-        var html = "<b>" + escapeHtml(rateName(r)) + "</b>" + tipRow(T("Pair", "配对"), r.sub) + tipRow(T("Rate", "比率"), pct(r.value));
+        var html = "<b>" + escapeHtml(rateName(r)) + "</b>" + tipRow(T("Pair", ""), r.sub) + tipRow(T("Rate", ""), pct(r.value));
         html += tipRow("n", r.n);
-        if (r.ci) html += tipRow(T("95% CI", "95% 置信区间"), pct(r.ci[0]) + " – " + pct(r.ci[1]));
+        if (r.ci) html += tipRow(T("95% CI", ""), pct(r.ci[0]) + " – " + pct(r.ci[1]));
         showTip(html, ev.clientX, ev.clientY);
       });
       hit.addEventListener("mouseleave", hideTip);
     });
     $("#behRateNote").textContent = T(
       "n = 668 paired locations. Bars give the share of locations whose emitted primary label changes between the paired conditions.",
-      "n = 668 个配对点位。柱长为配对条件之间输出主类别发生改变的点位比例。") +
-      (behState.model === "qwen" ? T(" Whiskers: 95% confidence intervals for the two image effects.", " 误差线：两个图像效应的 95% 置信区间。") : "");
+      "") +
+      (behState.model === "qwen" ? T(" Whiskers: 95% confidence intervals for the two image effects.", "") : "");
   }
 
   var RET_SERIES = [
-    { key: "101", label: "101 Residential", zh: "101 居住", color: "#d3ad7f" },
-    { key: "202", label: "202 Commercial Services", zh: "202 商业服务业", color: "#a9a9a9" },
-    { key: "505", label: "505 Parks and Green Spaces", zh: "505 公园与绿地", color: "#6b4a2f" },
-    { key: "other", label: "Other rate", zh: "其他类比率", color: "#8c510a" }
+    { key: "101", label: "101 Residential", zh: "", color: "#d3ad7f" },
+    { key: "202", label: "202 Commercial Services", zh: "", color: "#a9a9a9" },
+    { key: "505", label: "505 Parks and Green Spaces", zh: "", color: "#6b4a2f" },
+    { key: "other", label: "Other rate", zh: "", color: "#8c510a" }
   ];
 
   function renderRetention() {
@@ -1175,16 +1189,16 @@ window.MIRAGE_DATA = {"meta":{"title":"A source-attribution audit of vision-lang
     var W = 620, H = 330;
     var m = { l: 54, r: 18, t: 18, b: 76 };
     var pw = W - m.l - m.r, ph = H - m.t - m.b;
-    var svg = svgEl("svg", { viewBox: "0 0 " + W + " " + H, role: "img", "aria-label": T("Same-answer retention across six conditions", "六种视觉条件下的同答案保留率") }, host);
+    var svg = svgEl("svg", { viewBox: "0 0 " + W + " " + H, role: "img", "aria-label": T("Same-answer retention across six conditions", "") }, host);
     var x = function (i) { return m.l + (i + 0.5) * (pw / rows.length); };
     var y = function (v) { return m.t + ph - v * ph; };
     [0, 25, 50, 75, 100].forEach(function (v) {
-      svgEl("line", { x1: m.l, x2: m.l + pw, y1: y(v / 100), y2: y(v / 100), stroke: "#e7e2d7", "stroke-width": 1 }, svg);
-      svgText(svg, m.l - 8, y(v / 100) + 3, v, { "text-anchor": "end", "font-size": 10, fill: "#8d877d", "font-family": FONT });
+      svgEl("line", { x1: m.l, x2: m.l + pw, y1: y(v / 100), y2: y(v / 100), stroke: "#e3e8ee", "stroke-width": 1 }, svg);
+      svgText(svg, m.l - 8, y(v / 100) + 3, v, { "text-anchor": "end", "font-size": 10, fill: "#87919b", "font-family": FONT });
     });
-    svgText(svg, 12, m.t + ph / 2, T("retention (%)", "保留率（%）"), { "text-anchor": "middle", "font-size": 10, fill: "#66615a", "font-family": FONT, transform: "rotate(-90 12 " + (m.t + ph / 2) + ")" });
+    svgText(svg, 12, m.t + ph / 2, T("retention (%)", ""), { "text-anchor": "middle", "font-size": 10, fill: "#59646f", "font-family": FONT, transform: "rotate(-90 12 " + (m.t + ph / 2) + ")" });
     rows.forEach(function (r, i) {
-      var t = svgText(svg, x(i), H - 54, condLabel(r.label), { "text-anchor": "end", "font-size": 10, fill: "#66615a", "font-family": FONT, transform: "rotate(-32 " + x(i) + " " + (H - 54) + ")" });
+      var t = svgText(svg, x(i), H - 54, condLabel(r.label), { "text-anchor": "end", "font-size": 10, fill: "#59646f", "font-family": FONT, transform: "rotate(-32 " + x(i) + " " + (H - 54) + ")" });
       t.textContent = condLabel(r.label);
     });
     RET_SERIES.forEach(function (s) {
@@ -1199,10 +1213,10 @@ window.MIRAGE_DATA = {"meta":{"title":"A source-attribution audit of vision-lang
       var band = svgEl("rect", { x: m.l + i * (pw / rows.length), y: m.t, width: pw / rows.length, height: ph, fill: "transparent" }, svg);
       band.addEventListener("mousemove", function (ev) {
         var html = "<b>" + escapeHtml(condLabel(r.label)) + "</b>" +
-          tipRow(T("101 Residential", "101 居住"), pct(r["101"]) + " (n=" + r.n101 + ")") +
-          tipRow(T("202 Commercial", "202 商业服务业"), pct(r["202"]) + " (n=" + r.n202 + ")") +
-          tipRow(T("505 Parks", "505 公园与绿地"), pct(r["505"]) + " (n=" + r.n505 + ")") +
-          tipRow(T("Other rate", "其他类比率"), pct(r.other));
+          tipRow(T("101 Residential", ""), pct(r["101"]) + " (n=" + r.n101 + ")") +
+          tipRow(T("202 Commercial", ""), pct(r["202"]) + " (n=" + r.n202 + ")") +
+          tipRow(T("505 Parks", ""), pct(r["505"]) + " (n=" + r.n505 + ")") +
+          tipRow(T("Other rate", ""), pct(r.other));
         showTip(html, ev.clientX, ev.clientY);
       });
       band.addEventListener("mouseleave", hideTip);
@@ -1212,11 +1226,11 @@ window.MIRAGE_DATA = {"meta":{"title":"A source-attribution audit of vision-lang
       return '<span class="item"><span class="swatch' + (s.key === "other" ? "" : " dot") + '" style="background:' + s.color + '"></span>' + T(s.label, s.zh) + "</span>";
     }).join("");
     var note = T("Reference classes: 101 Residential, 202 Commercial Services, 505 Parks and Green Spaces. The line gives the out-of-schema <em>Other</em> rate.",
-      "参考类：101 居住、202 商业服务业、505 公园与绿地。折线为模式外 <em>其他</em> 类的比率。");
+      "");
     if (behState.model === "llava") note += T(" Reference-class counts for LLaVA-1.6-7B: 101 n=2, 202 n=10, 505 n=250.",
-      " LLaVA-1.6-7B 的参考类计数：101 n=2，202 n=10，505 n=250。");
+      "");
     if (behState.model === "internvl2") note += T(" Reference-class counts for InternVL2-8B: 101 n=319, 202 n=67, 505 n=148.",
-      " InternVL2-8B 的参考类计数：101 n=319，202 n=67，505 n=148。");
+      "");
     $("#behRetNote").innerHTML = note;
   }
 
@@ -1238,7 +1252,7 @@ window.MIRAGE_DATA = {"meta":{"title":"A source-attribution audit of vision-lang
             Math.round(lerp(stops[i][1], stops[i + 1][1], f)),
             Math.round(lerp(stops[i][2], stops[i + 1][2], f))];
   }
-  var ALIGN_STOPS = [[247, 244, 236], [234, 214, 184], [197, 143, 82], [122, 63, 10]];
+  var ALIGN_STOPS = [[242, 245, 248], [234, 214, 184], [197, 143, 82], [122, 63, 10]];
   var DH_STOPS = [[238, 243, 247], [198, 219, 239], [107, 174, 214], [33, 113, 181], [8, 48, 107]];
   function colorCss(c, a) { return "rgba(" + c[0] + "," + c[1] + "," + c[2] + "," + (a == null ? 1 : a) + ")"; }
 
@@ -1259,26 +1273,26 @@ window.MIRAGE_DATA = {"meta":{"title":"A source-attribution audit of vision-lang
     var heatTop = 34, rowH = 52, rowGap = 12;
     var heatBottom = heatTop + 3 * rowH + 2 * rowGap;
     var profTop = 296, profBot = 506;
-    var svg = svgEl("svg", { viewBox: "0 0 " + W + " " + H, role: "img", "aria-label": T("Layer-wise readout", "逐层读数") }, host);
+    var svg = svgEl("svg", { viewBox: "0 0 " + W + " " + H, role: "img", "aria-label": T("Layer-wise readout", "") }, host);
 
     // title
-    svgText(svg, x0, 18, DEPTH.metric === "align" ? T("Readout–answer alignment", "读数与答案的对齐") : T("Condition-difference amplitude  (with − no, q1)", "条件差幅度（有图 − 无图，q1）"), {
-      "font-size": 13, "font-weight": 600, fill: "#191817", "font-family": FONT
+    svgText(svg, x0, 18, DEPTH.metric === "align" ? T("Readout–answer alignment", "") : T("Condition-difference amplitude  (with − no, q1)", ""), {
+      "font-size": 13, "font-weight": 600, fill: "#12161b", "font-family": FONT
     });
 
     // x grid on profile
     [0, 8, 16, 24, 32, 36].forEach(function (l) {
       var xx = x0 + l * step + step / 2;
-      svgEl("line", { x1: xx, x2: xx, y1: heatTop - 4, y2: heatBottom + 2, stroke: "#ece7dc", "stroke-width": 1 }, svg);
-      svgEl("line", { x1: xx, x2: xx, y1: profTop, y2: profBot, stroke: "#ece7dc", "stroke-width": 1 }, svg);
+      svgEl("line", { x1: xx, x2: xx, y1: heatTop - 4, y2: heatBottom + 2, stroke: "#e7ecf1", "stroke-width": 1 }, svg);
+      svgEl("line", { x1: xx, x2: xx, y1: profTop, y2: profBot, stroke: "#e7ecf1", "stroke-width": 1 }, svg);
     });
 
     // heat cells
     DMODELS.forEach(function (m, mi) {
       var y = heatTop + mi * (rowH + rowGap);
       svgEl("circle", { cx: 10, cy: y + rowH / 2, r: 4, fill: DCOL[m] }, svg);
-      svgText(svg, 22, y + rowH / 2 - 2, DLAB[m], { "font-size": 11.5, "font-weight": 600, fill: "#191817", "font-family": FONT });
-      svgText(svg, 22, y + rowH / 2 + 12, "0–" + D.depth.n_layers[m], { "font-size": 10, fill: "#8d877d", "font-family": FONT });
+      svgText(svg, 22, y + rowH / 2 - 2, DLAB[m], { "font-size": 11.5, "font-weight": 600, fill: "#12161b", "font-family": FONT });
+      svgText(svg, 22, y + rowH / 2 + 12, "0–" + D.depth.n_layers[m], { "font-size": 10, fill: "#87919b", "font-family": FONT });
       var n = D.depth.n_layers[m];
       for (var l = 0; l <= n; l++) {
         var v = depthValue(m, l);
@@ -1294,7 +1308,7 @@ window.MIRAGE_DATA = {"meta":{"title":"A source-attribution audit of vision-lang
           fill: colorCss(c), "data-m": m, "data-l": l
         }, svg);
       }
-      svgEl("line", { x1: x0, x2: x0 + n * step + step, y1: y + rowH + 4, y2: y + rowH + 4, stroke: "#e2dccf", "stroke-width": 0.8 }, svg);
+      svgEl("line", { x1: x0, x2: x0 + n * step + step, y1: y + rowH + 4, y2: y + rowH + 4, stroke: "#dde3e9", "stroke-width": 0.8 }, svg);
     });
 
     // profile y scale
@@ -1302,7 +1316,7 @@ window.MIRAGE_DATA = {"meta":{"title":"A source-attribution audit of vision-lang
     if (DEPTH.metric === "align") {
       yv = function (v) { return profBot - (v * 100 / 70) * (profBot - profTop); };
       ticks = [0, 20, 40, 60];
-      ylab = T("alignment (%)", "对齐率（%）");
+      ylab = T("alignment (%)", "");
     } else {
       var lo = Math.log10(0.3), hi = Math.log10(1200);
       yv = function (v) { return profBot - ((Math.log10(Math.max(v, 0.3)) - lo) / (hi - lo)) * (profBot - profTop); };
@@ -1311,11 +1325,11 @@ window.MIRAGE_DATA = {"meta":{"title":"A source-attribution audit of vision-lang
     }
     ticks.forEach(function (v) {
       var yy = DEPTH.metric === "align" ? profBot - (v / 70) * (profBot - profTop) : yv(v);
-      svgEl("line", { x1: x0, x2: x1, y1: yy, y2: yy, stroke: "#ece7dc", "stroke-width": 1 }, svg);
-      svgText(svg, x0 - 10, yy + 3, v, { "text-anchor": "end", "font-size": 10, fill: "#8d877d", "font-family": FONT });
+      svgEl("line", { x1: x0, x2: x1, y1: yy, y2: yy, stroke: "#e7ecf1", "stroke-width": 1 }, svg);
+      svgText(svg, x0 - 10, yy + 3, v, { "text-anchor": "end", "font-size": 10, fill: "#87919b", "font-family": FONT });
     });
     svgText(svg, 14, (profTop + profBot) / 2, ylab, {
-      "text-anchor": "middle", "font-size": 10.5, fill: "#66615a", "font-family": FONT,
+      "text-anchor": "middle", "font-size": 10.5, fill: "#59646f", "font-family": FONT,
       transform: "rotate(-90 14 " + ((profTop + profBot) / 2) + ")"
     });
 
@@ -1334,20 +1348,20 @@ window.MIRAGE_DATA = {"meta":{"title":"A source-attribution audit of vision-lang
     });
 
     // x axis
-    svgEl("line", { x1: x0, x2: x1, y1: profBot, y2: profBot, stroke: "#b9b2a3", "stroke-width": 1 }, svg);
+    svgEl("line", { x1: x0, x2: x1, y1: profBot, y2: profBot, stroke: "#aab4be", "stroke-width": 1 }, svg);
     [0, 8, 16, 24, 32, 36].forEach(function (l) {
       var xx = x0 + l * step + step / 2;
-      svgEl("line", { x1: xx, x2: xx, y1: profBot, y2: profBot + 5, stroke: "#b9b2a3", "stroke-width": 1 }, svg);
-      svgText(svg, xx, profBot + 18, l, { "text-anchor": "middle", "font-size": 10, fill: "#66615a", "font-family": FONT });
+      svgEl("line", { x1: xx, x2: xx, y1: profBot, y2: profBot + 5, stroke: "#aab4be", "stroke-width": 1 }, svg);
+      svgText(svg, xx, profBot + 18, l, { "text-anchor": "middle", "font-size": 10, fill: "#59646f", "font-family": FONT });
     });
-    svgText(svg, (x0 + x1) / 2, H - 6, T("layer index (0 = embedding)", "层索引（0 = 嵌入输出）"), { "text-anchor": "middle", "font-size": 10.5, fill: "#66615a", "font-family": FONT });
+    svgText(svg, (x0 + x1) / 2, H - 6, T("layer index (0 = embedding)", ""), { "text-anchor": "middle", "font-size": 10.5, fill: "#59646f", "font-family": FONT });
 
     // legend at profile top-right
     var lx = x1 - 250;
     DMODELS.forEach(function (m, i) {
       var xx = lx + i * 84;
       svgEl("line", { x1: xx, x2: xx + 18, y1: profTop - 18, y2: profTop - 18, stroke: DCOL[m], "stroke-width": 2 }, svg);
-      svgText(svg, xx + 23, profTop - 14, DLAB[m].replace("3-VL-8B", "").replace("-1.6-7B", "").replace("2-8B", ""), { "font-size": 9.5, fill: "#66615a", "font-family": FONT });
+      svgText(svg, xx + 23, profTop - 14, DLAB[m].replace("3-VL-8B", "").replace("-1.6-7B", "").replace("2-8B", ""), { "font-size": 9.5, fill: "#59646f", "font-family": FONT });
     });
 
     // pin line
@@ -1355,7 +1369,7 @@ window.MIRAGE_DATA = {"meta":{"title":"A source-attribution audit of vision-lang
       var px = x0 + DEPTH.pin * step + step / 2;
       svgEl("line", { x1: px, x2: px, y1: heatTop - 8, y2: profBot, stroke: "#b2182b", "stroke-width": 1.2, "stroke-dasharray": "3 3" }, svg);
       svgEl("rect", { x: px - 26, y: heatTop - 26, width: 52, height: 15, fill: "#b2182b", rx: 2 }, svg);
-      svgText(svg, px, heatTop - 15, T("layer " + DEPTH.pin, "第 " + DEPTH.pin + " 层"), { "text-anchor": "middle", "font-size": 9.5, fill: "#fff", "font-family": FONT });
+      svgText(svg, px, heatTop - 15, T("layer " + DEPTH.pin, "" + DEPTH.pin + ""), { "text-anchor": "middle", "font-size": 9.5, fill: "#fff", "font-family": FONT });
     }
 
     // hover + click
@@ -1373,9 +1387,9 @@ window.MIRAGE_DATA = {"meta":{"title":"A source-attribution audit of vision-lang
           if (l >= 0 && l <= D.depth.n_layers[m]) {
             var v = depthValue(m, l);
             if (v != null) {
-              var html = "<b>" + DLAB[m] + " · " + T("layer " + l, "第 " + l + " 层") + "</b>" +
-                tipRow(DEPTH.metric === "align" ? T("alignment", "对齐率") : "||Δh||", DEPTH.metric === "align" ? pct(v, 1) : fixed(v, 3));
-              if (DEPTH.metric === "dh") html += tipRow(T("condition", "条件"), T(MODE_LAB[DEPTH.mode], ZH_MODE[DEPTH.mode]));
+              var html = "<b>" + DLAB[m] + " · " + T("layer " + l, "" + l + "") + "</b>" +
+                tipRow(DEPTH.metric === "align" ? T("alignment", "") : "||Δh||", DEPTH.metric === "align" ? pct(v, 1) : fixed(v, 3));
+              if (DEPTH.metric === "dh") html += tipRow(T("condition", ""), T(MODE_LAB[DEPTH.mode], ZH_MODE[DEPTH.mode]));
               showTip(html, ev.clientX, ev.clientY);
               return;
             }
@@ -1409,7 +1423,7 @@ window.MIRAGE_DATA = {"meta":{"title":"A source-attribution audit of vision-lang
   function updatePin() {
     var pv = $("#pinValue"), ro = $("#pinReadout"), clear = $("#pinClear");
     if (DEPTH.pin == null) {
-      pv.textContent = T("none", "未选择"); ro.innerHTML = ""; clear.hidden = true; return;
+      pv.textContent = T("none", ""); ro.innerHTML = ""; clear.hidden = true; return;
     }
     pv.textContent = layerTag(DEPTH.pin);
     clear.hidden = false;
@@ -1425,7 +1439,7 @@ window.MIRAGE_DATA = {"meta":{"title":"A source-attribution audit of vision-lang
       DEPTH.metric = b.getAttribute("data-metric");
       $$("#depthMetric button").forEach(function (x) { x.classList.toggle("active", x === b); });
       $("#depthCondNote").style.opacity = DEPTH.metric === "dh" ? 1 : 0.45;
-      $("#depthTitle").textContent = DEPTH.metric === "align" ? T("Layer-wise readout — alignment", "逐层读数 — 对齐") : T("Layer-wise readout — condition-difference amplitude", "逐层读数 — 条件差幅度");
+      $("#depthTitle").textContent = DEPTH.metric === "align" ? T("Layer-wise readout — alignment", "") : T("Layer-wise readout — condition-difference amplitude", "");
       renderDepth(); updatePin();
     });
   });
@@ -1450,8 +1464,8 @@ window.MIRAGE_DATA = {"meta":{"title":"A source-attribution audit of vision-lang
     $("#depthGridView").hidden = !grid;
     $("#depthMetric").hidden = grid;
     $$("#depthView button").forEach(function (b) { b.classList.toggle("active", b.getAttribute("data-view") === v); });
-    $("#depthTitle").textContent = grid ? T("Layer × class probability", "层 × 类概率") :
-      (DEPTH.metric === "align" ? T("Layer-wise readout — alignment", "逐层读数 — 对齐") : T("Layer-wise readout — condition-difference amplitude", "逐层读数 — 条件差幅度"));
+    $("#depthTitle").textContent = grid ? T("Layer × class probability", "") :
+      (DEPTH.metric === "align" ? T("Layer-wise readout — alignment", "") : T("Layer-wise readout — condition-difference amplitude", ""));
     if (grid && !$("#lensGrid").firstChild) renderLens();
   }
   $$("#depthView button").forEach(function (b) {
@@ -1462,14 +1476,14 @@ window.MIRAGE_DATA = {"meta":{"title":"A source-attribution audit of vision-lang
 
   /* ------------------------------------------------------------ logit lens grid */
   var LENS_MODES = [
-    { k: "with", label: "with image", zh: "有图像" },
-    { k: "no", label: "no image", zh: "无图像" },
-    { k: "blur", label: "blur σ = 50", zh: "模糊 σ = 50" },
-    { k: "sigma25", label: "blur σ = 25", zh: "模糊 σ = 25" },
-    { k: "sigma100", label: "blur σ = 100", zh: "模糊 σ = 100" },
-    { k: "grayscale", label: "grayscale", zh: "灰度" }
+    { k: "with", label: "with image", zh: "" },
+    { k: "no", label: "no image", zh: "" },
+    { k: "blur", label: "blur σ = 50", zh: "" },
+    { k: "sigma25", label: "blur σ = 25", zh: "" },
+    { k: "sigma100", label: "blur σ = 100", zh: "" },
+    { k: "grayscale", label: "grayscale", zh: "" }
   ];
-  var LENS_STOPS = [[247, 244, 236], [219, 229, 239], [130, 186, 219], [33, 113, 181], [8, 48, 107]];
+  var LENS_STOPS = [[242, 245, 248], [219, 229, 239], [130, 186, 219], [33, 113, 181], [8, 48, 107]];
   var lensSel = { mode: "with", cls: 0 };
 
   function lensColor(v, max) { return colorCss(ramp(LENS_STOPS, clamp(v / (max || 1), 0, 1))); }
@@ -1483,14 +1497,14 @@ window.MIRAGE_DATA = {"meta":{"title":"A source-attribution audit of vision-lang
     var i = D.map.classes.indexOf(code);
     return i >= 0 ? classLabel(D.map.classes[i], code + " " + D.map.classLabels[i]) : D.lens.classes[c];
   }
-  function lensCode(name) { return name === "Other" ? T("Other", "其他") : name; }
+  function lensCode(name) { return name === "Other" ? T("Other", "") : name; }
 
   function renderLens() {
     var host = $("#lensGrid");
     if (!host || !D.lens) return;
     var ln = $("#lensNote");
     if (ln) ln.textContent = T("Mean 12-class probability across 668 locations (q1 readout position). Rows: layers 0–36; columns: 12 answer classes; six panels: visual conditions. Hover a cell for the top-3 classes; click for the class trajectory.",
-      "668 个点位的十二类平均概率（q1 读数位置）。行：第 0–36 层；列：12 个答案类；六个面板：视觉条件。悬停查看概率最高的三类；点击查看该类轨迹。");
+      "");
     clearNode(host);
     var G = D.lens;
     var W = 1160, H = 390;
@@ -1498,7 +1512,7 @@ window.MIRAGE_DATA = {"meta":{"title":"A source-attribution audit of vision-lang
     var panelW = (W - left - gap * 5) / 6;
     var colW = panelW / 12;
     var rowH = (H - top - bottom) / 37;
-    var svg = svgEl("svg", { viewBox: "0 0 " + W + " " + H, role: "img", "aria-label": T("Logit lens layer by class grid", "Logit lens 层 × 类网格") }, host);
+    var svg = svgEl("svg", { viewBox: "0 0 " + W + " " + H, role: "img", "aria-label": T("Logit lens layer by class grid", "") }, host);
     var maxByMode = {};
     LENS_MODES.forEach(function (m) {
       maxByMode[m.k] = Math.max.apply(null, G.modes[m.k].map(function (row) {
@@ -1507,21 +1521,21 @@ window.MIRAGE_DATA = {"meta":{"title":"A source-attribution audit of vision-lang
     });
     [0, 8, 16, 24, 32, 36].forEach(function (L) {
       svgText(svg, left - 6, top + L * rowH + rowH / 2 + 2, L, {
-        "text-anchor": "end", "font-size": 8, fill: "#8d877d", "font-family": FONT
+        "text-anchor": "end", "font-size": 8, fill: "#87919b", "font-family": FONT
       });
     });
-    svgText(svg, 10, top + (H - top - bottom) / 2, T("layer", "层"), {
-      "text-anchor": "middle", "font-size": 8, fill: "#8d877d", "font-family": FONT,
+    svgText(svg, 10, top + (H - top - bottom) / 2, T("layer", ""), {
+      "text-anchor": "middle", "font-size": 8, fill: "#87919b", "font-family": FONT,
       transform: "rotate(-90 10 " + (top + (H - top - bottom) / 2) + ")"
     });
     LENS_MODES.forEach(function (m, mi) {
       var px = left + mi * (panelW + gap);
       svgText(svg, px + panelW / 2, 16, T(m.label, m.zh), {
-        "text-anchor": "middle", "font-size": 9.5, "font-weight": 600, fill: "#191817", "font-family": FONT
+        "text-anchor": "middle", "font-size": 9.5, "font-weight": 600, fill: "#12161b", "font-family": FONT
       });
       G.classes.forEach(function (c, ci) {
-        svgText(svg, px + ci * colW + colW / 2, top - 5, lensShort(c) === "Other" ? T("Oth", "其他") : lensShort(c), {
-          "text-anchor": "middle", "font-size": 6.5, fill: "#66615a", "font-family": FONT
+        svgText(svg, px + ci * colW + colW / 2, top - 5, lensShort(c) === "Other" ? T("Oth", "") : lensShort(c), {
+          "text-anchor": "middle", "font-size": 6.5, fill: "#59646f", "font-family": FONT
         });
       });
       var grid = G.modes[m.k];
@@ -1544,8 +1558,8 @@ window.MIRAGE_DATA = {"meta":{"title":"A source-attribution audit of vision-lang
       var top3 = probs.map(function (p, i) { return [i, p]; })
         .sort(function (a, b) { return b[1] - a[1]; }).slice(0, 3)
         .map(function (x) { return lensCode(lensShort(G.classes[x[0]])) + " " + pct(x[1], 1); }).join(" > ");
-      showTip("<b>" + lensLabel(mode) + " · " + T("layer " + L, "第 " + L + " 层") + "</b>" +
-        tipRow(lensClass(c), pct(probs[c], 2)) + tipRow(T("top-3", "前三类"), top3), ev.clientX, ev.clientY);
+      showTip("<b>" + lensLabel(mode) + " · " + T("layer " + L, "" + L + "") + "</b>" +
+        tipRow(lensClass(c), pct(probs[c], 2)) + tipRow(T("top-3", ""), top3), ev.clientX, ev.clientY);
     });
     svg.addEventListener("mouseleave", hideTip);
     svg.addEventListener("click", function (ev) {
@@ -1557,9 +1571,9 @@ window.MIRAGE_DATA = {"meta":{"title":"A source-attribution audit of vision-lang
 
     var lg = $("#lensLegend");
     if (lg) {
-      lg.innerHTML = '<span class="item"><span class="swatch" style="width:80px;height:8px;background:linear-gradient(90deg,#f7f4ec,#6baed6,#08306b)"></span>' + T("probability relative to each panel maximum", "相对各面板最大值的概率") + '</span>' +
-        '<span class="item">' + T("Rows: layers 0–36 · columns: 12 answer classes · panels: six conditions", "行：第 0–36 层 · 列：12 个答案类 · 面板：六种条件") + '</span>' +
-        '<span class="item">' + T("Hover for absolute probability and top-3", "悬停查看绝对概率与前三类") + '</span>';
+      lg.innerHTML = '<span class="item"><span class="swatch" style="width:80px;height:8px;background:linear-gradient(90deg,#f2f5f8,#6baed6,#08306b)"></span>' + T("probability relative to each panel maximum", "") + '</span>' +
+        '<span class="item">' + T("Rows: layers 0–36 · columns: 12 answer classes · panels: six conditions", "") + '</span>' +
+        '<span class="item">' + T("Hover for absolute probability and top-3", "") + '</span>';
     }
     renderLensTrace();
   }
@@ -1572,18 +1586,18 @@ window.MIRAGE_DATA = {"meta":{"title":"A source-attribution audit of vision-lang
     clearNode(host);
     var W = 900, H = 260, m = { l: 46, r: 16, t: 24, b: 34 };
     var pw = W - m.l - m.r, ph = H - m.t - m.b;
-    var svg = svgEl("svg", { viewBox: "0 0 " + W + " " + H, role: "img", "aria-label": T("Class trajectory", "类别轨迹") }, host);
+    var svg = svgEl("svg", { viewBox: "0 0 " + W + " " + H, role: "img", "aria-label": T("Class trajectory", "") }, host);
     var x = function (L) { return m.l + (L / 36) * pw; };
     var y = function (v) { return m.t + ph - v * ph; };
     [0, 0.25, 0.5, 0.75, 1].forEach(function (v) {
-      svgEl("line", { x1: m.l, x2: m.l + pw, y1: y(v), y2: y(v), stroke: "#ece7dc", "stroke-width": 1 }, svg);
-      svgText(svg, m.l - 8, y(v) + 3, v.toFixed(2), { "text-anchor": "end", "font-size": 9, fill: "#8d877d", "font-family": FONT });
+      svgEl("line", { x1: m.l, x2: m.l + pw, y1: y(v), y2: y(v), stroke: "#e7ecf1", "stroke-width": 1 }, svg);
+      svgText(svg, m.l - 8, y(v) + 3, v.toFixed(2), { "text-anchor": "end", "font-size": 9, fill: "#87919b", "font-family": FONT });
     });
     [0, 8, 16, 24, 32, 36].forEach(function (L) {
-      svgText(svg, x(L), H - 16, L, { "text-anchor": "middle", "font-size": 9, fill: "#8d877d", "font-family": FONT });
+      svgText(svg, x(L), H - 16, L, { "text-anchor": "middle", "font-size": 9, fill: "#87919b", "font-family": FONT });
     });
-    svgText(svg, m.l + pw / 2, H - 3, T("layer index", "层索引"), { "text-anchor": "middle", "font-size": 9, fill: "#66615a", "font-family": FONT });
-    svgText(svg, 12, m.t + ph / 2, T("class probability", "类概率"), { "text-anchor": "middle", "font-size": 9, fill: "#66615a", "font-family": FONT, transform: "rotate(-90 12 " + (m.t + ph / 2) + ")" });
+    svgText(svg, m.l + pw / 2, H - 3, T("layer index", ""), { "text-anchor": "middle", "font-size": 9, fill: "#59646f", "font-family": FONT });
+    svgText(svg, 12, m.t + ph / 2, T("class probability", ""), { "text-anchor": "middle", "font-size": 9, fill: "#59646f", "font-family": FONT, transform: "rotate(-90 12 " + (m.t + ph / 2) + ")" });
     var pts = vals.map(function (v, L) { return [x(L), y(v)]; });
     svgEl("path", { d: pts.map(function (p, i) { return (i ? "L" : "M") + p[0].toFixed(1) + " " + p[1].toFixed(1); }).join(" "), fill: "none", stroke: "#8c510a", "stroke-width": 1.8 }, svg);
     pts.forEach(function (p, L) {
@@ -1594,7 +1608,7 @@ window.MIRAGE_DATA = {"meta":{"title":"A source-attribution audit of vision-lang
     if (title) title.textContent = lensClass(cls) + " · " + lensLabel(mode);
     var note = $("#lensTraceNote");
     if (note) note.textContent = T("Final-layer probability " + pct(vals[36], 1) + ". Click another cell to change the class, layer and condition.",
-      "最后一层概率 " + pct(vals[36], 1) + "。点击其他单元格可更换类别、层与条件。");
+      "" + pct(vals[36], 1) + "");
   }
 
   if (D.lens) {
@@ -1671,7 +1685,7 @@ window.MIRAGE_DATA = {"meta":{"title":"A source-attribution audit of vision-lang
     proj = computeProjection(w, h);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     ctx.clearRect(0, 0, w, h);
-    ctx.fillStyle = "#e9e5da";
+    ctx.fillStyle = "#e6eaee";
     ctx.fillRect(0, 0, w, h);
 
     // district polygons
@@ -1686,9 +1700,9 @@ window.MIRAGE_DATA = {"meta":{"title":"A source-attribution audit of vision-lang
         ctx.closePath();
       });
       var sel = mapState.district === f.name;
-      ctx.fillStyle = sel ? "#e2d7c3" : "#ece8df";
+      ctx.fillStyle = sel ? "#d7e1ea" : "#e8edf1";
       ctx.fill("evenodd");
-      ctx.strokeStyle = sel ? "#7a5b2a" : "#b3ab9b";
+      ctx.strokeStyle = sel ? "#1f4e79" : "#aeb8c2";
       ctx.lineWidth = sel ? 1.4 : 0.8;
       ctx.stroke();
     });
@@ -1703,7 +1717,7 @@ window.MIRAGE_DATA = {"meta":{"title":"A source-attribution audit of vision-lang
       screenX[si] = ss0[0]; screenY[si] = ss0[1];
     }
     if (mapState.district) {
-      ctx.fillStyle = "rgba(150,143,131,.12)";
+      ctx.fillStyle = "rgba(126,139,152,.14)";
       ctx.beginPath();
       for (var oi = 0; oi < basePts.length; oi++) {
         var op = basePts[oi];
@@ -1729,7 +1743,7 @@ window.MIRAGE_DATA = {"meta":{"title":"A source-attribution audit of vision-lang
       ctx.fill();
     }
     // unlinked points
-    ctx.fillStyle = "rgba(150,143,131,.55)";
+    ctx.fillStyle = "rgba(126,139,152,.55)";
     ctx.beginPath();
     for (var k = 0; k < basePts.length; k++) {
       var q = basePts[k];
@@ -1783,7 +1797,7 @@ window.MIRAGE_DATA = {"meta":{"title":"A source-attribution audit of vision-lang
     mapState.field = key;
     var f = D.map.fields.filter(function (x) { return x.key === key; })[0];
     $("#mapTitle").textContent = fieldLabel(f);
-    $("#mapStat").textContent = T("Network Moran's I = ", "网络 Moran's I = ") + sf(f.I, 3) + " · " + pstr(f.p);
+    $("#mapStat").textContent = T("Network Moran's I = ", "") + sf(f.I, 3) + " · " + pstr(f.p);
     $("#mapDef").innerHTML = fieldDef(f);
     $$("#mapFields button").forEach(function (b) { b.classList.toggle("active", b.getAttribute("data-f") === key); });
     $$(".map-step").forEach(function (s) { s.classList.toggle("active", s.getAttribute("data-field") === key); });
@@ -1799,11 +1813,11 @@ window.MIRAGE_DATA = {"meta":{"title":"A source-attribution audit of vision-lang
       chip.hidden = false;
       $("#linkedName").textContent = distLabel(mapState.district);
       $("#mapFoot").textContent = distLabel(mapState.district) + " · " + mapCount().toLocaleString("en-US") +
-        T(" road-linked points shown. Wheel to zoom; drag to pan.", " 个连接路网点位。滚轮缩放；拖动平移。");
+        T(" road-linked points shown. Wheel to zoom; drag to pan.", "");
     } else {
       chip.hidden = true;
       $("#mapFoot").textContent = T("Point-level view. Zoom with the wheel; drag to pan; click a district to filter.",
-        "点位视图。滚轮缩放；拖动平移；点击某一区筛选。");
+        "");
     }
     drawMap();
     if (window.__renderDistrict) window.__renderDistrict();
@@ -1849,7 +1863,7 @@ window.MIRAGE_DATA = {"meta":{"title":"A source-attribution audit of vision-lang
     var sel = $("#mapDistrict");
     clearNode(sel);
     var all = document.createElement("option");
-    all.value = ""; all.textContent = T("All districts", "全部行政区");
+    all.value = ""; all.textContent = T("All districts", "");
     sel.appendChild(all);
     D.map.districts.forEach(function (d) {
       var o = document.createElement("option");
@@ -1914,16 +1928,16 @@ window.MIRAGE_DATA = {"meta":{"title":"A source-attribution audit of vision-lang
       var dv = fieldValue(p);
       var rd = D.map.roads[p.road];
       var html = "<b>#" + p.id + "</b>" +
-        tipRow(T("District", "行政区"), distLabel(D.map.districts[p.dist])) +
-        tipRow(T("Predicted class", "预测类别"), classLabel(D.map.classes[p.cls], D.map.classes[p.cls] + " " + D.map.classLabels[p.cls])) +
-        tipRow(T("Reading", "读数"), sf(p.r, 3));
+        tipRow(T("District", ""), distLabel(D.map.districts[p.dist])) +
+        tipRow(T("Predicted class", ""), classLabel(D.map.classes[p.cls], D.map.classes[p.cls] + " " + D.map.classLabels[p.cls])) +
+        tipRow(T("Reading", ""), sf(p.r, 3));
       if (p.link) {
-        html += tipRow(T("This field", "本场读数"), dv == null ? "—" : sf(dv, 3));
-        html += tipRow(T("Road", "道路"), T(rd, ZH_ROAD[rd] || rd));
+        html += tipRow(T("This field", ""), dv == null ? "—" : sf(dv, 3));
+        html += tipRow(T("Road", ""), T(rd, ZH_ROAD[rd] || rd));
         html += tipRow("POI (50 m)", p.poi == null ? "—" : p.poi.toFixed(0));
-        html += tipRow(T("Built density", "建筑密度"), p.dens == null ? "—" : p.dens.toFixed(3));
+        html += tipRow(T("Built density", ""), p.dens == null ? "—" : p.dens.toFixed(3));
       } else {
-        html += tipRow(T("Network support", "网络支撑"), T("outside", "范围外"));
+        html += tipRow(T("Network support", ""), T("outside", ""));
       }
       showTip(html, e.clientX, e.clientY);
     });
@@ -1962,28 +1976,28 @@ window.MIRAGE_DATA = {"meta":{"title":"A source-attribution audit of vision-lang
     var W = 640, H = 300;
     var m = { l: 58, r: 28, t: 26, b: 52 };
     var pw = W - m.l - m.r, ph = H - m.t - m.b;
-    var svg = svgEl("svg", { viewBox: "0 0 " + W + " " + H, role: "img", "aria-label": T("Network scale ladder", "网络尺度阶梯") }, host);
+    var svg = svgEl("svg", { viewBox: "0 0 " + W + " " + H, role: "img", "aria-label": T("Network scale ladder", "") }, host);
     var y = function (v) { return m.t + ph - (v / 0.62) * ph; };
     var x = function (k) { return m.l + (k - 0.6) / 2.8 * pw; };
     [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6].forEach(function (v) {
-      svgEl("line", { x1: m.l, x2: m.l + pw, y1: y(v), y2: y(v), stroke: "#ece7dc", "stroke-width": 1 }, svg);
-      svgText(svg, m.l - 9, y(v) + 3, v.toFixed(1), { "text-anchor": "end", "font-size": 10, fill: "#8d877d", "font-family": FONT });
+      svgEl("line", { x1: m.l, x2: m.l + pw, y1: y(v), y2: y(v), stroke: "#e7ecf1", "stroke-width": 1 }, svg);
+      svgText(svg, m.l - 9, y(v) + 3, v.toFixed(1), { "text-anchor": "end", "font-size": 10, fill: "#87919b", "font-family": FONT });
     });
-    svgText(svg, 13, m.t + ph / 2, "Moran's I", { "text-anchor": "middle", "font-size": 10.5, fill: "#66615a", "font-family": FONT, transform: "rotate(-90 13 " + (m.t + ph / 2) + ")" });
-    D.scale.ladder.forEach(function (r) { svgText(svg, x(r.k), H - 22, r.k, { "text-anchor": "middle", "font-size": 11, fill: "#191817", "font-family": FONT }); });
-    svgText(svg, m.l + pw / 2, H - 4, T("adjacency scale k (hops)", "邻接尺度 k（跳）"), { "text-anchor": "middle", "font-size": 10.5, fill: "#66615a", "font-family": FONT });
+    svgText(svg, 13, m.t + ph / 2, "Moran's I", { "text-anchor": "middle", "font-size": 10.5, fill: "#59646f", "font-family": FONT, transform: "rotate(-90 13 " + (m.t + ph / 2) + ")" });
+    D.scale.ladder.forEach(function (r) { svgText(svg, x(r.k), H - 22, r.k, { "text-anchor": "middle", "font-size": 11, fill: "#12161b", "font-family": FONT }); });
+    svgText(svg, m.l + pw / 2, H - 4, T("adjacency scale k (hops)", ""), { "text-anchor": "middle", "font-size": 10.5, fill: "#59646f", "font-family": FONT });
 
     var dNull = D.scale.ladder.map(function (r, i) { return (i ? "L" : "M") + x(r.k).toFixed(1) + " " + y(r.nullP95).toFixed(1); }).join(" ");
-    svgEl("path", { d: dNull, fill: "none", stroke: "#9a9488", "stroke-width": 1.3, "stroke-dasharray": "5 4" }, svg);
+    svgEl("path", { d: dNull, fill: "none", stroke: "#8f99a3", "stroke-width": 1.3, "stroke-dasharray": "5 4" }, svg);
     var dI = D.scale.ladder.map(function (r, i) { return (i ? "L" : "M") + x(r.k).toFixed(1) + " " + y(r.I).toFixed(1); }).join(" ");
     svgEl("path", { d: dI, fill: "none", stroke: "#b2182b", "stroke-width": 2 }, svg);
     D.scale.ladder.forEach(function (r) {
-      svgEl("rect", { x: x(r.k) - 4, y: y(r.nullP95) - 4, width: 8, height: 8, fill: "#9a9488" }, svg);
+      svgEl("rect", { x: x(r.k) - 4, y: y(r.nullP95) - 4, width: 8, height: 8, fill: "#8f99a3" }, svg);
       svgEl("circle", { cx: x(r.k), cy: y(r.I), r: 5, fill: "#b2182b" }, svg);
-      svgText(svg, x(r.k), y(r.I) - 12, sf(r.I, 3), { "text-anchor": "middle", "font-size": 10.5, "font-weight": 600, fill: "#191817", "font-family": FONT });
+      svgText(svg, x(r.k), y(r.I) - 12, sf(r.I, 3), { "text-anchor": "middle", "font-size": 10.5, "font-weight": 600, fill: "#12161b", "font-family": FONT });
       var hit = svgEl("circle", { cx: x(r.k), cy: y(r.I), r: 14, fill: "transparent" }, svg);
       hit.addEventListener("mousemove", function (ev) {
-        showTip("<b>" + T("k = " + r.k + " hops", "k = " + r.k + " 跳") + "</b>" + tipRow("Moran's I", sf(r.I, 3)) + tipRow(T("null P95", "零场 P95"), sf(r.nullP95, 3)) + tipRow(T("pseudo p", "伪 p"), r.p <= 0 ? "p < 0.001" : pstr(r.p)), ev.clientX, ev.clientY);
+        showTip("<b>" + T("k = " + r.k + " hops", "k = " + r.k + "") + "</b>" + tipRow("Moran's I", sf(r.I, 3)) + tipRow(T("null P95", ""), sf(r.nullP95, 3)) + tipRow(T("pseudo p", ""), r.p <= 0 ? "p < 0.001" : pstr(r.p)), ev.clientX, ev.clientY);
       });
       hit.addEventListener("mouseleave", hideTip);
     });
@@ -1998,21 +2012,21 @@ window.MIRAGE_DATA = {"meta":{"title":"A source-attribution audit of vision-lang
     var W = 560, H = 300;
     var m = { l: 58, r: 22, t: 24, b: 54 };
     var pw = W - m.l - m.r, ph = H - m.t - m.b;
-    var svg = svgEl("svg", { viewBox: "0 0 " + W + " " + H, role: "img", "aria-label": T("Along-network distance profile", "沿网络距离剖面") }, host);
+    var svg = svgEl("svg", { viewBox: "0 0 " + W + " " + H, role: "img", "aria-label": T("Along-network distance profile", "") }, host);
     var y = function (v) { return m.t + ph - ((v - 0.45) / 0.55) * ph; };
     var x = function (i) { return m.l + (i + 0.5) * (pw / D.scale.decay.length); };
     [0.5, 0.6, 0.7, 0.8, 0.9, 1.0].forEach(function (v) {
-      svgEl("line", { x1: m.l, x2: m.l + pw, y1: y(v), y2: y(v), stroke: "#ece7dc", "stroke-width": 1 }, svg);
-      svgText(svg, m.l - 9, y(v) + 3, v.toFixed(1), { "text-anchor": "end", "font-size": 10, fill: "#8d877d", "font-family": FONT });
+      svgEl("line", { x1: m.l, x2: m.l + pw, y1: y(v), y2: y(v), stroke: "#e7ecf1", "stroke-width": 1 }, svg);
+      svgText(svg, m.l - 9, y(v) + 3, v.toFixed(1), { "text-anchor": "end", "font-size": 10, fill: "#87919b", "font-family": FONT });
     });
-    svgText(svg, 13, m.t + ph / 2, T("median |Δh̃|", "|Δh̃| 中位数"), { "text-anchor": "middle", "font-size": 10.5, fill: "#66615a", "font-family": FONT, transform: "rotate(-90 13 " + (m.t + ph / 2) + ")" });
+    svgText(svg, 13, m.t + ph / 2, T("median |Δh̃|", ""), { "text-anchor": "middle", "font-size": 10.5, fill: "#59646f", "font-family": FONT, transform: "rotate(-90 13 " + (m.t + ph / 2) + ")" });
     D.scale.decay.forEach(function (r, i) {
-      svgText(svg, x(i), H - 26, r.label, { "text-anchor": "middle", "font-size": 9.5, fill: "#191817", "font-family": FONT });
+      svgText(svg, x(i), H - 26, r.label, { "text-anchor": "middle", "font-size": 9.5, fill: "#12161b", "font-family": FONT });
     });
-    svgText(svg, m.l + pw / 2, H - 4, T("along-network distance (m, approximate)", "沿网络距离（m，近似）"), { "text-anchor": "middle", "font-size": 10, fill: "#66615a", "font-family": FONT });
+    svgText(svg, m.l + pw / 2, H - 4, T("along-network distance (m, approximate)", ""), { "text-anchor": "middle", "font-size": 10, fill: "#59646f", "font-family": FONT });
     if (D.scale.baseline != null) {
-      svgEl("line", { x1: m.l, x2: m.l + pw, y1: y(D.scale.baseline), y2: y(D.scale.baseline), stroke: "#9a9488", "stroke-width": 1.2, "stroke-dasharray": "5 4" }, svg);
-      svgText(svg, m.l + pw - 2, y(D.scale.baseline) - 6, T("random pairs ", "随机点对 ") + D.scale.baseline.toFixed(3), { "text-anchor": "end", "font-size": 9.5, fill: "#66615a", "font-family": FONT });
+      svgEl("line", { x1: m.l, x2: m.l + pw, y1: y(D.scale.baseline), y2: y(D.scale.baseline), stroke: "#8f99a3", "stroke-width": 1.2, "stroke-dasharray": "5 4" }, svg);
+      svgText(svg, m.l + pw - 2, y(D.scale.baseline) - 6, T("random pairs ", "") + D.scale.baseline.toFixed(3), { "text-anchor": "end", "font-size": 9.5, fill: "#59646f", "font-family": FONT });
     }
     var path = D.scale.decay.map(function (r, i) { return (i ? "L" : "M") + x(i).toFixed(1) + " " + y(r.value).toFixed(1); }).join(" ");
     svgEl("path", { d: path, fill: "none", stroke: "#2171b5", "stroke-width": 2 }, svg);
@@ -2020,7 +2034,7 @@ window.MIRAGE_DATA = {"meta":{"title":"A source-attribution audit of vision-lang
       svgEl("circle", { cx: x(i), cy: y(r.value), r: 5, fill: "#2171b5" }, svg);
       var hit = svgEl("circle", { cx: x(i), cy: y(r.value), r: 14, fill: "transparent" }, svg);
       hit.addEventListener("mousemove", function (ev) {
-        showTip("<b>" + r.label + " m</b>" + tipRow(T("median |Δh̃|", "|Δh̃| 中位数"), r.value.toFixed(3)) + tipRow(T("point pairs", "点对数"), r.n.toLocaleString("en-US")), ev.clientX, ev.clientY);
+        showTip("<b>" + r.label + " m</b>" + tipRow(T("median |Δh̃|", ""), r.value.toFixed(3)) + tipRow(T("point pairs", ""), r.n.toLocaleString("en-US")), ev.clientX, ev.clientY);
       });
       hit.addEventListener("mouseleave", hideTip);
     });
@@ -2033,7 +2047,7 @@ window.MIRAGE_DATA = {"meta":{"title":"A source-attribution audit of vision-lang
     if (!host) return;
     clearNode(host);
     var W = 940, H = 520;
-    var svg = svgEl("svg", { viewBox: "0 0 " + W + " " + H, role: "img", "aria-label": T("Along-corridor profiles", "沿走廊剖面") }, host);
+    var svg = svgEl("svg", { viewBox: "0 0 " + W + " " + H, role: "img", "aria-label": T("Along-corridor profiles", "") }, host);
     var pw = (W - 90) / 2, ph = (H - 100) / 2;
     var y = function (v) { return (v + 2.5) / 5.0; };
     D.corridor.forEach(function (c, i) {
@@ -2043,23 +2057,23 @@ window.MIRAGE_DATA = {"meta":{"title":"A source-attribution audit of vision-lang
       var xmin = Math.min.apply(null, xs), xmax = Math.max.apply(null, xs);
       var x = function (v) { return ox + ((v - xmin) / Math.max(0.001, xmax - xmin)) * pw; };
       var yy = function (v) { return oy + ph - y(v) * ph; };
-      svgEl("rect", { x: ox, y: oy, width: pw, height: ph, fill: "#fff", stroke: "#e2dccf" }, svg);
+      svgEl("rect", { x: ox, y: oy, width: pw, height: ph, fill: "#fff", stroke: "#dde3e9" }, svg);
       [-2, -1, 0, 1, 2].forEach(function (v) {
-        svgEl("line", { x1: ox, x2: ox + pw, y1: yy(v), y2: yy(v), stroke: v === 0 ? "#b9b2a3" : "#f0ece3", "stroke-width": 1 }, svg);
-        if (col === 0) svgText(svg, ox - 8, yy(v) + 3, v, { "text-anchor": "end", "font-size": 9.5, fill: "#8d877d", "font-family": FONT });
+        svgEl("line", { x1: ox, x2: ox + pw, y1: yy(v), y2: yy(v), stroke: v === 0 ? "#aab4be" : "#ebeff3", "stroke-width": 1 }, svg);
+        if (col === 0) svgText(svg, ox - 8, yy(v) + 3, v, { "text-anchor": "end", "font-size": 9.5, fill: "#87919b", "font-family": FONT });
       });
-      svgText(svg, ox + 2, oy - 8, T(c.label, ZH_CORRIDOR[c.label] || c.label) + "  ·  n = " + c.points.length, { "font-size": 10.5, "font-weight": 600, fill: "#191817", "font-family": FONT });
-      svgText(svg, ox + pw / 2, oy + ph + 15, T("distance along corridor (km)", "沿走廊距离（km）"), { "text-anchor": "middle", "font-size": 9.5, fill: "#66615a", "font-family": FONT });
-      svgText(svg, ox + 2, oy + ph + 15, xmin.toFixed(0), { "text-anchor": "start", "font-size": 9, fill: "#8d877d", "font-family": FONT });
-      svgText(svg, ox + pw - 2, oy + ph + 15, xmax.toFixed(0), { "text-anchor": "end", "font-size": 9, fill: "#8d877d", "font-family": FONT });
+      svgText(svg, ox + 2, oy - 8, T(c.label, ZH_CORRIDOR[c.label] || c.label) + "  ·  n = " + c.points.length, { "font-size": 10.5, "font-weight": 600, fill: "#12161b", "font-family": FONT });
+      svgText(svg, ox + pw / 2, oy + ph + 15, T("distance along corridor (km)", ""), { "text-anchor": "middle", "font-size": 9.5, fill: "#59646f", "font-family": FONT });
+      svgText(svg, ox + 2, oy + ph + 15, xmin.toFixed(0), { "text-anchor": "start", "font-size": 9, fill: "#87919b", "font-family": FONT });
+      svgText(svg, ox + pw - 2, oy + ph + 15, xmax.toFixed(0), { "text-anchor": "end", "font-size": 9, fill: "#87919b", "font-family": FONT });
       var pts = c.points.map(function (p) { return [x(p[0]), yy(p[1])]; });
       var path = pts.map(function (p, j) { return (j ? "L" : "M") + p[0].toFixed(1) + " " + p[1].toFixed(1); }).join(" ");
-      svgEl("path", { d: path, fill: "none", stroke: "#d9d3c7", "stroke-width": 1 }, svg);
+      svgEl("path", { d: path, fill: "none", stroke: "#c9d2da", "stroke-width": 1 }, svg);
       c.points.forEach(function (p, j) {
         svgEl("circle", { cx: pts[j][0], cy: pts[j][1], r: 2.8, fill: p[1] >= 0 ? "#b2182b" : "#2166ac" }, svg);
         var hit = svgEl("circle", { cx: pts[j][0], cy: pts[j][1], r: 7, fill: "transparent" }, svg);
         hit.addEventListener("mousemove", function (ev) {
-          showTip("<b>" + T(c.label, ZH_CORRIDOR[c.label] || c.label) + "</b>" + tipRow(T("distance", "距离"), p[0].toFixed(2) + " km") + tipRow(T("reading", "读数"), sf(p[1], 3)) + tipRow(T("location", "点位"), "#" + p[2]), ev.clientX, ev.clientY);
+          showTip("<b>" + T(c.label, ZH_CORRIDOR[c.label] || c.label) + "</b>" + tipRow(T("distance", ""), p[0].toFixed(2) + " km") + tipRow(T("reading", ""), sf(p[1], 3)) + tipRow(T("location", ""), "#" + p[2]), ev.clientX, ev.clientY);
         });
         hit.addEventListener("mouseleave", hideTip);
       });
@@ -2071,29 +2085,29 @@ window.MIRAGE_DATA = {"meta":{"title":"A source-attribution audit of vision-lang
   var densState = { reading: "r_dres", mode: "bracket" };
   var DENS_COL = { through: "#7f7f7f", nonthrough: "#2171b5" };
   var DENS_LAB = { through: "Through-route", nonthrough: "Non-through" };
-  var DENS_LAB_ZH = { through: "穿行道路", nonthrough: "非穿行道路" };
-  var DENS_ZH = { "Through-route": "穿行道路", "Urban arterial": "城市干道", "County / other": "县道 / 其他" };
+  var DENS_LAB_ZH = { through: "", nonthrough: "" };
+  var DENS_ZH = { "Through-route": "", "Urban arterial": "", "County / other": "" };
   function renderDensity() {
     var host = $("#densityChart");
     clearNode(host);
     var W = 700, H = 360;
     var m = { l: 56, r: 18, t: 20, b: 54 };
     var pw = W - m.l - m.r, ph = H - m.t - m.b;
-    var svg = svgEl("svg", { viewBox: "0 0 " + W + " " + H, role: "img", "aria-label": T("Density gradient", "密度梯度") }, host);
+    var svg = svgEl("svg", { viewBox: "0 0 " + W + " " + H, role: "img", "aria-label": T("Density gradient", "") }, host);
     var lg = $("#densityLegend");
 
     if (densState.mode === "bracket") {
       var y = function (v) { return m.t + ph - ((v + 0.85) / 1.7) * ph; };
       [-0.8, -0.4, 0, 0.4, 0.8].forEach(function (v) {
-        svgEl("line", { x1: m.l, x2: m.l + pw, y1: y(v), y2: y(v), stroke: v === 0 ? "#b9b2a3" : "#ece7dc", "stroke-width": 1 }, svg);
-        svgText(svg, m.l - 9, y(v) + 3, v.toFixed(1), { "text-anchor": "end", "font-size": 10, fill: "#8d877d", "font-family": FONT });
+        svgEl("line", { x1: m.l, x2: m.l + pw, y1: y(v), y2: y(v), stroke: v === 0 ? "#aab4be" : "#e7ecf1", "stroke-width": 1 }, svg);
+        svgText(svg, m.l - 9, y(v) + 3, v.toFixed(1), { "text-anchor": "end", "font-size": 10, fill: "#87919b", "font-family": FONT });
       });
-      svgText(svg, 13, m.t + ph / 2, T("median reading (95% CI)", "读数中位数（95% 置信区间）"), { "text-anchor": "middle", "font-size": 10.5, fill: "#66615a", "font-family": FONT, transform: "rotate(-90 13 " + (m.t + ph / 2) + ")" });
+      svgText(svg, 13, m.t + ph / 2, T("median reading (95% CI)", ""), { "text-anchor": "middle", "font-size": 10.5, fill: "#59646f", "font-family": FONT, transform: "rotate(-90 13 " + (m.t + ph / 2) + ")" });
       var bands = D.density.bins.length, bw = pw / bands;
       D.density.bins.forEach(function (b, i) {
-        svgText(svg, m.l + bw * (i + 0.5), H - 32, b, { "text-anchor": "middle", "font-size": 10.5, fill: "#191817", "font-family": FONT });
+        svgText(svg, m.l + bw * (i + 0.5), H - 32, b, { "text-anchor": "middle", "font-size": 10.5, fill: "#12161b", "font-family": FONT });
       });
-      svgText(svg, m.l + pw / 2, H - 4, T("built-up density (building-footprint share within 50 m)", "建成密度（50 m 内建筑足迹占比）"), { "text-anchor": "middle", "font-size": 10.5, fill: "#66615a", "font-family": FONT });
+      svgText(svg, m.l + pw / 2, H - 4, T("built-up density (building-footprint share within 50 m)", ""), { "text-anchor": "middle", "font-size": 10.5, fill: "#59646f", "font-family": FONT });
       var offs = [-0.23, 0, 0.23];
       D.density.groups.forEach(function (g, gi) {
         var arr = D.density.series[densState.reading][g.key];
@@ -2106,7 +2120,7 @@ window.MIRAGE_DATA = {"meta":{"title":"A source-attribution audit of vision-lang
           svgEl("circle", { cx: cx, cy: y(r.median), r: 4.2, fill: "#fff", stroke: g.color, "stroke-width": 1.8 }, svg);
           var hit = svgEl("circle", { cx: cx, cy: y(r.median), r: 12, fill: "transparent" }, svg);
           hit.addEventListener("mousemove", function (ev) {
-            showTip("<b>" + T(g.label, DENS_ZH[g.label] || g.label) + "</b>" + tipRow(T("Density bin", "密度分档"), D.density.bins[bi]) + tipRow(T("Median", "中位数"), sf(r.median, 3)) + tipRow(T("95% CI", "95% 置信区间"), sf(r.lo, 3) + " – " + sf(r.hi, 3)) + tipRow("n", r.n), ev.clientX, ev.clientY);
+            showTip("<b>" + T(g.label, DENS_ZH[g.label] || g.label) + "</b>" + tipRow(T("Density bin", ""), D.density.bins[bi]) + tipRow(T("Median", ""), sf(r.median, 3)) + tipRow(T("95% CI", ""), sf(r.lo, 3) + " – " + sf(r.hi, 3)) + tipRow("n", r.n), ev.clientX, ev.clientY);
           });
           hit.addEventListener("mouseleave", hideTip);
         });
@@ -2115,19 +2129,19 @@ window.MIRAGE_DATA = {"meta":{"title":"A source-attribution audit of vision-lang
         return '<span class="item"><span class="swatch dot" style="background:' + g.color + '"></span>' + T(g.label, DENS_ZH[g.label] || g.label) + "</span>";
       }).join("");
       $("#densNote").textContent = T("Median reading with 95% bootstrapped confidence interval by building-footprint density bracket within 50 m. n = 4,785. ",
-        "按 50 m 内建筑足迹密度分档的读数中位数与 95% bootstrap 置信区间。n = 4,785。") +
-        (densState.reading === "r_dres" ? T("Reading: district-mean-centred.", "读数：区均值中心化。") : T("Reading: total (uncentred).", "读数：总读数（未中心化）。"));
+        "") +
+        (densState.reading === "r_dres" ? T("Reading: district-mean-centred.", "") : T("Reading: total (uncentred).", ""));
     } else {
       var x = function (v) { return m.l + (v / 0.45) * pw; };
       var y2 = function (v) { return m.t + ph - ((v + 0.8) / 1.5) * ph; };
       [-0.8, -0.4, 0, 0.4].forEach(function (v) {
-        svgEl("line", { x1: m.l, x2: m.l + pw, y1: y2(v), y2: y2(v), stroke: v === 0 ? "#b9b2a3" : "#ece7dc", "stroke-width": 1 }, svg);
-        svgText(svg, m.l - 9, y2(v) + 3, v.toFixed(1), { "text-anchor": "end", "font-size": 10, fill: "#8d877d", "font-family": FONT });
+        svgEl("line", { x1: m.l, x2: m.l + pw, y1: y2(v), y2: y2(v), stroke: v === 0 ? "#aab4be" : "#e7ecf1", "stroke-width": 1 }, svg);
+        svgText(svg, m.l - 9, y2(v) + 3, v.toFixed(1), { "text-anchor": "end", "font-size": 10, fill: "#87919b", "font-family": FONT });
       });
-      svgText(svg, 13, m.t + ph / 2, T("median reading", "读数中位数"), { "text-anchor": "middle", "font-size": 10.5, fill: "#66615a", "font-family": FONT, transform: "rotate(-90 13 " + (m.t + ph / 2) + ")" });
-      svgText(svg, m.l + pw / 2, H - 4, T("built-up density (median within equal-frequency bins)", "建成密度（等频分档中的中位数）"), { "text-anchor": "middle", "font-size": 10.5, fill: "#66615a", "font-family": FONT });
+      svgText(svg, 13, m.t + ph / 2, T("median reading", ""), { "text-anchor": "middle", "font-size": 10.5, fill: "#59646f", "font-family": FONT, transform: "rotate(-90 13 " + (m.t + ph / 2) + ")" });
+      svgText(svg, m.l + pw / 2, H - 4, T("built-up density (median within equal-frequency bins)", ""), { "text-anchor": "middle", "font-size": 10.5, fill: "#59646f", "font-family": FONT });
       [0, 0.1, 0.2, 0.3, 0.4].forEach(function (v) {
-        svgText(svg, x(v), H - 30, v.toFixed(1), { "text-anchor": "middle", "font-size": 10, fill: "#8d877d", "font-family": FONT });
+        svgText(svg, x(v), H - 30, v.toFixed(1), { "text-anchor": "middle", "font-size": 10, fill: "#87919b", "font-family": FONT });
       });
       ["through", "nonthrough"].forEach(function (key) {
         var arr = D.density.continuous[densState.reading][key];
@@ -2137,7 +2151,7 @@ window.MIRAGE_DATA = {"meta":{"title":"A source-attribution audit of vision-lang
           svgEl("circle", { cx: pts[i][0], cy: pts[i][1], r: 3.1, fill: DENS_COL[key] }, svg);
           var hit = svgEl("circle", { cx: pts[i][0], cy: pts[i][1], r: 9, fill: "transparent" }, svg);
           hit.addEventListener("mousemove", function (ev) {
-            showTip("<b>" + T(DENS_LAB[key], DENS_LAB_ZH[key]) + "</b>" + tipRow(T("density", "密度"), r.x.toFixed(3)) + tipRow(T("median", "中位数"), sf(r.median, 3)) + tipRow("n", r.n), ev.clientX, ev.clientY);
+            showTip("<b>" + T(DENS_LAB[key], DENS_LAB_ZH[key]) + "</b>" + tipRow(T("density", ""), r.x.toFixed(3)) + tipRow(T("median", ""), sf(r.median, 3)) + tipRow("n", r.n), ev.clientX, ev.clientY);
           });
           hit.addEventListener("mouseleave", hideTip);
         });
@@ -2146,8 +2160,8 @@ window.MIRAGE_DATA = {"meta":{"title":"A source-attribution audit of vision-lang
         return '<span class="item"><span class="swatch dot" style="background:' + DENS_COL[key] + '"></span>' + T(DENS_LAB[key], DENS_LAB_ZH[key]) + "</span>";
       }).join("");
       $("#densNote").textContent = T("Median reading across equal-frequency built-up density bins. n = 4,785. ",
-        "按等频建成密度分档的读数中位数。n = 4,785。") +
-        (densState.reading === "r_dres" ? T("Reading: district-mean-centred.", "读数：区均值中心化。") : T("Reading: total (uncentred).", "读数：总读数（未中心化）。"));
+        "") +
+        (densState.reading === "r_dres" ? T("Reading: district-mean-centred.", "") : T("Reading: total (uncentred).", ""));
     }
   }
   $$("#densReading button").forEach(function (b) {
@@ -2170,8 +2184,8 @@ window.MIRAGE_DATA = {"meta":{"title":"A source-attribution audit of vision-lang
   var distState = { term: "poi" };
   var TERMS = {
     poi: { label: "log POI", zh: "log POI", csv: "log POI" },
-    density: { label: "built density", zh: "建筑密度", csv: "built density" },
-    through: { label: "through vs local", zh: "穿行 vs 地方", csv: "through vs local" }
+    density: { label: "built density", zh: "", csv: "built density" },
+    through: { label: "through vs local", zh: "", csv: "through vs local" }
   };
   var DIST_ORDER = ["Longhua", "Luohu", "Bao'an", "Longgang", "Pingshan", "Guangming", "Nanshan", "Futian", "Yantian"];
 
@@ -2181,7 +2195,7 @@ window.MIRAGE_DATA = {"meta":{"title":"A source-attribution audit of vision-lang
     var W = 860, H = 430;
     var m = { l: 108, r: 72, t: 44, b: 46 };
     var pw = W - m.l - m.r, ph = H - m.t - m.b;
-    var svg = svgEl("svg", { viewBox: "0 0 " + W + " " + H, role: "img", "aria-label": T("District-level estimates", "区级估计") }, host);
+    var svg = svgEl("svg", { viewBox: "0 0 " + W + " " + H, role: "img", "aria-label": T("District-level estimates", "") }, host);
     var rows = DIST_ORDER.map(function (n) { return D.district.districts.filter(function (d) { return d.name === n; })[0]; });
     var rowH = ph / rows.length;
 
@@ -2195,22 +2209,22 @@ window.MIRAGE_DATA = {"meta":{"title":"A source-attribution audit of vision-lang
       var x = function (v) { return m.l + (v - lo) / (hi - lo) * pw; };
       var h = D.district.homogeneity[TERMS[t].csv];
       svgText(svg, m.l, 18, T(TERMS[t].label, TERMS[t].zh) + "  ·  Cochran Q = " + h.Q.toFixed(2) + ", df = " + h.df + ", p = " + h.p.toFixed(3) + ", I² = " + h.I2.toFixed(1) + "%", {
-        "font-size": 11, fill: "#66615a", "font-family": FONT
+        "font-size": 11, fill: "#59646f", "font-family": FONT
       });
-      svgEl("line", { x1: x(0), x2: x(0), y1: m.t - 6, y2: m.t + ph, stroke: "#8d877d", "stroke-width": 1 }, svg);
-      svgText(svg, x(0), m.t + ph + 20, T("coefficient", "系数"), { "text-anchor": "middle", "font-size": 10.5, fill: "#66615a", "font-family": FONT });
+      svgEl("line", { x1: x(0), x2: x(0), y1: m.t - 6, y2: m.t + ph, stroke: "#87919b", "stroke-width": 1 }, svg);
+      svgText(svg, x(0), m.t + ph + 20, T("coefficient", ""), { "text-anchor": "middle", "font-size": 10.5, fill: "#59646f", "font-family": FONT });
       rows.forEach(function (d, i) {
         var cy = m.t + rowH * (i + 0.5);
         var sel = mapState.district === d.name;
-        if (sel) svgEl("rect", { x: 0, y: cy - rowH / 2, width: W, height: rowH, fill: "#f3eee4" }, svg);
-        svgText(svg, m.l - 12, cy + 4, distLabel(d.name) + (d.n[t] < 200 ? " *" : ""), { "text-anchor": "end", "font-size": 11.5, fill: sel ? "#8c510a" : "#191817", "font-family": FONT });
+        if (sel) svgEl("rect", { x: 0, y: cy - rowH / 2, width: W, height: rowH, fill: "#e8eff5" }, svg);
+        svgText(svg, m.l - 12, cy + 4, distLabel(d.name) + (d.n[t] < 200 ? " *" : ""), { "text-anchor": "end", "font-size": 11.5, fill: sel ? "#8c510a" : "#12161b", "font-family": FONT });
         svgEl("line", { x1: x(d.ci[t][0]), x2: x(d.ci[t][1]), y1: cy, y2: cy, stroke: "#4a4a4a", "stroke-width": 1.1 }, svg);
-        svgEl("circle", { cx: x(d.beta[t]), cy: cy, r: 4.3, fill: "#191817" }, svg);
-        svgText(svg, W - m.r + 8, cy + 4, d.n[t], { "font-size": 10.5, fill: "#66615a", "font-family": FONT });
+        svgEl("circle", { cx: x(d.beta[t]), cy: cy, r: 4.3, fill: "#12161b" }, svg);
+        svgText(svg, W - m.r + 8, cy + 4, d.n[t], { "font-size": 10.5, fill: "#59646f", "font-family": FONT });
         var hit = svgEl("rect", { x: m.l - 100, y: cy - rowH / 2, width: pw + 170, height: rowH, fill: "transparent" }, svg);
         hit.style.cursor = "pointer";
         hit.addEventListener("mousemove", function (ev) {
-          showTip("<b>" + distLabel(d.name) + " · " + T(TERMS[t].label, TERMS[t].zh) + "</b>" + tipRow("β", sf(d.beta[t], 3)) + tipRow(T("95% CI", "95% 置信区间"), sf(d.ci[t][0], 3) + " – " + sf(d.ci[t][1], 3)) + tipRow("n", d.n[t]) + tipRow(T("Click", "点击"), T("filter map to district", "筛选该区")), ev.clientX, ev.clientY);
+          showTip("<b>" + distLabel(d.name) + " · " + T(TERMS[t].label, TERMS[t].zh) + "</b>" + tipRow("β", sf(d.beta[t], 3)) + tipRow(T("95% CI", ""), sf(d.ci[t][0], 3) + " – " + sf(d.ci[t][1], 3)) + tipRow("n", d.n[t]) + tipRow(T("Click", ""), T("filter map to district", "")), ev.clientX, ev.clientY);
         });
         hit.addEventListener("mouseleave", hideTip);
         hit.addEventListener("click", function () { setDistrict(mapState.district === d.name ? "" : d.name); });
@@ -2218,24 +2232,24 @@ window.MIRAGE_DATA = {"meta":{"title":"A source-attribution audit of vision-lang
     } else {
       var xlo = -0.48, xhi = 0.46;
       var xm = function (v) { return m.l + (v - xlo) / (xhi - xlo) * pw; };
-      svgText(svg, m.l, 18, T("within-class network Moran · pooled ", "类内网络 Moran · 合并 ") + sf(D.district.pooledMoran, 3), { "font-size": 11, fill: "#66615a", "font-family": FONT });
-      svgEl("line", { x1: xm(0), x2: xm(0), y1: m.t - 6, y2: m.t + ph, stroke: "#8d877d", "stroke-width": 1 }, svg);
+      svgText(svg, m.l, 18, T("within-class network Moran · pooled ", "") + sf(D.district.pooledMoran, 3), { "font-size": 11, fill: "#59646f", "font-family": FONT });
+      svgEl("line", { x1: xm(0), x2: xm(0), y1: m.t - 6, y2: m.t + ph, stroke: "#87919b", "stroke-width": 1 }, svg);
       svgEl("line", { x1: xm(D.district.pooledMoran), x2: xm(D.district.pooledMoran), y1: m.t - 6, y2: m.t + ph, stroke: "#8c510a", "stroke-width": 1, "stroke-dasharray": "4 4" }, svg);
-      svgText(svg, xm(D.district.pooledMoran), m.t - 12, T("pooled +0.090", "合并 +0.090"), { "text-anchor": "middle", "font-size": 9.5, fill: "#8c510a", "font-family": FONT });
-      svgText(svg, (m.l + m.l + pw) / 2, m.t + ph + 20, "Moran's I", { "text-anchor": "middle", "font-size": 10.5, fill: "#66615a", "font-family": FONT });
+      svgText(svg, xm(D.district.pooledMoran), m.t - 12, T("pooled +0.090", ""), { "text-anchor": "middle", "font-size": 9.5, fill: "#8c510a", "font-family": FONT });
+      svgText(svg, (m.l + m.l + pw) / 2, m.t + ph + 20, "Moran's I", { "text-anchor": "middle", "font-size": 10.5, fill: "#59646f", "font-family": FONT });
       rows.forEach(function (d, i) {
         var cy = m.t + rowH * (i + 0.5);
         var mo = d.moran;
         var sel = mapState.district === d.name;
-        if (sel) svgEl("rect", { x: 0, y: cy - rowH / 2, width: W, height: rowH, fill: "#f3eee4" }, svg);
-        svgEl("rect", { x: xm(mo.nullMean - 2 * mo.nullSd), y: cy - 4, width: xm(mo.nullMean + 2 * mo.nullSd) - xm(mo.nullMean - 2 * mo.nullSd), height: 8, fill: "#dedbd3" }, svg);
-        svgText(svg, m.l - 12, cy + 4, distLabel(d.name) + (mo.n < 200 ? " *" : ""), { "text-anchor": "end", "font-size": 11.5, fill: sel ? "#8c510a" : "#191817", "font-family": FONT });
+        if (sel) svgEl("rect", { x: 0, y: cy - rowH / 2, width: W, height: rowH, fill: "#e8eff5" }, svg);
+        svgEl("rect", { x: xm(mo.nullMean - 2 * mo.nullSd), y: cy - 4, width: xm(mo.nullMean + 2 * mo.nullSd) - xm(mo.nullMean - 2 * mo.nullSd), height: 8, fill: "#dbe1e7" }, svg);
+        svgText(svg, m.l - 12, cy + 4, distLabel(d.name) + (mo.n < 200 ? " *" : ""), { "text-anchor": "end", "font-size": 11.5, fill: sel ? "#8c510a" : "#12161b", "font-family": FONT });
         svgEl("circle", { cx: xm(mo.I), cy: cy, r: 4.6, fill: mo.I >= 0 ? "#b2182b" : "#2166ac" }, svg);
-        svgText(svg, W - m.r + 8, cy + 4, mo.n, { "font-size": 10.5, fill: "#66615a", "font-family": FONT });
+        svgText(svg, W - m.r + 8, cy + 4, mo.n, { "font-size": 10.5, fill: "#59646f", "font-family": FONT });
         var hit = svgEl("rect", { x: m.l - 100, y: cy - rowH / 2, width: pw + 170, height: rowH, fill: "transparent" }, svg);
         hit.style.cursor = "pointer";
         hit.addEventListener("mousemove", function (ev) {
-          showTip("<b>" + distLabel(d.name) + " · " + T("within-class network Moran", "类内网络 Moran") + "</b>" + tipRow("I", sf(mo.I, 3)) + tipRow(T("null band (±2 SD)", "零场带（±2 SD）"), sf(mo.nullMean - 2 * mo.nullSd, 3) + " – " + sf(mo.nullMean + 2 * mo.nullSd, 3)) + tipRow("z", sf(mo.z, 2)) + tipRow(T("pseudo p", "伪 p"), mo.p.toFixed(3)) + tipRow("n / S0", mo.n + " / " + mo.s0.toFixed(0)), ev.clientX, ev.clientY);
+          showTip("<b>" + distLabel(d.name) + " · " + T("within-class network Moran", "") + "</b>" + tipRow("I", sf(mo.I, 3)) + tipRow(T("null band (±2 SD)", ""), sf(mo.nullMean - 2 * mo.nullSd, 3) + " – " + sf(mo.nullMean + 2 * mo.nullSd, 3)) + tipRow("z", sf(mo.z, 2)) + tipRow(T("pseudo p", ""), mo.p.toFixed(3)) + tipRow("n / S0", mo.n + " / " + mo.s0.toFixed(0)), ev.clientX, ev.clientY);
         });
         hit.addEventListener("mouseleave", hideTip);
         hit.addEventListener("click", function () { setDistrict(mapState.district === d.name ? "" : d.name); });
@@ -2243,9 +2257,9 @@ window.MIRAGE_DATA = {"meta":{"title":"A source-attribution audit of vision-lang
     }
     var note = distState.term === "moran"
       ? T("District-centred within-class field; grey band = matched permutation null ±2 SD. * n < 200. Click a row to filter the map.",
-        "区中心化的类内场；灰色带为匹配置换零场 ±2 SD。* n < 200。点击某一行可筛选地图。")
+        "")
       : T("Standardised coefficients with 95% confidence intervals. * n < 200. Click a row to filter the map.",
-        "标准化系数与 95% 置信区间。* n < 200。点击某一行可筛选地图。");
+        "");
     $("#distNote").textContent = note;
   }
   window.__renderDistrict = renderDistrict;
@@ -2283,33 +2297,33 @@ window.MIRAGE_DATA = {"meta":{"title":"A source-attribution audit of vision-lang
     var W = 600, H = 270;
     var m = { l: 148, r: 54, t: 26, b: 46 };
     var pw = W - m.l - m.r, ph = H - m.t - m.b;
-    var svg = svgEl("svg", { viewBox: "0 0 " + W + " " + H, role: "img", "aria-label": T("Reference disagreement by residual quartile", "按残差分位数的参考不一致率") }, host);
+    var svg = svgEl("svg", { viewBox: "0 0 " + W + " " + H, role: "img", "aria-label": T("Reference disagreement by residual quartile", "") }, host);
     var maxV = 0.62;
     var x = function (v) { return m.l + (v / maxV) * pw; };
     [0, 0.2, 0.4, 0.6].forEach(function (v) {
-      svgEl("line", { x1: x(v), x2: x(v), y1: m.t - 6, y2: m.t + ph, stroke: "#ece7dc", "stroke-width": 1 }, svg);
-      svgText(svg, x(v), m.t + ph + 20, (v * 100).toFixed(0), { "text-anchor": "middle", "font-size": 10, fill: "#8d877d", "font-family": FONT });
+      svgEl("line", { x1: x(v), x2: x(v), y1: m.t - 6, y2: m.t + ph, stroke: "#e7ecf1", "stroke-width": 1 }, svg);
+      svgText(svg, x(v), m.t + ph + 20, (v * 100).toFixed(0), { "text-anchor": "middle", "font-size": 10, fill: "#87919b", "font-family": FONT });
     });
-    svgText(svg, m.l + pw / 2, H - 4, T("reference disagreement (%)", "参考不一致率（%）"), { "text-anchor": "middle", "font-size": 10.5, fill: "#66615a", "font-family": FONT });
+    svgText(svg, m.l + pw / 2, H - 4, T("reference disagreement (%)", ""), { "text-anchor": "middle", "font-size": 10.5, fill: "#59646f", "font-family": FONT });
     var rows = [
-      { label: T("Low-residual quartile", "低残差分位"), v: c.low, col: "#c3c8cc" },
-      { label: T("High-residual quartile", "高残差分位"), v: c.high, col: "#b2182b" }
+      { label: T("Low-residual quartile", ""), v: c.low, col: "#c3c8cc" },
+      { label: T("High-residual quartile", ""), v: c.high, col: "#b2182b" }
     ];
     rows.forEach(function (r, i) {
       var cy = m.t + ph * (i === 0 ? 0.32 : 0.72);
-      svgText(svg, m.l - 12, cy + 4, r.label, { "text-anchor": "end", "font-size": 11, fill: "#191817", "font-family": FONT });
+      svgText(svg, m.l - 12, cy + 4, r.label, { "text-anchor": "end", "font-size": 11, fill: "#12161b", "font-family": FONT });
       svgEl("rect", { x: m.l, y: cy - 14, width: x(r.v) - m.l, height: 28, fill: r.col }, svg);
-      svgText(svg, x(r.v) + 7, cy + 4, (r.v * 100).toFixed(1), { "font-size": 11, "font-weight": 600, fill: "#191817", "font-family": FONT });
+      svgText(svg, x(r.v) + 7, cy + 4, (r.v * 100).toFixed(1), { "font-size": 11, "font-weight": 600, fill: "#12161b", "font-family": FONT });
       var hit = svgEl("rect", { x: m.l, y: cy - 18, width: pw, height: 36, fill: "transparent" }, svg);
       hit.addEventListener("mousemove", function (ev) {
-        showTip("<b>" + r.label + "</b>" + tipRow(T("Disagreement", "不一致率"), pct(r.v)) + tipRow("n", c.n), ev.clientX, ev.clientY);
+        showTip("<b>" + r.label + "</b>" + tipRow(T("Disagreement", ""), pct(r.v)) + tipRow("n", c.n), ev.clientX, ev.clientY);
       });
       hit.addEventListener("mouseleave", hideTip);
     });
     var diff = (c.high - c.low) * 100;
-    svgText(svg, W - 10, 18, (diff >= 0 ? "+" : MINUS) + Math.abs(diff).toFixed(1) + T(" pp  (high " + MINUS + " low)", " 个百分点（高 " + MINUS + " 低）"), { "text-anchor": "end", "font-size": 11, "font-weight": 600, fill: diff >= 0 ? "#b2182b" : "#2166ac", "font-family": FONT });
+    svgText(svg, W - 10, 18, (diff >= 0 ? "+" : MINUS) + Math.abs(diff).toFixed(1) + T(" pp  (high " + MINUS + " low)", "" + MINUS + ""), { "text-anchor": "end", "font-size": 11, "font-weight": 600, fill: diff >= 0 ? "#b2182b" : "#2166ac", "font-family": FONT });
     $("#auditNote").innerHTML = LANG === "zh"
-      ? "n = " + c.n + "。低与高分别为该类内完全残差化读数的下四分位与上四分位。不一致率为有图类别与 EULUC-Globe 参考类不同的点位比例。Fisher 精确检验 <em>p</em> = " + escapeHtml(c.p) + "。"
+      ? "n = " + c.n + "" + escapeHtml(c.p) + "。"
       : "n = " + c.n + ". Low and high are the bottom and top quartiles of the fully residualised reading within the class. Disagreement is the share of points whose with-image label differs from the EULUC-Globe reference class. Fisher exact <em>p</em> = " + escapeHtml(c.p) + ".";
     var show = c.code === "101";
     $("#fig9Panels").hidden = !show;
@@ -2321,49 +2335,49 @@ window.MIRAGE_DATA = {"meta":{"title":"A source-attribution audit of vision-lang
     var h1 = $("#fig9a"); clearNode(h1);
     var W = 520, H = 250, m = { l: 132, r: 50, t: 22, b: 40 };
     var pw = W - m.l - m.r, ph = H - m.t - m.b;
-    var s1 = svgEl("svg", { viewBox: "0 0 " + W + " " + H, role: "img", "aria-label": T("Residential 101 disagreement", "居住 101 参考不一致") }, h1);
+    var s1 = svgEl("svg", { viewBox: "0 0 " + W + " " + H, role: "img", "aria-label": T("Residential 101 disagreement", "") }, h1);
     var x1 = function (v) { return m.l + (v / 60) * pw; };
     [0, 20, 40, 60].forEach(function (v) {
-      svgEl("line", { x1: x1(v), x2: x1(v), y1: m.t - 4, y2: m.t + ph, stroke: "#ece7dc", "stroke-width": 1 }, s1);
-      svgText(s1, x1(v), m.t + ph + 17, v, { "text-anchor": "middle", "font-size": 10, fill: "#8d877d", "font-family": FONT });
+      svgEl("line", { x1: x1(v), x2: x1(v), y1: m.t - 4, y2: m.t + ph, stroke: "#e7ecf1", "stroke-width": 1 }, s1);
+      svgText(s1, x1(v), m.t + ph + 17, v, { "text-anchor": "middle", "font-size": 10, fill: "#87919b", "font-family": FONT });
     });
     var rows = [
-      { label: T("High-residual quartile", "高残差分位"), v: f.residential.high, fill: "#b2182b" },
-      { label: T("Full class", "全类"), v: f.residential.full, fill: "#c3c8cc" },
-      { label: T("Post-stratified", "后分层"), v: f.residential.poststrat, fill: "#fff", stroke: "#4a4f55" }
+      { label: T("High-residual quartile", ""), v: f.residential.high, fill: "#b2182b" },
+      { label: T("Full class", ""), v: f.residential.full, fill: "#c3c8cc" },
+      { label: T("Post-stratified", ""), v: f.residential.poststrat, fill: "#fff", stroke: "#4a4f55" }
     ];
     rows.forEach(function (r, i) {
       var cy = m.t + ph * (0.2 + i * 0.3);
-      svgText(s1, m.l - 10, cy + 4, r.label, { "text-anchor": "end", "font-size": 11, fill: "#191817", "font-family": FONT });
+      svgText(s1, m.l - 10, cy + 4, r.label, { "text-anchor": "end", "font-size": 11, fill: "#12161b", "font-family": FONT });
       svgEl("rect", { x: m.l, y: cy - 12, width: x1(r.v) - m.l, height: 24, fill: r.fill, stroke: r.stroke || "none" }, s1);
-      svgText(s1, x1(r.v) + 6, cy + 4, r.v.toFixed(1), { "font-size": 11, "font-weight": 600, fill: "#191817", "font-family": FONT });
+      svgText(s1, x1(r.v) + 6, cy + 4, r.v.toFixed(1), { "font-size": 11, "font-weight": 600, fill: "#12161b", "font-family": FONT });
     });
-    svgText(s1, m.l + pw / 2, H - 4, T("reference disagreement (%)", "参考不一致率（%）"), { "text-anchor": "middle", "font-size": 10, fill: "#66615a", "font-family": FONT });
+    svgText(s1, m.l + pw / 2, H - 4, T("reference disagreement (%)", ""), { "text-anchor": "middle", "font-size": 10, fill: "#59646f", "font-family": FONT });
 
     // (b) composition, high vs full
     var h2 = $("#fig9b"); clearNode(h2);
     var W2 = 520, H2 = 300, m2 = { l: 168, r: 48, t: 26, b: 40 };
     var pw2 = W2 - m2.l - m2.r, ph2 = H2 - m2.t - m2.b;
-    var s2 = svgEl("svg", { viewBox: "0 0 " + W2 + " " + H2, role: "img", "aria-label": T("Reference class composition", "参考类组成") }, h2);
+    var s2 = svgEl("svg", { viewBox: "0 0 " + W2 + " " + H2, role: "img", "aria-label": T("Reference class composition", "") }, h2);
     var x2 = function (v) { return m2.l + (v / 70) * pw2; };
     [0, 20, 40, 60].forEach(function (v) {
-      svgEl("line", { x1: x2(v), x2: x2(v), y1: m2.t - 4, y2: m2.t + ph2, stroke: "#ece7dc", "stroke-width": 1 }, s2);
-      svgText(s2, x2(v), m2.t + ph2 + 17, v, { "text-anchor": "middle", "font-size": 10, fill: "#8d877d", "font-family": FONT });
+      svgEl("line", { x1: x2(v), x2: x2(v), y1: m2.t - 4, y2: m2.t + ph2, stroke: "#e7ecf1", "stroke-width": 1 }, s2);
+      svgText(s2, x2(v), m2.t + ph2 + 17, v, { "text-anchor": "middle", "font-size": 10, fill: "#87919b", "font-family": FONT });
     });
     var rowH = ph2 / f.composition.length;
     f.composition.forEach(function (r, i) {
       var cy = m2.t + rowH * (i + 0.5);
-      svgText(s2, m2.l - 10, cy + 3, classLabel(r.label.split(" ")[0], r.label), { "text-anchor": "end", "font-size": 10, fill: "#191817", "font-family": FONT });
+      svgText(s2, m2.l - 10, cy + 3, classLabel(r.label.split(" ")[0], r.label), { "text-anchor": "end", "font-size": 10, fill: "#12161b", "font-family": FONT });
       svgEl("rect", { x: m2.l, y: cy - 10, width: x2(r.high) - m2.l, height: 9, fill: "#b2182b" }, s2);
       svgEl("rect", { x: m2.l, y: cy + 1, width: x2(r.full) - m2.l, height: 9, fill: "#c3c8cc" }, s2);
-      svgText(s2, x2(r.high) + 4, cy - 2, r.high.toFixed(1), { "font-size": 9, fill: "#191817", "font-family": FONT });
-      svgText(s2, x2(r.full) + 4, cy + 9, r.full.toFixed(1), { "font-size": 9, fill: "#66615a", "font-family": FONT });
+      svgText(s2, x2(r.high) + 4, cy - 2, r.high.toFixed(1), { "font-size": 9, fill: "#12161b", "font-family": FONT });
+      svgText(s2, x2(r.full) + 4, cy + 9, r.full.toFixed(1), { "font-size": 9, fill: "#59646f", "font-family": FONT });
     });
     svgEl("rect", { x: W2 - 150, y: 8, width: 10, height: 8, fill: "#b2182b" }, s2);
-    svgText(s2, W2 - 136, 16, T("High-residual", "高残差"), { "font-size": 9.5, fill: "#66615a", "font-family": FONT });
+    svgText(s2, W2 - 136, 16, T("High-residual", ""), { "font-size": 9.5, fill: "#59646f", "font-family": FONT });
     svgEl("rect", { x: W2 - 62, y: 8, width: 10, height: 8, fill: "#c3c8cc" }, s2);
-    svgText(s2, W2 - 48, 16, T("Full class", "全类"), { "font-size": 9.5, fill: "#66615a", "font-family": FONT });
-    svgText(s2, m2.l + pw2 / 2, H2 - 4, T("reference composition (%)", "参考类组成（%）"), { "text-anchor": "middle", "font-size": 10, fill: "#66615a", "font-family": FONT });
+    svgText(s2, W2 - 48, 16, T("Full class", ""), { "font-size": 9.5, fill: "#59646f", "font-family": FONT });
+    svgText(s2, m2.l + pw2 / 2, H2 - 4, T("reference composition (%)", ""), { "text-anchor": "middle", "font-size": 10, fill: "#59646f", "font-family": FONT });
   }
   auditSel.addEventListener("change", renderAudit);
   renderAudit();
@@ -2378,7 +2392,7 @@ window.MIRAGE_DATA = {"meta":{"title":"A source-attribution audit of vision-lang
       var item = document.createElement("div");
       item.className = "supp-item";
       var cap = LANG === "zh" ? (ZH_SUPP[key] || D.meta.suppcaps[key] || "") : (D.meta.suppcaps[key] || "");
-      item.innerHTML = '<span class="sid">' + T("Figure ", "图 ") + id + "</span>" + cap;
+      item.innerHTML = '<span class="sid">' + T("Figure ", "") + id + "</span>" + cap;
       suppList.appendChild(item);
     });
   }
@@ -2389,7 +2403,7 @@ window.MIRAGE_DATA = {"meta":{"title":"A source-attribution audit of vision-lang
   var TABLE_NODES = [];
   function retitleTables() {
     TABLE_NODES.forEach(function (t) {
-      t.sum.textContent = T("Table ", "表 ") + t.sec.id + " — " + T(t.sec.title, TABLE_ZH[t.sec.id] || t.sec.title);
+      t.sum.textContent = T("Table ", "") + t.sec.id + " — " + T(t.sec.title, TABLE_ZH[t.sec.id] || t.sec.title);
     });
   }
   D.tables.forEach(function (sec) {
@@ -2507,13 +2521,7 @@ window.MIRAGE_DATA = {"meta":{"title":"A source-attribution audit of vision-lang
     b.addEventListener("click", function () { setLang(b.getAttribute("data-lang")); });
   });
 
-  (function initLang() {
-    var q = new URLSearchParams(window.location.search).get("lang");
-    var stored = null;
-    try { stored = localStorage.getItem("mirage-lang"); } catch (e) {}
-    if (q === "zh" || q === "en") setLang(q);
-    else if (stored === "zh") setLang("zh");
-  })();
+  
 
   /* ------------------------------------------------------------ first paint */
   window.addEventListener("load", function () {
