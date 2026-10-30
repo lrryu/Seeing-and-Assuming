@@ -249,13 +249,6 @@ sup,sub{line-height:0}
 .tooltip .trow{display:flex;justify-content:space-between;gap:14px;white-space:nowrap}
 .tooltip .trow span:last-child{font-variant-numeric:tabular-nums}
 
-/* supplementary */
-.supp-wall{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin:30px 0 54px}
-.supp-card{background:#fff;border:1px solid var(--rule);padding:10px;cursor:pointer;transition:border-color .15s ease,transform .15s ease}
-.supp-card:hover{border-color:var(--rule-2);transform:translateY(-2px)}
-.supp-card img{width:100%;height:150px;object-fit:contain;background:#fafbfc;border:1px solid #eaeef2}
-.supp-card .sid{font-family:var(--sans);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-top:8px}
-.supp-card .stxt{font-family:var(--sans);font-size:10.5px;line-height:1.45;color:var(--muted);margin-top:3px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .tables-block h3{font-family:var(--sans);font-size:16px;margin:0 0 14px}
 details.tbl{border-top:1px solid var(--rule);padding:0}
 details.tbl summary{
@@ -276,16 +269,6 @@ details.tbl p.note{color:var(--muted);font-size:11.5px;border-left:2px solid var
 .table-scroll tr:last-child td{border-bottom:0}
 .table-scroll td{white-space:normal;min-width:70px}
 .table-scroll td:first-child,.table-scroll th:first-child{white-space:nowrap}
-
-/* lightbox */
-.lightbox{position:fixed;inset:0;z-index:200;background:rgba(18,17,15,.93);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 70px}
-.lightbox[hidden]{display:none}
-.lightbox img{max-width:100%;max-height:76vh;object-fit:contain;background:#fff}
-.lb-cap{font-family:var(--sans);font-size:12px;line-height:1.55;color:#ddd;max-width:980px;margin-top:14px;max-height:110px;overflow:auto}
-.lb-close,.lb-prev,.lb-next{position:absolute;border:0;background:none;color:#eee;cursor:pointer;font-size:30px;line-height:1;padding:14px}
-.lb-close{top:10px;right:14px}
-.lb-prev{left:10px;top:50%;transform:translateY(-50%)}
-.lb-next{right:10px;top:50%;transform:translateY(-50%)}
 
 /* footer */
 .site-foot{border-top:1px solid var(--rule);padding:34px 0 50px;font-family:var(--sans);font-size:12px;color:var(--muted)}
@@ -328,7 +311,6 @@ details.tbl p.note{color:var(--muted);font-size:11.5px;border-left:2px solid var
   .site-nav{gap:13px}
   .site-nav a{font-size:10.5px}
   .split{grid-template-columns:1fr;gap:26px}
-  .supp-wall{grid-template-columns:repeat(3,1fr)}
   .wrap{padding:0 26px}
   .site-head{padding:0 26px}
 }
@@ -336,12 +318,10 @@ details.tbl p.note{color:var(--muted);font-size:11.5px;border-left:2px solid var
   body{font-size:16px}
   .grid-2{grid-template-columns:1fr}
   .map-steps{grid-template-columns:1fr}
-  .supp-wall{grid-template-columns:repeat(2,1fr)}
   .hero-stats{flex-direction:column;border-bottom:0}
   .stat{border-right:0;border-bottom:1px solid var(--rule)}
   .chapter{padding:76px 0 70px}
   .interactive{padding:18px 14px 14px}
-  .lightbox{padding:30px 20px}
   .map-shell{aspect-ratio:1.25}
 }
 @media (prefers-reduced-motion:reduce){
@@ -364,11 +344,7 @@ details.tbl p.note{color:var(--muted);font-size:11.5px;border-left:2px solid var
 .figcap .flabel{color:var(--ink);font-weight:600}
 .figcap .fignote{display:block;margin-top:5px;color:var(--faint);font-size:11px}
 .fig9-panels{margin-top:18px}
-.supp-list{display:grid;grid-template-columns:1fr 1fr;gap:0 34px;margin:26px 0 44px}
-.supp-item{border-top:1px solid var(--rule);padding:11px 0 10px;font-family:var(--sans);font-size:12px;line-height:1.55;color:var(--ink-2)}
-.supp-item .sid{display:block;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:3px}
 @media (max-width:820px){
-  .supp-list{grid-template-columns:1fr}
   .fw-op,.fw-arrow{display:none}
   .fw-box{flex-basis:100%}
 }
@@ -484,7 +460,6 @@ html[data-lang="zh"] .map-step p{line-height:1.75}
 html[data-lang="zh"] .pin-label,
 html[data-lang="zh"] .f1p-letter{letter-spacing:.04em}
 html[data-lang="zh"] .author-affils{line-height:1.75}
-html[data-lang="zh"] .supp-item{line-height:1.75}
 @media (max-width:1000px){
   .head-right{gap:10px}
   .lang-switch button{padding:4px 7px;font-size:10.5px}
@@ -863,13 +838,9 @@ html[data-lang="zh"] .supp-item{line-height:1.75}
 <section class="chapter alt" id="s08">
 <div class="wrap">
 <div class="chapter-head reveal"><span class="chapter-num">08</span><h2>Supplementary material</h2></div>
-<div class="prose reveal">
-<p class="lede">Supplementary figures S1–S11 and Tables S1–S14. Thumbnails open a larger view of the same inline image; captions are reproduced from the supplementary material.</p>
-</div>
-<div class="supp-list reveal" id="suppList"></div>
 <div class="tables-block reveal">
 <h3>Supplementary tables</h3>
-<p class="micro">Table titles are translated; headers and cell contents are reproduced in English from the supplementary material, with numbers unchanged.</p>
+<p class="micro">Table titles, headers and cell contents are reproduced from the supplementary material; numbers are unchanged.</p>
 <div id="suppTables"></div>
 </div>
 </div>
@@ -958,19 +929,6 @@ window.MIRAGE_DATA = {"meta":{"title":"A source-attribution audit of vision-lang
     fig7: "",
     fig8: "",
     fig9: ""
-  };
-  var ZH_SUPP = {
-    s1: "",
-    s2: "",
-    s3: "",
-    s4: "",
-    s5: "",
-    s6: "",
-    s7: "",
-    s8: "",
-    s9: "",
-    s10: "",
-    s11: ""
   };
   var TABLE_ZH = {
     S1: "",
@@ -2382,22 +2340,6 @@ window.MIRAGE_DATA = {"meta":{"title":"A source-attribution audit of vision-lang
   auditSel.addEventListener("change", renderAudit);
   renderAudit();
 
-  /* ------------------------------------------------------------ supplementary list */
-  var SUPP_ORDER = ["S1", "S2", "S3", "S4", "S5", "S6", "S7", "S8", "S9", "S10", "S11"];
-  function renderSupp() {
-    var suppList = $("#suppList");
-    clearNode(suppList);
-    SUPP_ORDER.forEach(function (id) {
-      var key = id.toLowerCase();
-      var item = document.createElement("div");
-      item.className = "supp-item";
-      var cap = LANG === "zh" ? (ZH_SUPP[key] || D.meta.suppcaps[key] || "") : (D.meta.suppcaps[key] || "");
-      item.innerHTML = '<span class="sid">' + T("Figure ", "") + id + "</span>" + cap;
-      suppList.appendChild(item);
-    });
-  }
-  renderSupp();
-
   /* ------------------------------------------------------------ supplementary tables */
   var tablesHost = $("#suppTables");
   var TABLE_NODES = [];
@@ -2496,7 +2438,6 @@ window.MIRAGE_DATA = {"meta":{"title":"A source-attribution audit of vision-lang
     renderDistrict();
     buildAuditOptions();
     renderAudit();
-    renderSupp();
     retitleTables();
   }
 
