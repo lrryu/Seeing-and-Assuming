@@ -465,6 +465,65 @@ html[data-lang="zh"] .author-affils{line-height:1.75}
   .lang-switch button{padding:4px 7px;font-size:10.5px}
 }
 
+/* readout mechanism (after Supplementary Figure S1) */
+.mech{padding:24px 24px 18px}
+.mech .interactive-head{margin-bottom:14px}
+.mech-tag{font-family:var(--sans);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+.mech-grid{display:grid;grid-template-columns:1.35fr .95fr .95fr;gap:14px;align-items:stretch}
+.mech-panel{border:1px solid var(--rule);background:#fff;padding:13px 13px 11px;min-width:0}
+.mech-h{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.mech-letter{
+  width:18px;height:18px;border:1px solid var(--rule-2);display:flex;align-items:center;
+  justify-content:center;font-family:var(--sans);font-size:10px;color:var(--accent);
+  background:#edf2f6;flex:none;
+}
+.mech-h h4{font-family:var(--sans);font-size:12px;font-weight:600;margin:0;letter-spacing:.02em}
+.mech-conds{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.mech-cond{border:1px solid var(--rule);padding:7px 8px;display:flex;flex-direction:column;gap:1px;background:#fbfcfd}
+.mech-cond b{font-family:var(--sans);font-size:10.5px;color:var(--accent)}
+.mech-cond span{font-family:var(--sans);font-size:11px}
+.mech-cond i{font-family:var(--sans);font-style:normal;font-size:9.5px;color:var(--muted);line-height:1.35}
+.mech-cond.absent{border-style:dashed;background:#fff}
+.mech-stack{display:flex;align-items:center;gap:5px;margin:10px 0 7px;flex-wrap:wrap;font-family:var(--sans);font-size:10px}
+.mech-stack .ly{border:1px solid var(--rule-2);padding:3px 6px;background:#fff;color:var(--muted)}
+.mech-stack .ly.read{background:#e8eff5;border-color:#9fb2c4;color:var(--ink);font-weight:600}
+.mech-stack .dots{color:var(--faint)}
+.mech-stack .mech-ans{border:1px solid var(--rule-2);padding:3px 6px;background:#edf2f6;color:var(--ink)}
+.mech-states{display:grid;grid-template-columns:1fr 1fr;gap:7px;font-family:var(--sans);font-size:10px}
+.mech-state{border:1px solid var(--rule);padding:5px 7px;background:#fff}
+.mech-state.absent{border-style:dashed;color:var(--muted)}
+.mech-block{width:100%;max-width:560px;height:auto;display:block;margin:8px 0 2px}
+.mech-formula{font-size:12px;margin:7px 0;color:var(--ink)}
+.mech-note{font-family:var(--sans);font-size:10.5px;line-height:1.55;color:var(--muted);margin:6px 0 0}
+.mech-note a{color:var(--accent);text-decoration:none}
+.mech-note a:hover{text-decoration:underline}
+.mech-tiles{display:flex;align-items:flex-start;gap:8px;margin:8px 0 2px}
+.tilecol{display:flex;flex-direction:column;gap:3px;align-items:center;font-family:var(--sans);font-size:9.5px;color:var(--muted);min-width:0}
+.mech-tile{width:56px;height:56px;flex:none;border:1px solid var(--rule);display:block}
+.mech-op{font-family:var(--sans);font-size:13px;color:var(--faint);padding-top:20px}
+.mech-chips{display:grid;gap:5px;margin:8px 0}
+.mech-chip{
+  font-family:var(--sans);font-size:10px;border:1px solid var(--rule);background:#fbfcfd;
+  padding:5px 7px;display:flex;justify-content:space-between;gap:8px;align-items:center;
+}
+.mech-chip b{font-weight:600;color:var(--ink)}
+.mech-chips.row{display:flex;flex-wrap:wrap;gap:5px}
+.mech-chips.row .mech-chip{padding:4px 7px}
+.mech-flow{display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-family:var(--sans);font-size:11px;margin:8px 0;color:var(--ink-2)}
+.mech-flow .ar{color:var(--faint)}
+.mech-field{width:100%;height:auto;display:block;border:1px solid var(--rule);background:#fff;margin:2px 0 6px}
+html[data-lang="zh"] .mech-note{line-height:1.7}
+html[data-lang="zh"] .mech-h h4{letter-spacing:0}
+@media (max-width:1100px){
+  .mech-grid{grid-template-columns:1fr 1fr}
+  .mech-panel:first-child{grid-column:1/-1}
+  .mech-tile{width:64px;height:64px}
+}
+@media (max-width:820px){
+  .mech-grid{grid-template-columns:1fr}
+  .mech-panel:first-child{grid-column:auto}
+}
+
 </style>
 </head>
 <body><svg aria-hidden="true" class="icon-sprite" focusable="false"><defs>
@@ -635,6 +694,93 @@ html[data-lang="zh"] .author-affils{line-height:1.75}
 <p class="lede">Across transformer layers, the projected answer moves toward the emitted label. At the final layer, agreement between the logit-lens projection and the emitted class is 53.4% in Qwen3-VL-8B, 18.3% in LLaVA-1.6-7B and 1.9% in InternVL2-8B. The with-minus-no state difference grows with depth up to the penultimate layer in all three architectures.</p>
 <p>Layer indices run from the embedding output (0) to layer 36 in Qwen3-VL-8B and layer 32 in LLaVA-1.6-7B and InternVL2-8B. These readings answer different questions: alignment asks when the projection matches the output; the state difference asks where image and text conditions separate.</p>
 </div>
+
+<div class="interactive mech reveal">
+<div class="interactive-head">
+<h3>How the reading is built</h3>
+<span class="mech-tag">Mechanism · after Supplementary Figure S1</span>
+</div>
+<div class="mech-grid">
+
+<div class="mech-panel">
+<div class="mech-h"><span class="mech-letter">a</span><h4>Where the state is read</h4></div>
+<div class="mech-conds">
+<div class="mech-cond"><b>G1</b><span>with image</span><i>district + 5-key JSON</i></div>
+<div class="mech-cond absent"><b>G2</b><span>no image</span><i>identical prompt</i></div>
+</div>
+<div class="mech-stack">
+<span class="ly">L1</span><span class="dots">…</span><span class="ly read">L35</span><span class="ly">L36</span><span class="mech-ans">answer</span>
+</div>
+<div class="mech-states">
+<span class="mech-state"><i>h</i><sub>with</sub><sup>(35)</sup> ∈ ℝ<sup>4096</sup></span>
+<span class="mech-state absent"><i>h</i><sub>no</sub><sup>(35)</sup> ∈ ℝ<sup>4096</sup></span>
+</div>
+<svg class="mech-block" viewBox="0 0 460 120" role="img" aria-label="One decoder block with residual additions">
+<defs><marker id="mAr" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#87919b"/></marker></defs>
+<line x1="12" y1="26" x2="448" y2="26" stroke="#6f7a85" stroke-width="1.4"/>
+<text x="12" y="16" font-size="12" fill="#333b44" font-family="Cambria Math, Georgia, serif">h(ℓ)</text>
+<text x="448" y="16" text-anchor="end" font-size="12" fill="#333b44" font-family="Cambria Math, Georgia, serif">h(ℓ+1)</text>
+<circle cx="204" cy="26" r="9" fill="#fff" stroke="#6f7a85"/>
+<circle cx="382" cy="26" r="9" fill="#fff" stroke="#6f7a85"/>
+<text x="204" y="30" text-anchor="middle" font-size="13" fill="#333b44">+</text>
+<text x="382" y="30" text-anchor="middle" font-size="13" fill="#333b44">+</text>
+<line x1="66" y1="26" x2="66" y2="50" stroke="#87919b" stroke-width="1" marker-end="url(#mAr)"/>
+<rect x="48" y="54" width="36" height="24" fill="#fff" stroke="#c4cdd6"/>
+<text x="66" y="70" text-anchor="middle" font-size="11" fill="#333b44">LN</text>
+<line x1="84" y1="66" x2="96" y2="66" stroke="#87919b" stroke-width="1" marker-end="url(#mAr)"/>
+<rect x="96" y="54" width="96" height="24" fill="#e8eff5" stroke="#9fb2c4"/>
+<text x="144" y="70" text-anchor="middle" font-size="11" fill="#333b44">Attention</text>
+<path d="M192 66 H204 V37" fill="none" stroke="#87919b" stroke-width="1" marker-end="url(#mAr)"/>
+<text x="220" y="54" font-size="11" fill="#59646f" font-family="Cambria Math, Georgia, serif">a(ℓ)</text>
+<line x1="256" y1="26" x2="256" y2="50" stroke="#87919b" stroke-width="1" marker-end="url(#mAr)"/>
+<rect x="238" y="54" width="36" height="24" fill="#fff" stroke="#c4cdd6"/>
+<text x="256" y="70" text-anchor="middle" font-size="11" fill="#333b44">LN</text>
+<line x1="274" y1="66" x2="286" y2="66" stroke="#87919b" stroke-width="1" marker-end="url(#mAr)"/>
+<rect x="286" y="54" width="78" height="24" fill="#e8eff5" stroke="#9fb2c4"/>
+<text x="325" y="70" text-anchor="middle" font-size="11" fill="#333b44">MLP</text>
+<path d="M364 66 H382 V37" fill="none" stroke="#87919b" stroke-width="1" marker-end="url(#mAr)"/>
+<text x="398" y="54" font-size="11" fill="#59646f" font-family="Cambria Math, Georgia, serif">m(ℓ)</text>
+<text x="12" y="106" font-size="10" fill="#87919b" font-style="italic">residual stream</text>
+</svg>
+<p class="mech-formula math">h<sup>(ℓ+1)</sup> = h<sup>(ℓ)</sup> + a<sup>(ℓ)</sup> + m<sup>(ℓ)</sup></p>
+<p class="mech-note">Read per block: <span class="math">h<sup>(ℓ+1)</sup></span>, <span class="math">a<sup>(ℓ)</sup></span>, <span class="math">m<sup>(ℓ)</sup></span>. Increments add, so contributions separate.</p>
+</div>
+
+<div class="mech-panel">
+<div class="mech-h"><span class="mech-letter">b</span><h4>Difference and projection</h4></div>
+<p class="mech-formula math">Δh<sub>i</sub> = h<sub>i,with</sub> − h<sub>i,no</sub></p>
+<div class="mech-tiles">
+<div class="tilecol"><svg class="mech-tile" viewBox="0 0 70 70" aria-hidden="true"><rect x="0" y="0" width="10" height="10" fill="rgb(190,190,190)"/><rect x="10" y="0" width="10" height="10" fill="rgb(154,154,154)"/><rect x="20" y="0" width="10" height="10" fill="rgb(146,146,146)"/><rect x="30" y="0" width="10" height="10" fill="rgb(171,171,171)"/><rect x="40" y="0" width="10" height="10" fill="rgb(210,210,210)"/><rect x="50" y="0" width="10" height="10" fill="rgb(235,235,235)"/><rect x="60" y="0" width="10" height="10" fill="rgb(225,225,225)"/><rect x="0" y="10" width="10" height="10" fill="rgb(145,145,145)"/><rect x="10" y="10" width="10" height="10" fill="rgb(166,166,166)"/><rect x="20" y="10" width="10" height="10" fill="rgb(206,206,206)"/><rect x="30" y="10" width="10" height="10" fill="rgb(233,233,233)"/><rect x="40" y="10" width="10" height="10" fill="rgb(228,228,228)"/><rect x="50" y="10" width="10" height="10" fill="rgb(194,194,194)"/><rect x="60" y="10" width="10" height="10" fill="rgb(157,157,157)"/><rect x="0" y="20" width="10" height="10" fill="rgb(202,202,202)"/><rect x="10" y="20" width="10" height="10" fill="rgb(232,232,232)"/><rect x="20" y="20" width="10" height="10" fill="rgb(230,230,230)"/><rect x="30" y="20" width="10" height="10" fill="rgb(198,198,198)"/><rect x="40" y="20" width="10" height="10" fill="rgb(160,160,160)"/><rect x="50" y="20" width="10" height="10" fill="rgb(144,144,144)"/><rect x="60" y="20" width="10" height="10" fill="rgb(163,163,163)"/><rect x="0" y="30" width="10" height="10" fill="rgb(232,232,232)"/><rect x="10" y="30" width="10" height="10" fill="rgb(203,203,203)"/><rect x="20" y="30" width="10" height="10" fill="rgb(164,164,164)"/><rect x="30" y="30" width="10" height="10" fill="rgb(144,144,144)"/><rect x="40" y="30" width="10" height="10" fill="rgb(160,160,160)"/><rect x="50" y="30" width="10" height="10" fill="rgb(198,198,198)"/><rect x="60" y="30" width="10" height="10" fill="rgb(230,230,230)"/><rect x="0" y="40" width="10" height="10" fill="rgb(167,167,167)"/><rect x="10" y="40" width="10" height="10" fill="rgb(145,145,145)"/><rect x="20" y="40" width="10" height="10" fill="rgb(157,157,157)"/><rect x="30" y="40" width="10" height="10" fill="rgb(193,193,193)"/><rect x="40" y="40" width="10" height="10" fill="rgb(228,228,228)"/><rect x="50" y="40" width="10" height="10" fill="rgb(234,234,234)"/><rect x="60" y="40" width="10" height="10" fill="rgb(206,206,206)"/><rect x="0" y="50" width="10" height="10" fill="rgb(154,154,154)"/><rect x="10" y="50" width="10" height="10" fill="rgb(189,189,189)"/><rect x="20" y="50" width="10" height="10" fill="rgb(225,225,225)"/><rect x="30" y="50" width="10" height="10" fill="rgb(235,235,235)"/><rect x="40" y="50" width="10" height="10" fill="rgb(211,211,211)"/><rect x="50" y="50" width="10" height="10" fill="rgb(171,171,171)"/><rect x="60" y="50" width="10" height="10" fill="rgb(146,146,146)"/><rect x="0" y="60" width="10" height="10" fill="rgb(222,222,222)"/><rect x="10" y="60" width="10" height="10" fill="rgb(235,235,235)"/><rect x="20" y="60" width="10" height="10" fill="rgb(214,214,214)"/><rect x="30" y="60" width="10" height="10" fill="rgb(175,175,175)"/><rect x="40" y="60" width="10" height="10" fill="rgb(147,147,147)"/><rect x="50" y="60" width="10" height="10" fill="rgb(151,151,151)"/><rect x="60" y="60" width="10" height="10" fill="rgb(185,185,185)"/></svg><span class="math">h<sub>with</sub></span></div>
+<span class="mech-op">−</span>
+<div class="tilecol"><svg class="mech-tile" viewBox="0 0 70 70" aria-hidden="true"><rect x="0" y="0" width="10" height="10" fill="rgb(149,149,149)"/><rect x="10" y="0" width="10" height="10" fill="rgb(211,211,211)"/><rect x="20" y="0" width="10" height="10" fill="rgb(210,210,210)"/><rect x="30" y="0" width="10" height="10" fill="rgb(149,149,149)"/><rect x="40" y="0" width="10" height="10" fill="rgb(211,211,211)"/><rect x="50" y="0" width="10" height="10" fill="rgb(209,209,209)"/><rect x="60" y="0" width="10" height="10" fill="rgb(149,149,149)"/><rect x="0" y="10" width="10" height="10" fill="rgb(162,162,162)"/><rect x="10" y="10" width="10" height="10" fill="rgb(230,230,230)"/><rect x="20" y="10" width="10" height="10" fill="rgb(178,178,178)"/><rect x="30" y="10" width="10" height="10" fill="rgb(162,162,162)"/><rect x="40" y="10" width="10" height="10" fill="rgb(230,230,230)"/><rect x="50" y="10" width="10" height="10" fill="rgb(178,178,178)"/><rect x="60" y="10" width="10" height="10" fill="rgb(163,163,163)"/><rect x="0" y="20" width="10" height="10" fill="rgb(191,191,191)"/><rect x="10" y="20" width="10" height="10" fill="rgb(225,225,225)"/><rect x="20" y="20" width="10" height="10" fill="rgb(154,154,154)"/><rect x="30" y="20" width="10" height="10" fill="rgb(192,192,192)"/><rect x="40" y="20" width="10" height="10" fill="rgb(224,224,224)"/><rect x="50" y="20" width="10" height="10" fill="rgb(154,154,154)"/><rect x="60" y="20" width="10" height="10" fill="rgb(193,193,193)"/><rect x="0" y="30" width="10" height="10" fill="rgb(220,220,220)"/><rect x="10" y="30" width="10" height="10" fill="rgb(199,199,199)"/><rect x="20" y="30" width="10" height="10" fill="rgb(151,151,151)"/><rect x="30" y="30" width="10" height="10" fill="rgb(221,221,221)"/><rect x="40" y="30" width="10" height="10" fill="rgb(198,198,198)"/><rect x="50" y="30" width="10" height="10" fill="rgb(151,151,151)"/><rect x="60" y="30" width="10" height="10" fill="rgb(221,221,221)"/><rect x="0" y="40" width="10" height="10" fill="rgb(231,231,231)"/><rect x="10" y="40" width="10" height="10" fill="rgb(167,167,167)"/><rect x="20" y="40" width="10" height="10" fill="rgb(172,172,172)"/><rect x="30" y="40" width="10" height="10" fill="rgb(231,231,231)"/><rect x="40" y="40" width="10" height="10" fill="rgb(167,167,167)"/><rect x="50" y="40" width="10" height="10" fill="rgb(173,173,173)"/><rect x="60" y="40" width="10" height="10" fill="rgb(231,231,231)"/><rect x="0" y="50" width="10" height="10" fill="rgb(217,217,217)"/><rect x="10" y="50" width="10" height="10" fill="rgb(150,150,150)"/><rect x="20" y="50" width="10" height="10" fill="rgb(204,204,204)"/><rect x="30" y="50" width="10" height="10" fill="rgb(216,216,216)"/><rect x="40" y="50" width="10" height="10" fill="rgb(150,150,150)"/><rect x="50" y="50" width="10" height="10" fill="rgb(204,204,204)"/><rect x="60" y="50" width="10" height="10" fill="rgb(216,216,216)"/><rect x="0" y="60" width="10" height="10" fill="rgb(186,186,186)"/><rect x="10" y="60" width="10" height="10" fill="rgb(157,157,157)"/><rect x="20" y="60" width="10" height="10" fill="rgb(227,227,227)"/><rect x="30" y="60" width="10" height="10" fill="rgb(186,186,186)"/><rect x="40" y="60" width="10" height="10" fill="rgb(157,157,157)"/><rect x="50" y="60" width="10" height="10" fill="rgb(227,227,227)"/><rect x="60" y="60" width="10" height="10" fill="rgb(185,185,185)"/></svg><span class="math">h<sub>no</sub></span></div>
+<span class="mech-op">=</span>
+<div class="tilecol"><svg class="mech-tile" viewBox="0 0 70 70" aria-hidden="true"><rect x="0" y="0" width="10" height="10" fill="rgb(87,139,191)"/><rect x="10" y="0" width="10" height="10" fill="rgb(178,24,43)"/><rect x="20" y="0" width="10" height="10" fill="rgb(178,24,43)"/><rect x="30" y="0" width="10" height="10" fill="rgb(163,190,218)"/><rect x="40" y="0" width="10" height="10" fill="rgb(246,243,243)"/><rect x="50" y="0" width="10" height="10" fill="rgb(148,180,212)"/><rect x="60" y="0" width="10" height="10" fill="rgb(33,102,172)"/><rect x="0" y="10" width="10" height="10" fill="rgb(226,178,184)"/><rect x="10" y="10" width="10" height="10" fill="rgb(178,24,43)"/><rect x="20" y="10" width="10" height="10" fill="rgb(139,174,209)"/><rect x="30" y="10" width="10" height="10" fill="rgb(33,102,172)"/><rect x="40" y="10" width="10" height="10" fill="rgb(245,240,240)"/><rect x="50" y="10" width="10" height="10" fill="rgb(184,204,225)"/><rect x="60" y="10" width="10" height="10" fill="rgb(240,223,225)"/><rect x="0" y="20" width="10" height="10" fill="rgb(206,219,233)"/><rect x="10" y="20" width="10" height="10" fill="rgb(219,228,237)"/><rect x="20" y="20" width="10" height="10" fill="rgb(33,102,172)"/><rect x="30" y="20" width="10" height="10" fill="rgb(222,230,238)"/><rect x="40" y="20" width="10" height="10" fill="rgb(178,24,43)"/><rect x="50" y="20" width="10" height="10" fill="rgb(235,210,213)"/><rect x="60" y="20" width="10" height="10" fill="rgb(210,127,138)"/><rect x="0" y="30" width="10" height="10" fill="rgb(199,215,230)"/><rect x="10" y="30" width="10" height="10" fill="rgb(231,236,241)"/><rect x="20" y="30" width="10" height="10" fill="rgb(198,214,230)"/><rect x="30" y="30" width="10" height="10" fill="rgb(178,24,43)"/><rect x="40" y="30" width="10" height="10" fill="rgb(199,91,104)"/><rect x="50" y="30" width="10" height="10" fill="rgb(65,123,183)"/><rect x="60" y="30" width="10" height="10" fill="rgb(211,223,234)"/><rect x="0" y="40" width="10" height="10" fill="rgb(178,24,43)"/><rect x="10" y="40" width="10" height="10" fill="rgb(219,155,163)"/><rect x="20" y="40" width="10" height="10" fill="rgb(227,183,189)"/><rect x="30" y="40" width="10" height="10" fill="rgb(200,95,108)"/><rect x="40" y="40" width="10" height="10" fill="rgb(33,102,172)"/><rect x="50" y="40" width="10" height="10" fill="rgb(33,102,172)"/><rect x="60" y="40" width="10" height="10" fill="rgb(216,148,156)"/><rect x="0" y="50" width="10" height="10" fill="rgb(178,24,43)"/><rect x="10" y="50" width="10" height="10" fill="rgb(94,143,193)"/><rect x="20" y="50" width="10" height="10" fill="rgb(164,191,218)"/><rect x="30" y="50" width="10" height="10" fill="rgb(174,198,222)"/><rect x="40" y="50" width="10" height="10" fill="rgb(33,102,172)"/><rect x="50" y="50" width="10" height="10" fill="rgb(204,109,121)"/><rect x="60" y="50" width="10" height="10" fill="rgb(178,24,43)"/><rect x="0" y="60" width="10" height="10" fill="rgb(108,153,198)"/><rect x="10" y="60" width="10" height="10" fill="rgb(33,102,172)"/><rect x="20" y="60" width="10" height="10" fill="rgb(231,195,199)"/><rect x="30" y="60" width="10" height="10" fill="rgb(233,203,207)"/><rect x="40" y="60" width="10" height="10" fill="rgb(234,205,209)"/><rect x="50" y="60" width="10" height="10" fill="rgb(178,24,43)"/><rect x="60" y="60" width="10" height="10" fill="rgb(247,247,247)"/></svg><span class="math">Δh<sub>i</sub></span></div>
+</div>
+<div class="mech-chips">
+<span class="mech-chip"><b>in-P</b><span class="math">a<sub>G1</sub> ∈ P</span></span>
+<span class="mech-chip"><b>out-P</b><span class="math">a<sub>G1</sub> ∉ P</span></span>
+</div>
+<p class="mech-formula math">u = (μ<sub>out</sub> − μ<sub>in</sub>) / ‖μ<sub>out</sub> − μ<sub>in</sub>‖</p>
+<div class="mech-flow"><span class="math">Δh<sub>i</sub></span><span class="ar">→</span><span class="math">⟨Δh<sub>i</sub>, u⟩</span><span class="ar">→</span><span class="math">h̃<sub>source,i</sub></span></div>
+<p class="mech-note">Standardised across all 5,000 locations. A low value means the scene agrees with its district default.</p>
+</div>
+
+<div class="mech-panel">
+<div class="mech-h"><span class="mech-letter">c</span><h4>From scalar to road-network field</h4></div>
+<svg class="mech-field" viewBox="0 0 320 120" role="img" aria-label="Road-network field schematic"><path d="M20 30 L120 16 L186 40 L300 28 L300 92 L212 104 L120 96 L30 84 Z" fill="#f1f4f7" stroke="#c9d2da" stroke-width="1"/><path d="M30 70 C80 60 110 44 160 48 S240 66 296 52" fill="none" stroke="#c2ccd6" stroke-width="1.4"/><path d="M70 26 C86 50 92 70 88 94" fill="none" stroke="#c2ccd6" stroke-width="1.1"/><path d="M150 22 C156 48 150 74 158 98" fill="none" stroke="#c2ccd6" stroke-width="1.1"/><path d="M232 30 C220 52 226 78 238 98" fill="none" stroke="#c2ccd6" stroke-width="1.1"/><circle cx="221.8" cy="35.2" r="2" fill="#b2182b" opacity=".8"/><circle cx="264.3" cy="80.1" r="2" fill="#b2182b" opacity=".8"/><circle cx="69.0" cy="81.2" r="2" fill="#2166ac" opacity=".8"/><circle cx="206.6" cy="43.6" r="2" fill="#b2182b" opacity=".8"/><circle cx="149.5" cy="47.0" r="2" fill="#2166ac" opacity=".8"/><circle cx="266.1" cy="81.9" r="2" fill="#b2182b" opacity=".8"/><circle cx="95.8" cy="34.2" r="2" fill="#b2182b" opacity=".8"/><circle cx="238.8" cy="39.9" r="2" fill="#b2182b" opacity=".8"/><circle cx="35.5" cy="69.3" r="2" fill="#9aa5b0" opacity=".8"/><circle cx="197.0" cy="40.4" r="2" fill="#b2182b" opacity=".8"/><circle cx="138.0" cy="86.8" r="2" fill="#b2182b" opacity=".8"/><circle cx="126.0" cy="61.4" r="2" fill="#9aa5b0" opacity=".8"/><circle cx="27.7" cy="32.7" r="2" fill="#2166ac" opacity=".8"/><circle cx="67.7" cy="61.5" r="2" fill="#9aa5b0" opacity=".8"/><circle cx="58.4" cy="46.6" r="2" fill="#2166ac" opacity=".8"/><circle cx="268.9" cy="80.6" r="2" fill="#b2182b" opacity=".8"/><circle cx="42.3" cy="76.3" r="2" fill="#b2182b" opacity=".8"/><circle cx="267.7" cy="82.3" r="2" fill="#b2182b" opacity=".8"/><circle cx="244.6" cy="61.8" r="2" fill="#9aa5b0" opacity=".8"/><circle cx="83.8" cy="49.3" r="2" fill="#b2182b" opacity=".8"/><circle cx="211.6" cy="51.7" r="2" fill="#b2182b" opacity=".8"/><circle cx="100.4" cy="54.4" r="2" fill="#b2182b" opacity=".8"/><circle cx="126.7" cy="31.5" r="2" fill="#9aa5b0" opacity=".8"/><circle cx="103.0" cy="59.0" r="2" fill="#b2182b" opacity=".8"/><circle cx="147.3" cy="80.8" r="2" fill="#b2182b" opacity=".8"/><circle cx="209.6" cy="92.9" r="2" fill="#2166ac" opacity=".8"/><circle cx="159.6" cy="59.9" r="2" fill="#2166ac" opacity=".8"/><circle cx="189.1" cy="63.9" r="2" fill="#9aa5b0" opacity=".8"/><circle cx="82.4" cy="32.2" r="2" fill="#b2182b" opacity=".8"/><circle cx="122.6" cy="58.1" r="2" fill="#b2182b" opacity=".8"/><circle cx="231.2" cy="38.2" r="2" fill="#b2182b" opacity=".8"/><circle cx="185.7" cy="74.2" r="2" fill="#9aa5b0" opacity=".8"/><circle cx="262.5" cy="58.4" r="2" fill="#9aa5b0" opacity=".8"/><circle cx="234.9" cy="79.7" r="2" fill="#2166ac" opacity=".8"/><circle cx="153.0" cy="48.0" r="2" fill="#2166ac" opacity=".8"/><circle cx="41.6" cy="91.8" r="2" fill="#b2182b" opacity=".8"/><circle cx="176.5" cy="42.2" r="2" fill="#2166ac" opacity=".8"/><circle cx="282.0" cy="47.3" r="2" fill="#2166ac" opacity=".8"/><circle cx="228.6" cy="86.8" r="2" fill="#2166ac" opacity=".8"/><circle cx="96.7" cy="88.4" r="2" fill="#2166ac" opacity=".8"/><circle cx="171.7" cy="95.2" r="2" fill="#b2182b" opacity=".8"/><circle cx="169.9" cy="54.1" r="2" fill="#2166ac" opacity=".8"/><circle cx="84.8" cy="36.0" r="2" fill="#b2182b" opacity=".8"/><circle cx="202.6" cy="69.9" r="2" fill="#9aa5b0" opacity=".8"/><circle cx="94.7" cy="72.6" r="2" fill="#2166ac" opacity=".8"/><circle cx="130.6" cy="50.1" r="2" fill="#9aa5b0" opacity=".8"/></svg>
+<p class="mech-note">One value per location, projected onto the municipal road network.</p>
+<div class="mech-chips row">
+<span class="mech-chip"><b>raw</b></span>
+<span class="mech-chip"><b>district</b></span>
+<span class="mech-chip"><b>answer class</b></span>
+<span class="mech-chip"><b>rest</b></span>
+</div>
+<p class="mech-note"><a href="#s04">Section 04: the four conditional fields →</a></p>
+</div>
+
+</div>
+</div>
+
 <div class="interactive depth-block">
 <div class="interactive-head">
 <h3 id="depthTitle">Layer-wise readout</h3>
