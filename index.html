@@ -524,6 +524,32 @@ html[data-lang="zh"] .mech-h h4{letter-spacing:0}
   .mech-panel:first-child{grid-column:auto}
 }
 
+/* positioning strip (after the hero) */
+.positioning{padding:54px 0 44px;border-top:1px solid var(--rule)}
+.pos-head{display:flex;align-items:baseline;gap:18px;flex-wrap:wrap;margin-bottom:20px}
+.pos-kicker{font-family:var(--sans);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+.pos-lead{font-family:var(--sans);font-size:12.5px;color:var(--muted)}
+.pos-flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1.2fr;align-items:stretch;gap:10px}
+.pos-node{border:1px solid var(--rule-2);background:#fff;padding:12px 14px;text-align:left;cursor:pointer;display:flex;flex-direction:column;gap:4px;min-width:0;border-radius:2px}
+.pos-node .pn-axis{font-family:var(--sans);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+.pos-node .pn-title{font-family:var(--sans);font-size:13.5px;font-weight:600;color:var(--ink)}
+.pos-node:hover{background:#f6f9fb}
+.pos-node.active{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent);background:#f1f6fa}
+.pos-node.active .pn-title{color:var(--accent)}
+.pos-arrow{align-self:center;font-family:var(--sans);font-size:15px;color:var(--rule-2)}
+.pos-detail{margin-top:14px;border:1px solid var(--rule);border-left:2px solid var(--accent);background:#fff;padding:14px 16px}
+.pos-pane p{margin:0;font-family:var(--sans);font-size:13px;line-height:1.6;color:var(--ink-2)}
+.pos-pane .pos-lack{margin-top:6px;color:var(--muted);font-size:12px}
+html[data-lang="zh"] .pos-pane p{line-height:1.75}
+html[data-lang="zh"] .pos-node .pn-axis{letter-spacing:.06em}
+@media (max-width:1000px){
+  .pos-flow{grid-template-columns:1fr 1fr}
+  .pos-arrow{display:none}
+}
+@media (max-width:620px){
+  .pos-flow{grid-template-columns:1fr}
+}
+
 </style>
 </head>
 <body><svg aria-hidden="true" class="icon-sprite" focusable="false"><defs>
@@ -572,6 +598,53 @@ html[data-lang="zh"] .mech-h h4{letter-spacing:0}
 <div class="stat"><span class="stat-v">5,000</span><span class="stat-l">street-view locations</span><span class="stat-d">city-wide spatial sample</span></div>
 <div class="stat"><span class="stat-v">668</span><span class="stat-l">mechanism subsample</span><span class="stat-d">three architectures, six visual conditions</span></div>
 <div class="stat"><span class="stat-v">3</span><span class="stat-l">open-weight architectures</span><span class="stat-d">Qwen3-VL-8B · LLaVA-1.6-7B · InternVL2-8B</span></div>
+</div>
+</div>
+</section>
+<section class="positioning" id="positioning">
+<div class="wrap">
+<div class="pos-head reveal">
+<span class="pos-kicker">Where this study sits</span>
+<span class="pos-lead">Work clusters in three quadrants; the fourth is this study's entry.</span>
+</div>
+<div aria-label="Research positioning" class="pos-flow reveal" role="tablist">
+<button aria-selected="false" class="pos-node" data-pos="0" role="tab">
+<span class="pn-axis">Single image · output</span>
+<span class="pn-title">Efficiency</span>
+</button>
+<span aria-hidden="true" class="pos-arrow">→</span>
+<button aria-selected="false" class="pos-node" data-pos="1" role="tab">
+<span class="pn-axis">Single image · internal</span>
+<span class="pn-title">Attribution</span>
+</button>
+<span aria-hidden="true" class="pos-arrow">→</span>
+<button aria-selected="false" class="pos-node" data-pos="2" role="tab">
+<span class="pn-axis">City · output</span>
+<span class="pn-title">Mapping and audit</span>
+</button>
+<span aria-hidden="true" class="pos-arrow">→</span>
+<button aria-selected="true" class="pos-node active" data-pos="3" role="tab">
+<span class="pn-axis">City · internal</span>
+<span class="pn-title">This study</span>
+</button>
+</div>
+<div class="pos-detail reveal">
+<div class="pos-pane" data-pane="0" hidden="">
+<p>Token pruning, adaptive resolution and sequence trimming cut computation per image.</p>
+<p class="pos-lack">Missing: the stop signal comes from task reward or attention; nothing checks whether the evidence drives the answer.</p>
+</div>
+<div class="pos-pane" data-pane="1" hidden="">
+<p>Logit lens, tuned lens and region attribution read the model's internal state.</p>
+<p class="pos-lack">Missing: instance-level and post hoc; no field across locations, and no use in allocating computation.</p>
+</div>
+<div class="pos-pane" data-pane="2" hidden="">
+<p>VLM land-use mapping, street-view quality audit and reference-layer disagreement audit work on outputs.</p>
+<p class="pos-lack">Missing: outputs and reference layers only; why the model assigns a label stays invisible.</p>
+</div>
+<div class="pos-pane" data-pane="3">
+<p>Empty: no signal, no audit, no scale.</p>
+<p class="pos-lack">This study: source attribution as a road-network field. Next: SAAO uses the field to allocate observation (planned).</p>
+</div>
 </div>
 </div>
 </section>
@@ -2609,6 +2682,23 @@ window.MIRAGE_DATA = {"meta":{"title":"A source-attribution audit of vision-lang
   });
 
   
+
+  /* ------------------------------------------------------------ positioning strip */
+  (function positioning() {
+    var nodes = $$(".pos-node"), panes = $$(".pos-pane");
+    if (!nodes.length) return;
+    nodes.forEach(function (b) {
+      b.addEventListener("click", function () {
+        var i = +b.getAttribute("data-pos");
+        nodes.forEach(function (x) {
+          var on = x === b;
+          x.classList.toggle("active", on);
+          x.setAttribute("aria-selected", on ? "true" : "false");
+        });
+        panes.forEach(function (p) { p.hidden = +p.getAttribute("data-pane") !== i; });
+      });
+    });
+  })();
 
   /* ------------------------------------------------------------ first paint */
   window.addEventListener("load", function () {
